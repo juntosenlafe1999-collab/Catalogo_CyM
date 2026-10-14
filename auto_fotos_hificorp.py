@@ -118,6 +118,77 @@ def extraer_galeria_producto(product_url):
     except Exception as e:
         return []
 
+HEADERS_GOMIBO = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'application/json, text/javascript, */*; q=0.01',
+    'Referer': 'https://www.gomibo.ie/'
+}
+
+def buscar_gomibo(query):
+    """Busca en el motor oficial de Gomibo (www.gomibo.ie) para telefonía y accesorios."""
+    url = f"https://www.gomibo.ie/API/vergelijk/HardwareAndGroupSearch?q={urllib.parse.quote_plus(query)}&ht=ptda"
+    try:
+        req = urllib.request.Request(url, headers=HEADERS_GOMIBO)
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            grupos = data.get('product_groups') or []
+            productos = data.get('products') or []
+            
+            candidatos = []
+            for g in grupos:
+                candidatos.append({
+                    'name': g.get('name') or g.get('title') or '',
+                    'url': g.get('url', ''),
+                    'imageUrl': g.get('image_src', ''),
+                    'brand': '',
+                    'source': 'gomibo'
+                })
+            for p in productos:
+                p_url = p.get('url', '')
+                if '/accessory-' in p_url or '/cases/' in p_url or '/screenprotectors/' in p_url:
+                    continue
+                candidatos.append({
+                    'name': p.get('name') or p.get('title') or '',
+                    'url': p_url,
+                    'imageUrl': p.get('image_src', ''),
+                    'brand': p.get('brand', ''),
+                    'source': 'gomibo'
+                })
+            return candidatos
+    except Exception as e:
+        return []
+
+def extraer_galeria_gomibo(product_url):
+    """Descarga la página de producto de Gomibo y extrae fotos en resolución completa 0x0."""
+    if not product_url:
+        return []
+    full_url = "https://www.gomibo.ie" + product_url if product_url.startswith('/') else product_url
+    try:
+        req = urllib.request.Request(full_url, headers=HEADERS_PAGE)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            html = resp.read().decode('utf-8', errors='ignore')
+            
+            imgs = re.findall(r'https://bsimg\.nl/images/[^\s\"\'\<\>]+', html)
+            clean = []
+            seen_basenames = set()
+            
+            for im in imgs:
+                if any(x in im for x in ['icon', 'logo', 'badge', 'payment', 'star', 'review', 'close', 'banner', 'avatar', 'shared', 'flags']):
+                    continue
+                u = re.sub(r'/fit-in/\d+x\d+/[^/]+', '/fit-in/0x0/filters%3Aupscale%28%29', im)
+                
+                m = re.search(r'/images/([^/]+\.(?:png|jpg|jpeg|webp))/', u)
+                if m:
+                    base = m.group(1)
+                    if base in seen_basenames:
+                        continue
+                    seen_basenames.add(base)
+                
+                clean.append(u)
+            return clean
+    except Exception as e:
+        return []
+
 PALABRAS_GENERICAS = {
     'portable', 'bluetooth', 'speaker', 'parlante', 'audifonos', 'headphones',
     'earbuds', 'wireless', 'smart', 'tv', 'celular', 'telefono', 'laptop',
@@ -174,16 +245,20 @@ def evaluar_coincidencia(prod, candidate):
 
     score = 0
     
-    # 2. Validación de Marca
+    # 2. Validación de Marca (con soporte Xiaomi/Redmi/Poco y Anker/Soundcore)
     if p_marca and c_brand:
         if p_marca == c_brand or p_marca in c_name or c_brand in p_marca:
             score += 10
         elif p_marca == 'anker' and ('soundcore' in c_name or 'soundcore' in c_brand):
             score += 10
+        elif p_marca == 'xiaomi' and ('poco' in c_name or 'redmi' in c_name or 'poco' in c_brand or 'redmi' in c_brand):
+            score += 10
         else:
             return -50 # Marca diferente
-    elif p_marca and p_marca in c_name:
-        score += 8
+    elif p_marca and (p_marca in c_name):
+        score += 10
+    elif p_marca == 'xiaomi' and ('poco' in c_name or 'redmi' in c_name):
+        score += 10
     else:
         return -30
 
@@ -308,6 +383,7 @@ def procesar_catalogo(archivo_json, marca_filtro=None, categoria_filtro=None, li
         print(f"[{i}/{total}] 🔍 Buscando: [{marca}] {nombre} ({variante})")
         print(f"      Término: '{q}'")
 
+        fuente = "HiFi Corp"
         records = buscar_klevu(q, limit=6)
         mejor_candidato = None
         mejor_score = 0
@@ -318,23 +394,37 @@ def procesar_catalogo(archivo_json, marca_filtro=None, categoria_filtro=None, li
                 mejor_score = s
                 mejor_candidato = r
 
+        # Fallback a Gomibo (www.gomibo.ie) si HiFi Corp no tuvo coincidencia segura
+        if not mejor_candidato or mejor_score < 10:
+            gomibo_records = buscar_gomibo(q)
+            for gr in gomibo_records:
+                s = evaluar_coincidencia(p, gr)
+                if s > mejor_score:
+                    mejor_score = s
+                    mejor_candidato = gr
+                    fuente = "Gomibo"
+
         if mejor_candidato and mejor_score >= 10:
             c_name = mejor_candidato.get('name')
             c_url = mejor_candidato.get('url')
-            klevu_img = mejor_candidato.get('imageUrl', '')
+            galeria = []
             
-            # Obtener galería HD
-            galeria = extraer_galeria_producto(c_url)
-            
-            # Fallback a foto Klevu en HD si la galería falló
-            if not galeria and klevu_img:
-                hd_img = klevu_img.replace('/api/klevu_images/200X200/', '/api/catalog/product/')
-                galeria = [hd_img]
+            if fuente == "Gomibo":
+                galeria = extraer_galeria_gomibo(c_url)
+                if not galeria and mejor_candidato.get('imageUrl'):
+                    raw_img = mejor_candidato.get('imageUrl')
+                    galeria = [re.sub(r'/fit-in/\d+x\d+/[^/]+', '/fit-in/0x0/filters%3Aupscale%28%29', raw_img)]
+            else:
+                galeria = extraer_galeria_producto(c_url)
+                klevu_img = mejor_candidato.get('imageUrl', '')
+                if not galeria and klevu_img:
+                    hd_img = klevu_img.replace('/api/klevu_images/200X200/', '/api/catalog/product/')
+                    galeria = [hd_img]
 
             if galeria:
                 encontrados += 1
                 total_fotos_agregadas += len(galeria)
-                print(f"      ✅ COINCIDENCIA (Score {mejor_score}): {c_name}")
+                print(f"      ✅ COINCIDENCIA [{fuente}] (Score {mejor_score}): {c_name}")
                 print(f"      📸 Fotos obtenidas ({len(galeria)}):")
                 for idx, f_url in enumerate(galeria[:3], 1):
                     print(f"         {idx}. {f_url}")
@@ -346,9 +436,9 @@ def procesar_catalogo(archivo_json, marca_filtro=None, categoria_filtro=None, li
                     'galeria_fotos': galeria
                 }
             else:
-                print(f"      ⚠️ Coincidió con '{c_name}' pero no se pudieron extraer fotos.")
+                print(f"      ⚠️ Coincidió con '{c_name}' [{fuente}] pero no se pudieron extraer fotos.")
         else:
-            print(f"      ⚪ Sin coincidencia segura en HiFi Corp.")
+            print(f"      ⚪ Sin coincidencia segura en HiFi Corp ni en Gomibo.")
 
         # Pausa amigable para no sobrecargar el servidor
         time.sleep(0.3)
