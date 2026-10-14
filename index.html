@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo Digital · Tecnología y Movilidad</title>
+  <title>Catálogo Digital · Multiservicios CyM</title>
   <style>
     :root {
       --bg: #0b0c14;
@@ -91,18 +91,16 @@
     .pagos b { color: var(--text); }
     .garantia { font-size: 12px; color: var(--accent); font-weight: 600; }
     
-    /* Botones de acción (Consultar y Compartir) */
+    /* Botones de acción */
     .acciones-card { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
     .btn-wa { flex: 1.3; display: flex; align-items: center; justify-content: center; text-align: center; background: #25D366; color: #091e11; font-weight: 800; font-size: 13.5px; padding: 12px 10px; border-radius: 12px; text-decoration: none; transition: opacity 0.15s; }
     .btn-wa:hover { opacity: 0.92; }
     .btn-share { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--border); font-weight: 700; font-size: 13px; padding: 12px 10px; border-radius: 12px; cursor: pointer; transition: background 0.15s; }
     .btn-share:hover { background: rgba(255,255,255,0.14); }
 
-    /* Toast notificación */
     .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #14152a; padding: 12px 20px; border-radius: 999px; font-size: 13.5px; font-weight: 800; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 200; display: none; }
     .toast.visible { display: block; }
 
-    /* Modal Galería */
     .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 100; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
     .modal.abierto { display: flex; }
     .modal img { max-width: 95%; max-height: 75vh; border-radius: 14px; object-fit: contain; background: #fff; padding: 10px; }
@@ -113,12 +111,12 @@
 </head>
 <body>
 
-<!-- Barra exclusiva para vos cuando activas el Modo Editor -->
 <div class="barra-admin">
   <div class="admin-info" id="admin-stats">🛠️ Modo Editor de Fotos Activo</div>
   <div class="admin-acciones">
     <button class="btn-admin sec" onclick="filtrarSinFoto()">Ver solo sin foto</button>
     <button class="btn-admin" onclick="descargarJSONActualizado()">💾 Descargar JSON actualizado</button>
+    <button class="btn-admin sec" onclick="limpiarCacheLocal()">🔄 Restaurar original</button>
     <button class="btn-admin sec" onclick="toggleAdmin()">Salir</button>
   </div>
 </div>
@@ -145,8 +143,8 @@
 </div>
 
 <div class="caja-archivo" id="caja-archivo">
-  <h3>Seleccioná tu archivo de catálogo</h3>
-  <p>Cargá tu archivo <b>catalogo_clientes_sin_comision.json</b> para ver o editar las fotos de los productos.</p>
+  <h3 id="titulo-error">Seleccioná tu archivo de catálogo</h3>
+  <p id="detalle-error">Cargá tu archivo <b>catalogo_clientes_sin_comision.json</b> para visualizar todos los productos.</p>
   <label class="btn-subir">
     Cargar catalogo_clientes_sin_comision.json
     <input type="file" id="input-json" accept=".json" style="display:none">
@@ -189,6 +187,16 @@ let soloSinFoto = false;
 let galeriaActual = [];
 let fotoIndice = 0;
 
+// Escapador seguro para evitar que comillas en pulgadas (ej. 70" o 15.6") rompan el HTML
+function esc(texto) {
+  return String(texto == null ? '' : texto)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 if (new URLSearchParams(location.search).get("admin") === "1") {
   document.body.classList.add("modo-admin");
 }
@@ -211,24 +219,59 @@ function filtrarSinFoto() {
   renderProductos();
 }
 
+function limpiarCacheLocal() {
+  localStorage.removeItem("catalogo_borrador_fotos");
+  location.reload();
+}
+
 function actualizarStatsAdmin() {
   const conFoto = PRODUCTOS.filter(p => p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length)).length;
   document.getElementById("admin-stats").textContent = `🛠️ Editor Activo · ${conFoto} de${PRODUCTOS.length} productos con foto`;
 }
 
-const borradorLocal = localStorage.getItem("catalogo_borrador_fotos");
-
-fetch('./catalogo_clientes_sin_comision.json')
-  .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-  .then(data => iniciarCatalogo(borradorLocal ? JSON.parse(borradorLocal) : data))
-  .catch(() => {
-    if (borradorLocal) {
-      iniciarCatalogo(JSON.parse(borradorLocal));
-    } else {
-      document.getElementById('caja-archivo').style.display = 'block';
-      document.getElementById('contador').textContent = 'Esperando archivo JSON...';
+// Carga robusta compatible con GitHub Pages (con o sin barra final) + respaldo Raw GitHub
+async function cargarDatos() {
+  try {
+    const borrador = localStorage.getItem("catalogo_borrador_fotos");
+    if (borrador) {
+      const parsed = JSON.parse(borrador);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        iniciarCatalogo(parsed);
+        return;
+      }
     }
-  });
+  } catch (e) {
+    localStorage.removeItem("catalogo_borrador_fotos");
+  }
+
+  const urls = [
+    'catalogo_clientes_sin_comision.json',
+    '/Catalogo_CyM/catalogo_clientes_sin_comision.json',
+    'https://raw.githubusercontent.com/juntosenlafe1999-collab/Catalogo_CyM/main/catalogo_clientes_sin_comision.json'
+  ];
+
+  let ultimoError = "";
+  for (const url of urls) {
+    try {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) continue;
+      const texto = await r.text();
+      const data = JSON.parse(texto);
+      if (Array.isArray(data) && data.length > 0) {
+        iniciarCatalogo(data);
+        return;
+      }
+    } catch (err) {
+      ultimoError = err.message;
+    }
+  }
+
+  document.getElementById('caja-archivo').style.display = 'block';
+  document.getElementById('contador').textContent = 'Revisar archivo JSON';
+  if (ultimoError) {
+    document.getElementById('detalle-error').innerHTML = `No se pudo leer automáticamente (<b>${esc(ultimoError)}</b>). Podés seleccionarlo manualmente abajo o verificar que el archivo en GitHub esté completo hasta el corchete final <b>]</b>.`;
+  }
+}
 
 document.getElementById('input-json').addEventListener('change', function(e) {
   const file = e.target.files[0];
@@ -241,7 +284,7 @@ document.getElementById('input-json').addEventListener('change', function(e) {
       localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(data));
       iniciarCatalogo(data);
     } catch (err) {
-      alert("El archivo no es un JSON válido.");
+      alert("El archivo JSON está incompleto o tiene un error de formato: " + err.message);
     }
   };
   reader.readAsText(file);
@@ -261,22 +304,16 @@ function renderCategorias() {
   
   document.getElementById("categorias").innerHTML = cats.map(c => {
     const label = c === "TODAS" ? `Todos (${PRODUCTOS.length})` : `${NOMBRES_CAT[c] \vert{}\vert{} c} (${conteo[c]})`;
-    return `<button class="chip ${c === categoriaActiva ? 'on' : ''}" onclick="filtrarCat('${c}')">${label}</button>`;
+    return `<button class="chip ${c === categoriaActiva ? 'on' : ''}" data-cat="${esc(c)}">${esc(label)}</button>`;
   }).join("");
-}
-
-function filtrarCat(c) {
-  categoriaActiva = c;
-  renderCategorias();
-  renderProductos();
 }
 
 function asignarFoto(sku, modo) {
   const input = document.getElementById(`in-foto-${sku}`);
-  const url = (input.value || "").trim();
+  const url = (input ? input.value : "").trim();
   if (!url) return alert("Pegá primero el enlace (URL) de la imagen.");
 
-  const base = PRODUCTOS.find(x => x.sku === sku);
+  const base = PRODUCTOS.find(x => String(x.sku) === String(sku));
   if (!base) return;
 
   const colorBase = (base.atributos && base.atributos.COLOR) || "";
@@ -286,7 +323,7 @@ function asignarFoto(sku, modo) {
     const mismoModelo = p.nombre === base.nombre && p.marca === base.marca;
     const mismoColor = ((p.atributos && p.atributos.COLOR) || "") === colorBase;
 
-    if (p.sku === sku || (modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo)) {
+    if (String(p.sku) === String(sku) || (modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo)) {
       p.imagen_principal = url;
       if (!p.galeria_fotos || !p.galeria_fotos.includes(url)) {
         p.galeria_fotos = [url, ...(p.galeria_fotos || [])];
@@ -309,7 +346,6 @@ function descargarJSONActualizado() {
   a.click();
 }
 
-// Arma el texto comercial completo sin comisión para compartir en redes o WhatsApp
 function armarTextoCompartir(p) {
   const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}:${v}`).join(' · ') : '';
   const specs = p.descripcion || atr || p.detalles_variante || 'Equipo original garantizado';
@@ -337,7 +373,6 @@ function armarTextoCompartir(p) {
   return lineas.join('\n');
 }
 
-// Genera una tarjeta visual en alta resolución si el producto no tiene foto o si el servidor externo bloquea CORS
 async function obtenerArchivoImagen(p) {
   const urlFoto = (p.galeria_fotos && p.galeria_fotos[0]) || p.imagen_principal || '';
   
@@ -349,77 +384,67 @@ async function obtenerArchivoImagen(p) {
         const ext = blob.type.includes('png') ? 'png' : blob.type.includes('webp') ? 'webp' : 'jpg';
         return new File([blob], `${p.sku}.${ext}`, { type: blob.type || 'image/jpeg' });
       }
-    } catch (e) {
-      // Si el servidor externo bloquea la descarga directa por CORS, generamos la tarjeta gráfica abajo
-    }
+    } catch (e) {}
   }
 
-  // Creador automático de tarjeta gráfica HD del producto
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = 1080;
   const ctx = canvas.getContext('2d');
 
-  // Fondo elegante oscuro
   const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
   grad.addColorStop(0, '#0f101a');
   grad.addColorStop(1, '#1b1e36');
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 1080, 1080);
 
-  // Marco dorado sutil
   ctx.strokeStyle = '#e8bc70';
   ctx.lineWidth = 6;
   ctx.strokeRect(40, 40, 1000, 1000);
 
-  // Marca y Categoría
   ctx.fillStyle = '#e8bc70';
-  ctx.font = 'bold 34px Inter, sans-serif';
+  ctx.font = 'bold 34px sans-serif';
   ctx.fillText(`${p.marca} · ${p.categoria}`, 90, 140);
 
-  // Nombre del Producto
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 54px Inter, sans-serif';
-  const palabras = p.nombre.split(' ');
+  ctx.font = 'bold 52px sans-serif';
+  const palabras = String(p.nombre || '').split(' ');
   let linea = '', y = 240;
   for (let w of palabras) {
     if ((linea + w).length > 24) {
       ctx.fillText(linea, 90, y);
       linea = w + ' ';
-      y += 68;
+      y += 66;
     } else {
       linea += w + ' ';
     }
   }
   ctx.fillText(linea, 90, y);
 
-  // Variante / Especificaciones
   const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
   const sub = p.detalles_variante || atr || '';
   if (sub) {
     ctx.fillStyle = '#9a9cb5';
-    ctx.font = '34px Inter, sans-serif';
+    ctx.font = '34px sans-serif';
     ctx.fillText(sub.slice(0, 48), 90, y + 70);
   }
 
-  // Caja de Precio
   ctx.fillStyle = 'rgba(232, 188, 112, 0.12)';
   ctx.fillRect(90, 520, 900, 220);
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 92px Inter, sans-serif';
+  ctx.font = 'bold 90px sans-serif';
   ctx.fillText(`$${Number(p.precio_usd).toLocaleString('en-US')}`, 130, 640);
 
   ctx.fillStyle = '#e8bc70';
-  ctx.font = 'bold 42px Inter, sans-serif';
+  ctx.font = 'bold 40px sans-serif';
   ctx.fillText(`C$ ${Number(p.precio_nio).toLocaleString('en-US')} · Efectivo / Transf.`, 130, 705);
 
-  // Garantía y Contacto
   ctx.fillStyle = '#f2f2f8';
-  ctx.font = '32px Inter, sans-serif';
+  ctx.font = '32px sans-serif';
   ctx.fillText(`🛡️ ${p.garantia}   |   💳 Tarjetas y Credex disponible`, 90, 840);
 
   ctx.fillStyle = '#25D366';
-  ctx.font = 'bold 40px Inter, sans-serif';
+  ctx.font = 'bold 40px sans-serif';
   ctx.fillText(`📲 Pedidos por WhatsApp: +505 8501 3284`, 90, 940);
 
   return new Promise(resolve => {
@@ -429,9 +454,8 @@ async function obtenerArchivoImagen(p) {
   });
 }
 
-// Función principal para compartir foto + características + precio en WhatsApp o cualquier Red Social
 async function compartirProducto(sku, btn) {
-  const p = PRODUCTOS.find(x => x.sku === sku);
+  const p = PRODUCTOS.find(x => String(x.sku) === String(sku));
   if (!p) return;
 
   const textoOriginal = btn.innerHTML;
@@ -443,7 +467,6 @@ async function compartirProducto(sku, btn) {
   try {
     const archivoImagen = await obtenerArchivoImagen(p);
 
-    // 1. Si está en teléfono/navegador compatible con Web Share API + Archivos
     if (navigator.canShare && archivoImagen && navigator.canShare({ files: [archivoImagen] })) {
       await navigator.share({
         title: p.nombre_completo,
@@ -455,7 +478,6 @@ async function compartirProducto(sku, btn) {
       return;
     }
 
-    // 2. Si el navegador soporta compartir texto nativo
     if (navigator.share) {
       await navigator.share({
         title: p.nombre_completo,
@@ -466,7 +488,6 @@ async function compartirProducto(sku, btn) {
       return;
     }
 
-    // 3. En PC de escritorio: copia la ficha al portapapeles, descarga la tarjeta/foto y abre WhatsApp
     if (navigator.clipboard) {
       await navigator.clipboard.writeText(textoFicha);
     }
@@ -481,9 +502,7 @@ async function compartirProducto(sku, btn) {
       window.open(`https://wa.me/?text=${encodeURIComponent(textoFicha)}`, '_blank');
     }, 600);
 
-  } catch (err) {
-    // Si el usuario cancela el menú de compartir no hacemos nada
-  }
+  } catch (err) {}
 
   btn.innerHTML = textoOriginal;
   btn.disabled = false;
@@ -497,17 +516,18 @@ function renderProductos() {
     const pasaCat = categoriaActiva === "TODAS" || p.categoria === categoriaActiva;
     const tieneFoto = Boolean(p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length));
     if (soloSinFoto && tieneFoto) return false;
-    const texto = `${p.nombre_completo} ${p.marca} ${p.categoria} ${p.descripcion || ''}`.toLowerCase();
+    const texto = `${p.nombre_completo || ''} ${p.marca || ''} ${p.categoria || ''} ${p.descripcion || ''}`.toLowerCase();
     const pasaTexto = !q || q.split(" ").every(palabra => texto.includes(palabra));
     return pasaCat && pasaTexto;
   });
 
-  if (orden === "menor") filtrados.sort((a, b) => a.precio_usd - b.precio_usd);
-  else if (orden === "mayor") filtrados.sort((a, b) => b.precio_usd - a.precio_usd);
+  if (orden === "menor") filtrados.sort((a, b) => Number(a.precio_usd) - Number(b.precio_usd));
+  else if (orden === "mayor") filtrados.sort((a, b) => Number(b.precio_usd) - Number(a.precio_usd));
 
   document.getElementById("contador").textContent = `${filtrados.length} productos disponibles`;
 
   const html = filtrados.map(p => {
+    const skuSafe = esc(p.sku);
     const icono = ICONOS_CAT[p.categoria] || "📦";
     const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
     const tieneFotos = fotos.length > 0;
@@ -522,30 +542,30 @@ function renderProductos() {
     return `
       <div class="card">
         <div class="foto-box ${tieneFotos ? '' : 'sin-foto'}">
-          <span class="badge ${p.disponible ? 'ok' : 'warn'}">${p.estado_stock}</span>
+          <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
           ${tieneFotos 
-            ? `<img src="${fotos[0]}" alt="${p.nombre}" loading="lazy" onclick='abrirGaleria(${JSON.stringify(fotos)})'>`
+            ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" data-ver-sku="${skuSafe}">`
             : `<span class="icono-cat">${icono}</span>`
           }
-          ${fotos.length > 1 ? `<button class="btn-galeria" onclick='abrirGaleria(${JSON.stringify(fotos)})'>📷 Ver ${fotos.length} fotos</button>` : ''}
+          ${fotos.length > 1 ? `<button class="btn-galeria" type="button" data-ver-sku="${skuSafe}">📷 Ver ${fotos.length} fotos</button>` : ''}
         </div>
 
         <div class="editor-foto">
-          <input type="url" id="in-foto-${p.sku}" class="editor-input" placeholder="Pegá aquí el link de la foto..." value="${p.imagen_principal || ''}">
+          <input type="url" id="in-foto-${skuSafe}" class="editor-input" placeholder="Pegá aquí el link de la foto..." value="${esc(p.imagen_principal || '')}">
           <div class="editor-botones">
             <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener">🔍 Buscar foto</a>
-            <button class="btn-ed color" onclick="asignarFoto('${p.sku}', 'color')" title="Aplica esta foto a todas las memorias de este mismo modelo y color">Aplicar a color</button>
-            <button class="btn-ed modelo" onclick="asignarFoto('${p.sku}', 'modelo')" title="Aplica esta foto a todas las variantes de ${p.nombre}">Todo el modelo</button>
+            <button class="btn-ed color" type="button" data-asig-sku="${skuSafe}" data-modo="color">Aplicar a color</button>
+            <button class="btn-ed modelo" type="button" data-asig-sku="${skuSafe}" data-modo="modelo">Todo el modelo</button>
           </div>
         </div>
 
         <div class="cuerpo">
           <div>
-            <div class="marca">${p.marca} · ${NOMBRES_CAT[p.categoria] || p.categoria}</div>
-            <div class="titulo">${p.nombre}</div>
-            ${p.detalles_variante ? `<div class="variante">${p.detalles_variante}</div>` : ''}
+            <div class="marca">${esc(p.marca)} · ${esc(NOMBRES_CAT[p.categoria] || p.categoria)}</div>
+            <div class="titulo">${esc(p.nombre)}</div>
+            ${p.detalles_variante ? `<div class="variante">${esc(p.detalles_variante)}</div>` : ''}
           </div>
-          ${extraInfo ? `<div class="specs">${extraInfo}</div>` : ''}
+          ${extraInfo ? `<div class="specs">${esc(extraInfo)}</div>` : ''}
           <div class="precio-caja">
             <div class="precio-usd">$${Number(p.precio_usd).toLocaleString('en-US')}</div>
             <div class="precio-nio">C$ ${Number(p.precio_nio).toLocaleString('en-US')}</div>
@@ -555,10 +575,10 @@ function renderProductos() {
             • Efectivo o Transferencia: C$ ${Number(p.precio_nio).toLocaleString('en-US')}<br>
             • Tarjeta de crédito / Credex: Consultar cuotas
           </div>
-          <div class="garantia">🛡️ ${p.garantia}</div>
+          <div class="garantia">🛡️ ${esc(p.garantia)}</div>
           <div class="acciones-card">
             <a class="btn-wa" href="https://wa.me/${MI_WHATSAPP}?text=${msj}" target="_blank" rel="noopener">💬 Pedir info</a>
-            <button class="btn-share" type="button" onclick="compartirProducto('${p.sku}', this)">📲 Compartir</button>
+            <button class="btn-share" type="button" data-share-sku="${skuSafe}">📲 Compartir</button>
           </div>
         </div>
       </div>
@@ -567,6 +587,38 @@ function renderProductos() {
 
   document.getElementById("contenedor-productos").innerHTML = html;
 }
+
+// Delegación de eventos segura (evita errores de comillas en onclick)
+document.addEventListener("click", function(e) {
+  const chip = e.target.closest("[data-cat]");
+  if (chip) {
+    categoriaActiva = chip.getAttribute("data-cat");
+    renderCategorias();
+    renderProductos();
+    return;
+  }
+
+  const verSku = e.target.closest("[data-ver-sku]");
+  if (verSku) {
+    const p = PRODUCTOS.find(x => String(x.sku) === String(verSku.getAttribute("data-ver-sku")));
+    if (p) {
+      const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
+      if (fotos.length) abrirGaleria(fotos);
+    }
+    return;
+  }
+
+  const asig = e.target.closest("[data-asig-sku]");
+  if (asig) {
+    asignarFoto(asig.getAttribute("data-asig-sku"), asig.getAttribute("data-modo"));
+    return;
+  }
+
+  const share = e.target.closest("[data-share-sku]");
+  if (share) {
+    compartirProducto(share.getAttribute("data-share-sku"), share);
+  }
+});
 
 function abrirGaleria(fotos) {
   galeriaActual = fotos;
@@ -592,6 +644,8 @@ function actualizarModal() {
 
 document.getElementById("buscador").addEventListener("input", renderProductos);
 document.getElementById("ordenar").addEventListener("change", renderProductos);
+
+cargarDatos();
 </script>
 </body>
 </html>
