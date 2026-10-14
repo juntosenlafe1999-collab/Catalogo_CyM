@@ -43,18 +43,22 @@ HEADERS_PAGE = {
 PALABRAS_ACCESORIOS = {
     'case', 'cover', 'protector', 'cable', 'strap', 'stand', 'bracket', 
     'mount', 'pouch', 'sleeve', 'glass', 'adapter', 'skin', 'charger', 'dock',
-    'bundle', 'including'
+    'bundle', 'including', 'combo', 'pack', 'kit', 'set', 'cooling', 'camera', 'drive', 'remote'
 }
 
 COLOR_SYNONYMS = {
     'negro': 'black', 'blanco': 'white', 'azul': 'blue', 'rojo': 'red',
     'gris': 'gray', 'plateado': 'silver', 'dorado': 'gold', 'verde': 'green',
-    'morado': 'purple', 'rosa': 'pink', 'amarillo': 'yellow', 'naranja': 'orange',
+    'morado': 'purple', 'purpura': 'purple', 'rosa': 'pink', 'amarillo': 'yellow', 'naranja': 'orange',
     'lavender': 'lavender', 'teal': 'teal', 'burgundy': 'burgundy', 'glacier': 'glacier',
     'starlight': 'starlight', 'midnight': 'midnight', 'titanium': 'titanium', 'bronze': 'bronze',
     'graphite': 'graphite', 'space gray': 'space gray', 'space black': 'space black',
     'jet black': 'jet black', 'natural titanium': 'natural titanium', 'desert gold': 'desert gold',
-    'cosmic orange': 'cosmic orange', 'deep blue': 'deep blue'
+    'cosmic orange': 'cosmic orange', 'deep blue': 'deep blue',
+    'nova pink': 'pink', 'cosmic red': 'red', 'galactic purple': 'purple',
+    'cobalt blue': 'blue', 'khaki': 'khaki', 'ash grey': 'gray',
+    'dark grey': 'gray', 'metallic grey': 'gray', 'shadow black': 'black',
+    'mint green': 'green', 'light gold': 'gold', 'obsidian black': 'black'
 }
 
 def normalizar_texto(t):
@@ -204,13 +208,18 @@ def separar_tokens_modelo(texto):
 
 def extraer_palabras_clave_modelo(p_nombre, p_marca):
     """Extrae las palabras distintivas reales del modelo ignorando la marca y palabras genéricas."""
-    nombre_limpio = normalizar_texto(separar_tokens_modelo(p_nombre))
+    nombre_limpio = normalizar_texto(p_nombre)
     marca_limpia = normalizar_texto(p_marca)
     
+    # Preservar tanto identificadores de serie alfanumericos (q6, u6, s24, a15, m4) como separados
+    tokens_raw = [t for t in nombre_limpio.split() if t != marca_limpia and t not in PALABRAS_GENERICAS]
+    nombre_separado = normalizar_texto(separar_tokens_modelo(p_nombre))
+    tokens_sep = [t for t in nombre_separado.split() if t != marca_limpia and t not in PALABRAS_GENERICAS and (len(t) >= 2 or t.isdigit())]
+    
     tokens = []
-    for w in nombre_limpio.split():
-        if w != marca_limpia and w not in PALABRAS_GENERICAS and (len(w) >= 2 or w.isdigit()):
-            tokens.append(w)
+    for t in tokens_raw + tokens_sep:
+        if t not in tokens and (len(t) >= 2 or t.isdigit()):
+            tokens.append(t)
     return tokens
 
 def evaluar_coincidencia(prod, candidate):
@@ -228,19 +237,37 @@ def evaluar_coincidencia(prod, candidate):
     if es_accesorio_candidato and not es_accesorio_catalogo:
         return -100
 
-    # 2. Filtro de consistencia de categoría
+    # 2. Filtro de consistencia de categoría estricto
     p_cat = (prod.get('categoria') or '').upper()
+    c_words = set(c_name.split())
     if p_cat == 'AUDIO':
-        if any(w in c_name.split() for w in ['phone', 'tablet', 'laptop', 'tv', 'gb', '5g', '4g', 'lte']):
+        if any(w in c_words for w in ['phone', 'tablet', 'laptop', 'tv', 'gb', '5g', '4g', 'lte', 'watch', 'smartwatch', 'vacuum', 'dispenser']):
             return -80
     elif p_cat == 'SMARTPHONE':
-        if any(w in c_name.split() for w in ['tv', 'laptop', 'tablet', 'watch', 'smartwatch', 'headphone', 'earbuds', 'speaker']):
+        if any(w in c_words for w in ['tv', 'laptop', 'tablet', 'watch', 'smartwatch', 'headphone', 'earbuds', 'speaker', 'vacuum']):
+            return -80
+    elif p_cat == 'SMARTWATCH':
+        if any(w in c_words for w in ['phone', 'tablet', 'laptop', 'tv', 'headphone', 'earbuds', 'speaker', 'vacuum']):
+            return -80
+    elif p_cat == 'TABLET':
+        if any(w in c_words for w in ['phone', 'tv', 'laptop', 'watch', 'smartwatch', 'headphone', 'earbuds', 'speaker', 'vacuum']):
             return -80
     elif p_cat == 'TELEVISOR':
-        if any(w in c_name.split() for w in ['phone', 'tablet', 'laptop', 'watch', 'buds', 'earbuds', 'speaker']):
+        if any(w in c_words for w in ['phone', 'tablet', 'laptop', 'watch', 'buds', 'earbuds', 'speaker', 'vacuum', 'dispenser', 'monitor']):
+            return -80
+        if not any(w in c_words or w in c_name for w in ['tv', 'television', 'qled', 'oled', 'uled']):
+            return -80 # Un televisor obligatoriamente debe ser identificado como TV
+    elif p_cat == 'MONITOR':
+        if any(w in c_words for w in ['phone', 'tablet', 'watch', 'buds', 'earbuds', 'speaker', 'vacuum', 'tv', 'television']):
             return -80
     elif p_cat == 'COMPUTACION':
-        if any(w in c_name.split() for w in ['phone', 'tv', 'watch', 'buds', 'earbuds']):
+        if any(w in c_words for w in ['phone', 'tv', 'watch', 'buds', 'earbuds', 'vacuum', 'dispenser']):
+            return -80
+    elif p_cat == 'GAMING':
+        if any(w in c_words for w in ['phone', 'tv', 'tablet', 'vacuum', 'dispenser']):
+            return -80
+    elif p_cat == 'ELECTRODOMESTICO':
+        if any(w in c_words for w in ['phone', 'tablet', 'laptop', 'tv', 'watch', 'earbuds', 'headphone']):
             return -80
 
     score = 0
@@ -253,36 +280,51 @@ def evaluar_coincidencia(prod, candidate):
             score += 10
         elif p_marca == 'xiaomi' and ('poco' in c_name or 'redmi' in c_name or 'poco' in c_brand or 'redmi' in c_brand):
             score += 10
+        elif p_marca == 'sony' and ('playstation' in c_name or 'playstation' in c_brand):
+            score += 10
+        elif p_marca == 'apple' and ('beats' in c_name or 'beats' in c_brand):
+            score += 10
         else:
             return -50 # Marca diferente
     elif p_marca and (p_marca in c_name):
         score += 10
     elif p_marca == 'xiaomi' and ('poco' in c_name or 'redmi' in c_name):
         score += 10
+    elif p_marca == 'sony' and 'playstation' in c_name:
+        score += 10
+    elif p_marca == 'anker' and 'soundcore' in c_name:
+        score += 10
     else:
         return -30
 
-    # 2.5 Validación de Modificadores de Gama/Tier (Pro, Max, Ultra, Mini, Air, Plus, SE, FE)
-    TIER_MODIFIERS = {'pro', 'max', 'ultra', 'mini', 'air', 'plus', 'se', 'fe'}
+    # 2.5 Validación de Modificadores de Gama/Tier (Pro, Max, Ultra, Mini, Air, Plus, SE, FE, Lite, Active, Classic, Sport)
+    TIER_MODIFIERS = {'pro', 'max', 'ultra', 'mini', 'air', 'plus', 'se', 'fe', 'lite', 'active', 'classic', 'sport'}
     p_tiers = {w for w in p_nombre.split() if w in TIER_MODIFIERS}
     c_tiers = {w for w in c_name.split() if w in TIER_MODIFIERS}
     if p_tiers != c_tiers:
-        return -50 # Conflicto de gama (ej: AirPods Pro vs AirPods normal, o iPhone Pro vs iPhone base)
+        return -50 # Conflicto de gama (ej: AirPods Pro vs AirPods normal, Lite vs Active, etc.)
 
     # 3. Validación de tokens del modelo
     tokens_modelo = extraer_palabras_clave_modelo(p_nombre, p_marca)
     if not tokens_modelo:
         tokens_modelo = [t for t in p_nombre.split() if t != p_marca and (len(t) >= 2 or t.isdigit())]
 
-    # Palabras alfabéticas clave del modelo (ej: 'clip', 'boombox', 'airpods', 'inspiron', 'katana')
-    palabras_modelo = [t for t in tokens_modelo if not t.isdigit()]
-    numeros_modelo = [t for t in tokens_modelo if any(c.isdigit() for c in t)]
+    # Palabras alfabéticas distintivas excluyendo modificadores y submarcas si hay palabras únicas
+    LINEAS_SUBMARCAS = {'soundcore', 'redmi', 'poco', 'galaxy', 'xperia', 'inspiron', 'omnibook'}
+    palabras_raw = [t for t in tokens_modelo if not t.isdigit()]
+    palabras_distintivas = [t for t in palabras_raw if t not in TIER_MODIFIERS and t not in LINEAS_SUBMARCAS]
+    palabras_modelo = palabras_distintivas if palabras_distintivas else [t for t in palabras_raw if t not in TIER_MODIFIERS]
+    if not palabras_modelo:
+        palabras_modelo = palabras_raw
+        
+    NUMEROS_IGNORAR = {'720', '1080', '1440', '1920', '2160', '3840', '2024', '2025', '2026'}
+    numeros_modelo = [t for t in tokens_modelo if t.isdigit() and t not in NUMEROS_IGNORAR]
 
-    # Si hay palabras clave del modelo, AL MENOS UNA DEBE ESTAR en el candidato
+    # Si hay palabras clave distintivas del modelo, AL MENOS UNA DEBE ESTAR en el candidato
     if palabras_modelo:
         coincide_palabra = any(p in c_name.split() or p in c_name for p in palabras_modelo)
         if not coincide_palabra:
-            return -40 # Modelo completamente distinto (ej: Partybox en vez de Clip)
+            return -40 # Modelo completamente distinto (ej: Partybox en vez de Clip, o Rave en vez de R50i)
 
     for p in palabras_modelo:
         if p in c_name.split():
@@ -291,16 +333,16 @@ def evaluar_coincidencia(prod, candidate):
             score += 3
 
     # 4. Validación de Números de Versión/Serie (ej: 4 vs 3, 580, a15)
+    c_name_sep = separar_tokens_modelo(c_name)
+    c_nums = list(set(re.findall(r'\d+', c_name) + re.findall(r'\d+', c_name_sep)))
     for num in numeros_modelo:
-        num_presente = bool(re.search(r'\b' + re.escape(num) + r'\b', c_name))
+        num_presente = (num in c_nums) or bool(re.search(r'\b' + re.escape(num) + r'\b', c_name))
         if num_presente:
             score += 12
         else:
-            # Si es un solo dígito (versión 2, 3, 4, 5) y el candidato tiene un número diferente, penalizar fuerte
-            if num.isdigit() and len(num) == 1:
-                c_nums = re.findall(r'\b\d\b', c_name)
-                if c_nums and num not in c_nums:
-                    return -40 # Conflicto de versión (ej: Clip 5 vs Clip 4)
+            # Si el candidato tiene números y ninguno coincide con el número del producto
+            if c_nums and num not in c_nums:
+                return -45 # Conflicto de modelo numérico (ej: 30 vs 50, 10 vs 60, o 6 vs 60)
 
     # 5. Validación y Bonificación por Color
     colores_prod = []
@@ -323,17 +365,76 @@ def evaluar_coincidencia(prod, candidate):
 
     return score
 
+TRADUCCIONES_TERMINOS = {
+    'arrocera': 'rice cooker',
+    'freidora de aire': 'air fryer',
+    'freidora': 'air fryer',
+    'batidora': 'blender mixer',
+    'cafetera': 'coffee maker',
+    'licuadora': 'blender',
+    'tostadora': 'toaster',
+    'plancha': 'steam iron',
+    'control playstation 5': 'dualsense controller',
+    'control sony playstation 5': 'dualsense controller',
+    'control switch': 'nintendo switch pro controller'
+}
+
 def construir_query_optimizada(prod):
     marca = prod.get('marca', '').strip()
     nombre = prod.get('nombre', '').strip()
+    cat = (prod.get('categoria') or '').upper()
     
-    # Separar números pegados y normalizar
-    nombre_separado = separar_tokens_modelo(nombre)
-    tokens_modelo = extraer_palabras_clave_modelo(nombre_separado, marca)
+    # Manejo especializado de PlayStation y DualSense
+    n_lower = normalizar_texto(nombre)
+    if 'control' in n_lower and ('playstation' in n_lower or 'ps5' in n_lower):
+        return "dualsense controller"
+    if marca.lower() == 'sony' and ('playstation' in n_lower or 'ps5' in n_lower):
+        marca = 'Playstation'
+
+    if cat == 'MONITOR':
+        m_size = re.search(r'\b(24|27|32|34)\b', nombre) or re.search(r'gd(\d{2})', nombre.lower())
+        size_str = m_size.group(1) if m_size else ''
+        return f"{marca} monitor {size_str}".strip()
+    elif cat == 'TELEVISOR':
+        m_size = re.search(r'\b(32|43|50|55|58|65|70|75|85|86)\b', nombre)
+        size_str = m_size.group(1) if m_size else ''
+        m_serie = re.search(r'\b(q\d|u\d[a-z]?|c\d{3}|a\d[a-z]?)\b', nombre.lower())
+        serie_str = m_serie.group(1) if m_serie else ''
+        if size_str and serie_str:
+            return f"{marca} {size_str} {serie_str}"
+        elif size_str:
+            return f"{marca} tv {size_str}"
+        
+    nombre_limpio = normalizar_texto(nombre)
+    for es_term, en_term in TRADUCCIONES_TERMINOS.items():
+        if es_term in nombre_limpio:
+            nombre_limpio = nombre_limpio.replace(es_term, en_term)
+            
+    tokens_modelo = extraer_palabras_clave_modelo(nombre_limpio, marca)
+    
+    # Filtrar años redundantes y marca duplicada
+    tokens_filtrados = [
+        t for t in tokens_modelo 
+        if not (t.isdigit() and int(t) in [2024, 2025, 2026])
+        and t.lower() != 'sony'
+    ]
     
     # Combinar marca + las 3-4 palabras clave más importantes del modelo
-    query_parts = [marca] + tokens_modelo[:3]
+    query_parts = [marca] + tokens_filtrados[:3]
     return " ".join(query_parts)
+
+def obtener_clave_modelo_color(p):
+    nombre = normalizar_texto(p.get('nombre', ''))
+    color = ''
+    if p.get('atributos') and p['atributos'].get('COLOR'):
+        color = normalizar_texto(p['atributos']['COLOR'])
+    if not color:
+        variante = normalizar_texto(p.get('detalles_variante', ''))
+        for esp, eng in COLOR_SYNONYMS.items():
+            if esp in variante or eng in variante:
+                color = eng
+                break
+    return f"{nombre}___{color}" if color else f"{nombre}___"
 
 def procesar_catalogo(archivo_json, marca_filtro=None, categoria_filtro=None, limite=None, dry_run=False, forzar_todas=False):
     if not os.path.exists(archivo_json):
@@ -458,19 +559,41 @@ def procesar_catalogo(archivo_json, marca_filtro=None, categoria_filtro=None, li
             json.dump(catalogo, f_bak, ensure_ascii=False, indent=2)
         print(f"🛡️ Respaldo de seguridad creado en: {backup_path}")
 
-        # 2. Aplicar al catálogo
+        # 2. Aplicar al catálogo directo
         actualizados_count = 0
+        dic_fotos_por_clave = {}
         for p in catalogo:
             sku = p.get('sku')
             if sku in mapa_actualizados:
                 p['imagen_principal'] = mapa_actualizados[sku]['imagen_principal']
                 p['galeria_fotos'] = mapa_actualizados[sku]['galeria_fotos']
                 actualizados_count += 1
+            if p.get('imagen_principal') and p.get('galeria_fotos'):
+                clave = obtener_clave_modelo_color(p)
+                if clave not in dic_fotos_por_clave:
+                    dic_fotos_por_clave[clave] = {
+                        'imagen_principal': p['imagen_principal'],
+                        'galeria_fotos': p['galeria_fotos']
+                    }
+
+        # 3. Propagación inteligente a hermanos (misma memoria o variante del mismo modelo y color)
+        propagados_count = 0
+        for p in catalogo:
+            tiene_foto = bool(p.get('imagen_principal') or (p.get('galeria_fotos') and len(p.get('galeria_fotos')) > 0))
+            if not tiene_foto:
+                clave = obtener_clave_modelo_color(p)
+                if clave in dic_fotos_por_clave and not clave.endswith('___'):
+                    p['imagen_principal'] = dic_fotos_por_clave[clave]['imagen_principal']
+                    p['galeria_fotos'] = list(dic_fotos_por_clave[clave]['galeria_fotos'])
+                    propagados_count += 1
+
+        if propagados_count:
+            print(f"👯‍♂️ Propagadas fotos automáticamente a {propagados_count} variantes hermanas (mismo modelo y color).")
 
         with open(archivo_json, 'w', encoding='utf-8') as f_out:
             json.dump(catalogo, f_out, ensure_ascii=False, indent=2)
 
-        print(f"💾 ¡Catálogo {archivo_json} actualizado exitosamente con {actualizados_count} productos!\n")
+        print(f"💾 ¡Catálogo {archivo_json} actualizado exitosamente con {actualizados_count + propagados_count} productos!\n")
 
 def main():
     parser = argparse.ArgumentParser(description="Auto-Scraper de fotos HD desde HiFi Corp para Catálogo CyM")

@@ -176,8 +176,14 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/3/a3012z11_id____left_view_us__original_ecommerce_576f.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/3/a3012z11_id____left_view_us__original_ecommerce_576f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/3/a3012z11_id_front_view_us__original_ecommerce_0360.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/3/h30i_black_ecommerce_efb8.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/3/h30i_black_2_ecommerce_26e2.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/3/h30i_black_3_ecommerce_ae88.png"
+    ]
   },
   {
     "sku": "194644153267",
@@ -3071,8 +3077,12 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/_/1_ecommerce_f76b.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/_/1_ecommerce_f76b.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/_/1_1_ecommerce_3a46.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/_/1_2_ecommerce_1d1a.png"
+    ]
   },
   {
     "sku": "6931548322498",
@@ -3098,8 +3108,12 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/_/1_ecommerce_f76b.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/_/1_ecommerce_f76b.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/_/1_1_ecommerce_3a46.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/_/1_2_ecommerce_1d1a.png"
+    ]
   },
   {
     "sku": "6931548319467",
@@ -4400,8 +4414,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/0/10304110_ecommerce_45d3.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/0/10304110_ecommerce_45d3.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/m/img_20250425_wa0029_ecommerce_d8f3.png"
+    ]
   },
   {
     "sku": "6942351427133",
@@ -4426,8 +4443,22 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/m/image_20260618105628_30_143_ecommerce_5478.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/m/image_20260618105628_30_143_ecommerce_5478.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/m/image_20260618104946_26_143_ecommerce_0eec.png",
+      "https://www.hificorp.co.za/api/catalog/product/3/_/3_feature_gallery_ecommerce_6c66.png",
+      "https://www.hificorp.co.za/api/catalog/product/2/_/2.size_58_ecommerce_2be4.png",
+      "https://www.hificorp.co.za/api/catalog/product/4/_/4.qled_colour_ecommerce_eb2c.png",
+      "https://www.hificorp.co.za/api/catalog/product/5/_/5.dolby_vision__atmos_ecommerce_1d04.png",
+      "https://www.hificorp.co.za/api/catalog/product/6/_/6.ai_4k_upscaler_ecommerce_d13e.png",
+      "https://www.hificorp.co.za/api/catalog/product/7/_/7.ai_smooth_motion_ecommerce_e3bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/8/_/8.game_mode_plus_ecommerce_e000.png",
+      "https://www.hificorp.co.za/api/catalog/product/9/_/9_smart_features_ecommerce_8c3e.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/1/11.product_picts_ecommerce_93da.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/2/12.lifestyle_ecommerce_3926.png",
+      "https://www.hificorp.co.za/api/catalog/product/z/a/za_q6q_43_85_ecommerce_84d3.png"
+    ]
   },
   {
     "sku": "6942351427836",
@@ -4799,8 +4830,12 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/h/o/honor_t10_64gb_black_front_ecommerce_a696.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_t10_64gb_black_front_ecommerce_a696.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_t10_64gb_black_back_ecommerce_0f2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_t10_64gb_black_side_ecommerce_e97c.png"
+    ]
   },
   {
     "sku": "6936520885145",
@@ -5021,8 +5056,14 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/h/o/honor_x8b_front_cover_ecommerce_33ce.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_x8b_front_cover_ecommerce_33ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_x8b_front_ksp_ecommerce_e147.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_x8b_front__ecommerce_41b0.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_x8b_back_slant_ecommerce_b94b.png",
+      "https://www.hificorp.co.za/api/catalog/product/h/o/honor_x8b_back__ecommerce_dd59.png"
+    ]
   },
   {
     "sku": "6936520877225",
@@ -5168,8 +5209,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/839ef127-6f19-4a87-973c-cb7cbf331cd9",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/839ef127-6f19-4a87-973c-cb7cbf331cd9",
+      "https://crudos.baratto.app/p/f78bd167-1b88-4bbe-ad9e-b3ea45879fa2",
+      "https://crudos.baratto.app/p/ffca6532-18fe-426f-a564-0ee8e57bc9c2"
+    ]
   },
   {
     "sku": "6977887510509",
@@ -6981,8 +7026,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_front_black_0022_x1_ecommerce_4c23.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_front_black_0022_x1_ecommerce_4c23.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_back_black_0045_x1_ecommerce_a989.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/a/pa_jbl_boombox4_black_global_emea__uk__jp_cn__apac__sop_v12_sideview_ecommerce_67a5.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_bottom_black_0118_x1_ecommerce_6160.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_left_black_0051_x1_ecommerce_df6a.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_right_black_0057_x1_ecommerce_359c.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_top_black_0094_x1_ecommerce_1ea7.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_boombox_4_top_down_black_0089_x1_ecommerce_dece.png"
+    ]
   },
   {
     "sku": "50036399203",
@@ -7005,8 +7059,38 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_hero_49110_x3_ecommerce_7fb4.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_hero_49110_x3_ecommerce_7fb4.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_front_49097_x3_1_ecommerce_dd79.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_front_49125_x1_1_ecommerce_b946.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_back_49099_x4_1_ecommerce_0d0a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_front_49097_x2_ecommerce_7ae7.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_bar_top__4_x2_ecommerce_7890.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_detail_49116_x2_ecommerce_3cc5.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580__590_acc_49075_x2_ecommerce_777c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_acc_49075_x2_ecommerce_babe.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_front_49097_x2_1_ecommerce_6770.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_detail_49116_x2_1_ecommerce_e2ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_bar_top__4_x2_1_ecommerce_c6ed.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_bar_bottom_010_x2_1_ecommerce_b2f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_bar_bottom_010_x2_ecommerce_0ece.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_back_49099_x4_ecommerce_de60.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_back_49099_x3_ecommerce_a3b7.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_back_49099_x3_1_ecommerce_fee3.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_top_49130_x1_1__1__ecommerce_1d56.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_lifestyle_1_2003472644_x4__1__ecommerce_30ac.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_lifestyle_1_2003472644_x4_ecommerce_c804.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_bottom_49132_x1_ecommerce_ee86.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_lifestyle_1_2003472644_x4_ecommerce_afec.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_back_49126_x2_1_ecommerce_890c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_hero_49110_x3_1_ecommerce_81f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_front_49097_x3_ecommerce_df6d.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_590_lifestyle_1_2003472644_x4_ecommerce_6ec7.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_top_49130_x1_ecommerce_44a1.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_top_49130_x1_1_ecommerce_a253.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_cinema_sb_580_590_sub_back_49126_x2_ecommerce_035d.png"
+    ]
   },
   {
     "sku": "1200130010316",
@@ -7027,8 +7111,21 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/0/1/01.ls_jbl_soundgear_clips_product_image_hero_black_ecommerce_8828.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/0/1/01.ls_jbl_soundgear_clips_product_image_hero_black_ecommerce_8828.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_case_top_black_ecommerce_71a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_hero_2_black_ecommerce_fcf0.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/2/02.ls_jbl_soundgear_clips_product_image_front_black_ecommerce_2796.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/4/04.ls_jbl_soundgear_clips_product_image_case_open_black_ecommerce_aaf2.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/5/05.ls_jbl_soundgear_clips_product_image_case_closed_black_ecommerce_9e9a.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_case_back_black_ecommerce_e2e2.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_case_bottom_black_ecommerce_3440.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_detail_02_black_ecommerce_6a17.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_detail_black_ecommerce_8a80.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_soundgear_clips_product_image_side_black_ecommerce_8396.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/3/03.ls_jbl_soundgear_clips_product_image_back_black_ecommerce_2a6f.png"
+    ]
   },
   {
     "sku": "50036400091",
@@ -7147,8 +7244,18 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_hero__0026_x3_1_ecommerce_ce0f.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_hero__0026_x3_1_ecommerce_ce0f.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_3_4_left_0045_x1_1_ecommerce_5a40.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_3_4_right_0052_x1_1_ecommerce_b748.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_top_0021_x1_ecommerce_54a7.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_detail_1_0081_x1_1_ecommerce_5b1f.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_bottom_0101_x2_ecommerce_1d12.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_back_0043_x1_ecommerce_c157.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_detail_2_0083_x1_1_ecommerce_6a04.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_black_light_0056_x2_ecommerce_d8b5.png"
+    ]
   },
   {
     "sku": "50036413923",
@@ -7171,8 +7278,19 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_hero__0026_x3_ecommerce_24b9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_hero__0026_x3_ecommerce_24b9.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_3_4_left_0045_x1_ecommerce_bbc0.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_top_0021_x1_1_ecommerce_1c64.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_3_4_right_0052_x1_ecommerce_f695.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_bottom_0101_x2_ecommerce_a0b8.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_detail_1_0081_x1_ecommerce_94ae.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_detail_2_0083_x1_ecommerce_ca61.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_back_0043_x1_1_ecommerce_5ec4.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_detail_1_0081_x1_1_ecommerce_c1e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_light_0056_x2_ecommerce_f7ed.png"
+    ]
   },
   {
     "sku": "50036413961",
@@ -7195,8 +7313,19 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_hero__0026_x3_ecommerce_24b9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_hero__0026_x3_ecommerce_24b9.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_3_4_left_0045_x1_ecommerce_bbc0.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_top_0021_x1_1_ecommerce_1c64.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_3_4_right_0052_x1_ecommerce_f695.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_bottom_0101_x2_ecommerce_a0b8.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_detail_1_0081_x1_ecommerce_94ae.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_detail_2_0083_x1_ecommerce_ca61.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_back_0043_x1_1_ecommerce_5ec4.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_detail_1_0081_x1_1_ecommerce_c1e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_grip_blue_light_0056_x2_ecommerce_f7ed.png"
+    ]
   },
   {
     "sku": "50036413930",
@@ -7267,8 +7396,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_hero_black_0008_x4_ecommerce_f6cf.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_hero_black_0008_x4_ecommerce_f6cf.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_front_black_0016_x4_ecommerce_c486.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_side_black_0028_x3_ecommerce_22bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_battery_black_0047_1_x4_ecommerce_f208.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_lifestyle_rf406492_x1_ecommerce_8f7c.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_lifestyle_rf405983_x1_ecommerce_1b90.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_connections_black_0051_x4_ecommerce_74f9.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_130_3_4_handle_right_black_0039_x4_ecommerce_195d.png"
+    ]
   },
   {
     "sku": "50036408615",
@@ -7291,8 +7429,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_front_0012_x1_1_ecommerce_83b9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_front_0012_x1_1_ecommerce_83b9.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_hero_0031_x1_ecommerce_745b.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_hero_2_0033_x1_1_ecommerce_6f3f.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_handle_rear_0065_x1_1_ecommerce_f25a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_handle_left_0062_x1_1__1__ecommerce_8491.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_detail_0037_x1_ecommerce_0e3f.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_wheel_0077_x1_ecommerce_7b0f.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_520_top_0080_x2_1_ecommerce_b429.png"
+    ]
   },
   {
     "sku": "50036417310",
@@ -7339,8 +7486,36 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_hero_20037_x1_ecommerce_157d.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_hero_20037_x1_ecommerce_157d.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/a/pa_jbl_party_box_ultimate_2_black_bb_emea_cr_v20_frontview_ecommerce_7dee.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/a/pa_jbl_party_box_ultimate_2_black_bb_emea_cr_v20_sideview_ecommerce_d1b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_2_049_x3_ecommerce_799e.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf08706_x1_ecommerce_e3f8.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf08956_x1_ecommerce_a8a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf09724_x2_ecommerce_6ef9.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_legendary_lifestyle01_rmf01274_x4_ecommerce_53c2.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf00274_x7_ecommerce_28c7.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf01083_x1_ecommerce_689d.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf08712_x2_ecommerce_c606.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf08845_x1_ecommerce_314c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf00248_x3_ecommerce_4797.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf00817_x2_ecommerce_dcbf.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf00891_x1_ecommerce_3adf.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lightshow_lifestyle02_rmf01235_x1_ecommerce_a49c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_lifestyle_rmf09904_x1_ecommerce_1bb6.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_touchscreen_lifestyle03_rmf08514_x1_ecommerce_6ddc.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_7_0251_x2_ecommerce_943f.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_1_0119_x3_ecommerce_e061.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_3_4_back_0078_x1_ecommerce_d0fd.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_3_4_front_0040_x2_ecommerce_9ae6.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_3_043_x3_ecommerce_8141.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_4_0194_x3_ecommerce_6c8c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_5_0204_x3_ecommerce_fb0a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_detail_6_0238_x2_ecommerce_0c7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_ultimate_2_front_20028_x3_ecommerce_da95.png"
+    ]
   },
   {
     "sku": "50036399975",
@@ -7363,8 +7538,19 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_hero_v1_48627_x1_1__ecommerce_7cb9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_hero_v1_48627_x1_1__ecommerce_7cb9.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_mic_3_4_right_48642_x1_copy_1__ecommerce_c7d6.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_hero_v2_48629_x1_1__ecommerce_7d55.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_transmitter_hero_48670_x1_ecommerce_088a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_transmitter_back_48666_x1_ecommerce_40fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_transmitter_hero_v1_48674_x1_ecommerce_438b.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_transmitter_front_48651_x1_1__ecommerce_6204.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_with_pb310_v2_ecommerce_903b.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_wireless_mic_and_transmitter_with_pb310_48641_x1_1__ecommerce_416d.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_party_box_wireless_mic_exterior_b_04978_x1_ecommerce_7e14.png"
+    ]
   },
   {
     "sku": "6925281958335",
@@ -7483,8 +7669,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/0/1/01.ls_jbl_tune_730bt_product_image_hero_black_ecommerce_5019.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/0/1/01.ls_jbl_tune_730bt_product_image_hero_black_ecommerce_5019.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/2/02.ls_jbl_tune_730bt_product_image_front_black_ecommerce_bbdf.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/3/03.ls_jbl_tune_730bt_product_image_fold_black_ecommerce_772b.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/7/07.ls_jbl_tune_730bt_product_image_detail_black_ecommerce_6ab0.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/4/04.ls_jbl_tune_730bt_product_image_cushions_black_ecommerce_c8f8.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/5/05.ls_jbl_tune_730bt_product_image_buttons_black_1_ecommerce_ade4.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/7/07.ls_jbl_tune_730bt_product_image_right_black_ecommerce_a4e4.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/6/06.ls_jbl_tune_730bt_product_image_left_black_ecommerce_0ff9.png"
+    ]
   },
   {
     "sku": "1200130032608",
@@ -7507,8 +7702,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/0/1/01.ls_jbl_tune_730bt_product_image_hero_white_ecommerce_6b8e.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/0/1/01.ls_jbl_tune_730bt_product_image_hero_white_ecommerce_6b8e.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/2/02.ls_jbl_tune_730bt_product_image_front_white_ecommerce_832c.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/3/03.ls_jbl_tune_730bt_product_image_fold_white_ecommerce_7685.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/4/04.ls_jbl_tune_730bt_product_image_cushions_white_ecommerce_6890.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/7/07.ls_jbl_tune_730bt_product_image_detail_white_ecommerce_9249.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/5/05.ls_jbl_tune_730bt_product_image_buttons_white_ecommerce_d0a2.png",
+      "https://www.hificorp.co.za/api/catalog/product/0/6/06.ls_jbl_tune_730bt_product_image_left_white_ecommerce_8215.png"
+    ]
   },
   {
     "sku": "50036375061",
@@ -7531,8 +7734,18 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_hero_0010_x2_ecommerce_f3e4.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_hero_0010_x2_ecommerce_f3e4.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_front_0032_x1_ecommerce_d0ab.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_3_4_right_strap_0019_x2_ecommerce_e2f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_hero_strap_0016_x2_ecommerce_8dc3.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_back_open_0036_x2_ecommerce_1f29.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_back_0034_x1_ecommerce_2ea9.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_top_0053_x2_ecommerce_7f2c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_left_right_0049_x1_ecommerce_1be0.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_xtreme_3_bottom_0056_x1_ecommerce_4a9d.png"
+    ]
   },
   {
     "sku": "1200130033711",
@@ -7555,8 +7768,26 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_front_black_0019_x2_ecommerce_3d1c.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_front_black_0019_x2_ecommerce_3d1c.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_hero_black_0023_x3_ecommerce_5bfd.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_hero_black_0023_x5_ecommerce_68d1.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_side_black_0115_x1_ecommerce_10c3.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_strap_black_0113_x2_ecommerce_f56c.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_top_black_0003_x1_ecommerce_86c1.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc07481_x1__1__ecommerce_9174.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc08101_x1_ecommerce_75d4.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc08119_x1__1__ecommerce_27d0.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc08119_x1__1_23_ecommerce_96c0.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc08140_x1__1__ecommerce_4777.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc08201_x3__1__ecommerce_895f.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_dsc08208_x1__1__ecommerce_5f3a.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme5_lifestyle_black_rf406246_x1_ecommerce_1d0f.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_3_4_left_back_black_0072_x1_ecommerce_8c4d.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_3_4_right_black_0060_x3_ecommerce_0caa.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_xtreme_5_batteries_black_67253_x1_ecommerce_350a.png"
+    ]
   },
   {
     "sku": "46838503184",
@@ -7627,8 +7858,11 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n169_image_ecommerce_2757.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n169_image_ecommerce_2757.png",
+      "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n169_fab_ecommerce_3bb1.png"
+    ]
   },
   {
     "sku": "46838504792",
@@ -7651,8 +7885,12 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n5216pb_pic_hr_ecommerce_7176.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n5216pb_pic_hr_ecommerce_7176.png",
+      "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n5216pb_pic_hr_1__ecommerce_053d.png",
+      "https://www.hificorp.co.za/api/catalog/product/x/s/xs_n5216pb_fab_ecommerce_4a92.png"
+    ]
   },
   {
     "sku": "46838504815",
@@ -8333,8 +8571,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_03_ecommerce_8404.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_03_ecommerce_8404.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_21_ecommerce_e748.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_04_ecommerce_0020.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_05_ecommerce_a642.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_06_ecommerce_7f6c.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_07_ecommerce_e5c0.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_18_ecommerce_a799.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/s/msi_nb_thin_15_photo_19_ecommerce_b5c5.png"
+    ]
   },
   {
     "sku": "622356557535",
@@ -8427,8 +8674,14 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/n/i/nintendoswitch2_procontroller_04_ecommerce_8eef.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/n/i/nintendoswitch2_procontroller_04_ecommerce_8eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/n/i/nintendoswitch2_procontroller_05_ecommerce_93d9.png",
+      "https://www.hificorp.co.za/api/catalog/product/n/i/nintendoswitch2_procontroller_pkg_ecommerce_dbd3.png",
+      "https://www.hificorp.co.za/api/catalog/product/n/i/nintendoswitch2_procontroller_01_ecommerce_dd68.png",
+      "https://www.hificorp.co.za/api/catalog/product/n/i/nintendoswitch2_procontroller_02_ecommerce_3ae7.png"
+    ]
   },
   {
     "sku": "45496885816",
@@ -8451,8 +8704,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/n/s/ns2___mariokart_world_bundle_ecommerce_57a2.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/n/s/ns2___mariokart_world_bundle_ecommerce_57a2.png"
+    ]
   },
   {
     "sku": "45496886639",
@@ -9193,8 +9448,13 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/r/z/rzr_blackshark_v2_x__render__v01_e_commerce_5628.jpg",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/r/z/rzr_blackshark_v2_x__render__v01_e_commerce_5628.jpg",
+      "https://www.hificorp.co.za/api/catalog/product/r/z/rzr_blackshark_v2_x__render__v02_e_commerce_f16c.jpg",
+      "https://www.hificorp.co.za/api/catalog/product/r/z/rzr_blackshark_v2_x__render__v03_e_commerce_9c12.jpg",
+      "https://www.hificorp.co.za/api/catalog/product/r/z/rzr_blackshark_v2_x__render__v05_e_commerce_7e98.jpg"
+    ]
   },
   {
     "sku": "6941764454477",
@@ -10564,8 +10824,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_white_001_front_ecommerce_9ce1.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_white_001_front_ecommerce_9ce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_white_006_top_combination_ecommerce_b47e.png"
+    ]
   },
   {
     "sku": "8806097620990",
@@ -10636,8 +10899,18 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_005_case_opened_251222_ecommerce_8ff4.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_005_case_opened_251222_ecommerce_8ff4.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_003_side_251222_ecommerce_978c.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_004_case_closed_251222_ecommerce_ad66.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_002_back_251222_ecommerce_f9b7.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_006_case_opened_side_251222_ecommerce_5264.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_007_case_front_251222_ecommerce_9ea3.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_008_case_back_251222_ecommerce_9693.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_009_case_opened_w.o_units_251222_ecommerce_baed.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_black_010_case_closed_w.o_units_251222_ecommerce_e6c5.png"
+    ]
   },
   {
     "sku": "8806097998075",
@@ -10660,8 +10933,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_005_case_opened_251219_ecommerce_06e0.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_005_case_opened_251219_ecommerce_06e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_003_side_251121_ecommerce_9180.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_004_case_closed_251219_ecommerce_af09.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_001_front_251121_ecommerce_8639.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_002_back_251121_ecommerce_a2b2.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_007_case_front_251219_ecommerce_37e9.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_white_009_case_opened_w.o_units_251219_ecommerce_8ab4.png"
+    ]
   },
   {
     "sku": "8806097984726",
@@ -10684,8 +10965,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_005_case_opened_251217_ecommerce_f6ab.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_005_case_opened_251217_ecommerce_f6ab.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_002_back_251118_ecommerce_17d0.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_003_side_251118_ecommerce_8d55.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_004_case_closed_251217_ecommerce_1ab1.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_007_case_front_251217_ecommerce_a1d2.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_black_010_case_closed_w.o_units_251217_ecommerce_984a.png"
+    ]
   },
   {
     "sku": "8806097985136",
@@ -10732,8 +11020,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_005_case_opened_251217_ecommerce_62fb.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_005_case_opened_251217_ecommerce_62fb.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_002_back_251118_ecommerce_1d5d.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_001_front_251118_ecommerce_b694.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_003_side_251118_ecommerce_3c8f.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_004_case_closed_251217_ecommerce_2455.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_006_case_opened_side_251217_ecommerce_b1cd.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_buds4_pro_white_007_case_front_251217_ecommerce_0a19.png"
+    ]
   },
   {
     "sku": "8806097349969",
@@ -10756,8 +11052,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_onyx_black_001_front_ecommerce_0085.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_onyx_black_001_front_ecommerce_0085.png",
+      "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_onyx_black_006_top_combination_ecommerce_8d1a.png"
+    ]
   },
   {
     "sku": "8806097349945",
@@ -10780,8 +11079,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_white_001_front_ecommerce_9ce1.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_white_001_front_ecommerce_9ce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/b/u/buds_core_white_006_top_combination_ecommerce_b47e.png"
+    ]
   },
   {
     "sku": "8806095369518",
@@ -10804,8 +11106,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_001_front_gray__1__ecommerce_5760.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_001_front_gray__1__ecommerce_5760.png",
+      "https://www.hificorp.co.za/api/catalog/product/f/i/fit3_family_kv_1p_rgb_0109_ecommerce_4a94.png"
+    ]
   },
   {
     "sku": "8806095371559",
@@ -10828,8 +11133,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_001_front_pink_gold__2__ecommerce_3c97.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_001_front_pink_gold__2__ecommerce_3c97.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_002_front2_pink_gold_ecommerce_29fe.png",
+      "https://www.hificorp.co.za/api/catalog/product/f/i/fit3_family_kv_1p_rgb_0109_ecommerce_4a94.png"
+    ]
   },
   {
     "sku": "8806095369464",
@@ -10852,8 +11161,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_001_front_silver__1__ecommerce_7590.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_001_front_silver__1__ecommerce_7590.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_r390_002_front2_silver__1__ecommerce_e92f.png",
+      "https://www.hificorp.co.za/api/catalog/product/f/i/fit3_family_kv_1p_rgb_0109_ecommerce_4a94.png"
+    ]
   },
   {
     "sku": "8806097674078",
@@ -11428,8 +11741,14 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_portrait_lte_ecommerce_a266.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_portrait_lte_ecommerce_a266.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_combo_lte_ecommerce_e3ca.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_landscape_lte_ecommerce_fc4c.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_ecommerce_3dd6.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_combo_ecommerce_a85e.png"
+    ]
   },
   {
     "sku": "8806097806806",
@@ -11455,8 +11774,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_portrait_wi_fi_ecommerce_ca9a.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_portrait_wi_fi_ecommerce_ca9a.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_combo_wi_fi_ecommerce_76a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_landscape_wi_fi_ecommerce_f6ed.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_front_ecommerce_f5f0.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_back_ecommerce_325e.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_combo_ecommerce_6483.png"
+    ]
   },
   {
     "sku": "8806097860471",
@@ -11482,8 +11808,14 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_portrait_lte_ecommerce_a266.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_portrait_lte_ecommerce_a266.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_combo_lte_ecommerce_e3ca.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_landscape_lte_ecommerce_fc4c.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_front_ecommerce_3dd6.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_gray_product_image_combo_ecommerce_a85e.png"
+    ]
   },
   {
     "sku": "8806097409762",
@@ -11509,8 +11841,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_1.png/f7bi41tRMwclRmOT8FInZrXWV1U%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_1.png/f7bi41tRMwclRmOT8FInZrXWV1U%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_2.png/6PDXs8ai5CCBHgjuOWtIrCs8LEk%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_3.png/NRoIMhZ0f5EgxRFFPvqXpNQfuc4%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_4.png/ubZO-bZdNx7FjXfKT0-hlvJ5Mbg%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_5.png/z99MXLkGTqjqM6rXIrD9U_igMhI%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_6.png/NprBrBO2IphWQU0hJto99cH-Wbg%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_7.png/dn82Ygg9fwA4vrYa4v8huv9ge50%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "8806097205890",
@@ -11536,8 +11876,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_1.png/f7bi41tRMwclRmOT8FInZrXWV1U%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_1.png/f7bi41tRMwclRmOT8FInZrXWV1U%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_2.png/6PDXs8ai5CCBHgjuOWtIrCs8LEk%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_3.png/NRoIMhZ0f5EgxRFFPvqXpNQfuc4%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_4.png/ubZO-bZdNx7FjXfKT0-hlvJ5Mbg%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_5.png/z99MXLkGTqjqM6rXIrD9U_igMhI%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_6.png/NprBrBO2IphWQU0hJto99cH-Wbg%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_7.png/dn82Ygg9fwA4vrYa4v8huv9ge50%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "8806097204367",
@@ -11562,8 +11910,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_s10_plus_moonstone_blue_product_image_combo_decal_ecommerce_055d.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_s10_plus_moonstone_blue_product_image_combo_decal_ecommerce_055d.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_s10_plus_moonstone_blue_product_image_front_pen_decal_portrait_2_eco_5ec5.png"
+    ]
   },
   {
     "sku": "8806097715870",
@@ -11589,8 +11940,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_1.png/BktfzfKL5gVMlPCyOBfcpHadI8M%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_1.png/BktfzfKL5gVMlPCyOBfcpHadI8M%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_2.png/dCGGfM_P-Ttq7ecdzrJ-2O8ut1g%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_3.png/yfisOw_Ta9l4RHGdlz6S3d7847s%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_4.png/X2sKI1AdE8xvBF4C93mDtZWp4Ms%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_5.png/3Gafy4ahCsLS6hpr6delF0Idefs%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_6.png/PCerMm9eGL5knpWLfNcl6sL9D4o%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s11-wifi-128gb-grijs_7.png/N8Qy03b4xGNgCCJmtLrHY_sGyf4%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "8806099443429",
@@ -11689,8 +12048,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_003_l_perspective_graphite_260504_ecommerce_c4b4.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_003_l_perspective_graphite_260504_ecommerce_c4b4.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_004_dynamic_graphite_260504_ecommerce_d1bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_005_side_graphite_260504_ecommerce_4613.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_001_front_graphite_260504_ecommerce_0d28.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_002_front2_graphite_260504_ecommerce_cd9d.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l340_006_front3_graphite_260504_ecommerce_1548.png"
+    ]
   },
   {
     "sku": "8806099341732",
@@ -11713,8 +12079,14 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_003_l_perspective_graphite_260504__1__ecommerce_1352.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_003_l_perspective_graphite_260504__1__ecommerce_1352.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_001_front_graphite_260504__1__ecommerce_5310.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_002_front2_graphite_260504__1__ecommerce_6d77.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_004_dynamic_graphite_260504__1__ecommerce_9871.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_005_side_graphite_260504__1__ecommerce_db6f.png"
+    ]
   },
   {
     "sku": "8806099341800",
@@ -11737,8 +12109,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_001_front_silver_260504_ecommerce_0a11.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_001_front_silver_260504_ecommerce_0a11.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_002_front2_silver_260504_ecommerce_f019.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_003_l_perspective_silver_260504_ecommerce_a33d.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_004_dynamic_silver_260504_ecommerce_290c.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_006_front3_silver_260504_ecommerce_1523.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l350_005_side_silver_260504_ecommerce_cfd2.png"
+    ]
   },
   {
     "sku": "8806097619048",
@@ -11761,8 +12140,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_001_front_titanium_gray_ecommerce_0eb2.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_001_front_titanium_gray_ecommerce_0eb2.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_002_front2_titanium_gray_ecommerce_27de.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_003_l_perspective_titanium_gray_ecommerce_cc6d.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_004_dynamic_titanium_gray_ecommerce_bb77.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_005_side_titanium_gray_ecommerce_b814.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/m/sm_l705_006_front3_titanium_gray_ecommerce_20bc.png"
+    ]
   },
   {
     "sku": "8806097619000",
@@ -12055,8 +12441,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/u/n/un43f6000ffxza_005_front_black_ecommerce_5eb6.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/u/n/un43f6000ffxza_005_front_black_ecommerce_5eb6.png"
+    ]
   },
   {
     "sku": "8806092696990",
@@ -12131,8 +12519,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/v/svd_eo_ic100bb_8_ecommerce_27ab.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/v/svd_eo_ic100bb_8_ecommerce_27ab.png"
+    ]
   },
   {
     "sku": "8806090270031",
@@ -12179,8 +12569,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_01_cmyk_ecommerce_5bd8.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_01_cmyk_ecommerce_5bd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_02_cmyk_ecommerce_c3cd.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_03_cmyk_ecommerce_849f.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_04_cmyk_ecommerce_82c0.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_05_cmyk_ecommerce_1465.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/s/ps5_cfi2000_indigo_pr_01_cmyk_ecommerce_4f9a.png"
+    ]
   },
   {
     "sku": "711719574316",
@@ -12203,8 +12600,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_cosmicred_01_pr_cmyk_withnotice_ecommerce_91c7.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_cosmicred_01_pr_cmyk_withnotice_ecommerce_91c7.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense__cosmicred_ecommerce_214b.png"
+    ]
   },
   {
     "sku": "711719574347",
@@ -12227,8 +12627,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_pr_cobaltblue_cmyk_ecommerce_6919.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_pr_cobaltblue_cmyk_ecommerce_6919.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_03_pr_cobaltblue_cmyk_ecommerce_afc9.png"
+    ]
   },
   {
     "sku": "711719572701",
@@ -12251,8 +12654,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_01_cmyk_ecommerce_5bd8.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_01_cmyk_ecommerce_5bd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_02_cmyk_ecommerce_c3cd.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_03_cmyk_ecommerce_849f.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_04_cmyk_ecommerce_82c0.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_indigo_pr_05_cmyk_ecommerce_1465.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/s/ps5_cfi2000_indigo_pr_01_cmyk_ecommerce_4f9a.png"
+    ]
   },
   {
     "sku": "711719574293",
@@ -12275,8 +12685,13 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/8/2/82911_sy_dualsense_01_layered_8_cmyk_1_siea_ecommerce_4dfd.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/8/2/82911_sy_dualsense_01_layered_8_cmyk_1_siea_ecommerce_4dfd.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_srgb_withnotice_ecommerce_8728.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_07_srgb_withnotice_ecommerce_cbca.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_closeup_srgb_withnotice_ecommerce_c6d8.png"
+    ]
   },
   {
     "sku": "711719574330",
@@ -12299,8 +12714,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_galacticpurple_pr_srgb_ecommerce_1c70.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_galacticpurple_pr_srgb_ecommerce_1c70.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/s/ps5_dualsense_wireless_galactic_purple_side_540x_ecommerce_51a5.png"
+    ]
   },
   {
     "sku": "711719022206",
@@ -12348,8 +12766,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/0/10261750_ecommerce_1ff2.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/0/10261750_ecommerce_1ff2.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/0/10261750_ecommerce_4388.png"
+    ]
   },
   {
     "sku": "1946442896591",
@@ -13492,8 +13913,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+      "https://crudos.baratto.app/p/f9d42474-f100-42ee-8692-6b91de5f9287",
+      "https://crudos.baratto.app/p/dc899742-8307-465e-a7d3-c3a096e89708"
+    ]
   },
   {
     "sku": "6932554488222",
@@ -13612,8 +14037,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+      "https://crudos.baratto.app/p/f9d42474-f100-42ee-8692-6b91de5f9287",
+      "https://crudos.baratto.app/p/dc899742-8307-465e-a7d3-c3a096e89708"
+    ]
   },
   {
     "sku": "6932554412494",
@@ -13759,8 +14188,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/5435ae11-c80a-496c-a4c4-e94a912fa386",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/5435ae11-c80a-496c-a4c4-e94a912fa386",
+      "https://crudos.baratto.app/p/e9233ed1-9f37-4fe0-87b7-267166dffdda",
+      "https://crudos.baratto.app/p/efc21d68-77fb-45ba-ab35-a3971d25c335"
+    ]
   },
   {
     "sku": "6932554496876",
@@ -13786,8 +14219,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/5435ae11-c80a-496c-a4c4-e94a912fa386",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/5435ae11-c80a-496c-a4c4-e94a912fa386",
+      "https://crudos.baratto.app/p/e9233ed1-9f37-4fe0-87b7-267166dffdda",
+      "https://crudos.baratto.app/p/efc21d68-77fb-45ba-ab35-a3971d25c335"
+    ]
   },
   {
     "sku": "6939093002285",
@@ -15275,8 +15712,12 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_9.7_grey__front__ecommerce_0847.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_9.7_grey__front__ecommerce_0847.png",
+      "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_9.7_grey_back__2_ecommerce_6da9.png",
+      "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_9.7_grey_side_ecommerce_474b.png"
+    ]
   },
   {
     "sku": "6932554464042",
@@ -15302,8 +15743,16 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_1.png/r6A5kri47fueY3DcuaZRfujTfjI%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_1.png/r6A5kri47fueY3DcuaZRfujTfjI%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_2.png/wJ58w0tpr9LmTMh3drxJCQPW-wY%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_3.png/SX4vk85-ok3ML1lYdDt9QeGAUR8%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_4.png/tSJOatLRoN6Vv9ieWmh_ch-4H4w%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_5.png/iznNrBOVdGJLe4_DrnVVqsBupds%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_6.png/hTn2gItw7HAdSRWmauOdf-R9TSI%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-grijs_7.png/5Zs7isbzdrFLOYReAOP-Q4vrIl0%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "6932554467678",
@@ -15329,8 +15778,16 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_1.png/8EgY6G9vq0QkyFsaegLa98RAObo%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_1.png/8EgY6G9vq0QkyFsaegLa98RAObo%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_2.png/b0GgsEMESImTY1Etqcu6acs0jnc%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_3.png/OjG8fPhofOE0rwTjUDXklRXTnLM%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_4.png/f3RUcEfdvhjpV_NnvtrMpAuLNmM%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_5.png/5O36m1ff_gyn_KJIxyJ2XTWFh3E%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_6.png/iy_N_b1d1BpfYI4Dhlk34iMN5zM%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_7.png/22W4KynmGG5fln4ApVCEsvAovHs%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "6941812791554",
@@ -15529,8 +15986,15 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_01_ecommerce_80e8.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_01_ecommerce_80e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_02_ecommerce_1c28.png",
+      "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_03_ecommerce_3406.png",
+      "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_04_ecommerce_6ef8.png",
+      "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_05_ecommerce_fda5.png",
+      "https://www.hificorp.co.za/api/catalog/product/q/b/qbh4321gl_xiaomi_sound_party_50w_bluetooth_speaker___black_hr_06_ecommerce_1cb3.png"
+    ]
   },
   {
     "sku": "6941948702349",
@@ -16772,8 +17236,12 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/p/p/pp1_ecommerce_b13c.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/p/p/pp1_ecommerce_b13c.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/p/pp2_ecommerce_2969.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/p/pp5_ecommerce_3368.png"
+    ]
   },
   {
     "sku": "6936520885114",
@@ -17483,8 +17951,23 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_front_023_x1_ecommerce_7d06.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_front_023_x1_ecommerce_7d06.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_3_4_left_086_x1_ecommerce_b5ee.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_hero_071_x1_1_ecommerce_044f.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_bottom_167_x1_ecommerce_f718.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_back_024_x1_ecommerce_36e2.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_hero_strap_071_x2_1_ecommerce_dc05.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_right_157_x1_ecommerce_dd7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_core_box_image_black_ecommerce_cf7c.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_acc_210_x1_1_ecommerce_5819.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge_6_black_acc_no_usb_210_x1_ecommerce_fcb0.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge6_lifestyle_volleyball_258a2824_x1_ecommerce_e626.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge6_lifestyle_bmx_258a0723_x12_ecommerce_80f3.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge6_lifestyle_bmx_258a0876_x1_ecommerce_ef3a.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_charge6_lifestyle_dancing_5_x1__1__ecommerce_67d3.png"
+    ]
   },
   {
     "sku": "1200130019388",
@@ -17507,8 +17990,19 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_3_4_right_red_107_x1_ecommerce_94cd.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_3_4_right_red_107_x1_ecommerce_94cd.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_3_4_left_red_096_x1_1_ecommerce_3351.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_detail_clip_red_168_x1_1_ecommerce_6279.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_bottom_red_195_x1_1_ecommerce_da48.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_right_red_142_x1_ecommerce_e7d2.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_hero_red_071_x2_ecommerce_e114.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_hero_red_acc_071_x2_1_ecommerce_fb25.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_acc_red_214_x1_1_ecommerce_ee7d.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_acc_red_no_usb_214_x1_1_ecommerce_8eb8.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_flip_7_red_box_image_1605x1605px_ecommerce_6d9c.png"
+    ]
   },
   {
     "sku": "50036414289",
@@ -17531,8 +18025,34 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_front_0014_x2_ecommerce_b940.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_front_0014_x2_ecommerce_b940.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_3_4_left_0070_x2_ecommerce_b992.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_back_0034_x2_ecommerce_d941.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_top_0113_x1_ecommerce_46ca.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_hero_0041_x2_ecommerce_161c.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_battery_0064_x2_ecommerce_8e71.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_bottom_0115_x1_ecommerce_5368.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_hero_v2_0105_x2_1_ecommerce_582d.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_connections_open_0059_x2_1_ecommerce_45b4.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_left_0085_x2_1_ecommerce_2ff5.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_right_0089_x2_ecommerce_1fd4.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_wheel_0095_x2_ecommerce_f112.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_720_lifestyle02_emea_ecommerce_47d1.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_black_box_image_core_1605x1605px_ecommerce_4ecf.png",
+      "https://www.hificorp.co.za/api/catalog/product/j/b/jbl_partybox_720_lifestyle03_emea_ecommerce_d7fe.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_dsc05134_x1_ecommerce_6a6e.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_dsc05223_x1_ecommerce_57de.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_dsc05432_x1_ecommerce_650f.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_dsc05645_x1_ecommerce_fa08.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_emea_no_battery_cord_ecommerce_52a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_rf403761_x1_ecommerce_f29e.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_rf404121_x2_ecommerce_3d68.png",
+      "https://www.hificorp.co.za/api/catalog/product/l/s/ls_jbl_partybox_720_lifestyle_rf404585_x1_ecommerce_1ade.png",
+      "https://www.hificorp.co.za/api/catalog/product/p/a/pa_jbl_partybox_720_black_emea_bb_sop_v9_5257_ecommerce_ad78.png",
+      "https://www.hificorp.co.za/api/catalog/product/e/c/ec_premium_jbl_partybox_720_lifestyle_rf404970_x1_ecommerce_3757.png"
+    ]
   },
   {
     "sku": "6974377571149",
@@ -18094,8 +18614,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_front_portrait_wi_fi_ecommerce_be41.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_front_portrait_wi_fi_ecommerce_be41.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_front_portrait_front_and_back_wi_fi_ecom_87c7.png",
+      "https://www.hificorp.co.za/api/catalog/product/g/a/galaxy_tab_a11_plus_gray_product_image_front_landscape_wi_fi_ecommerce_41c4.png"
+    ]
   },
   {
     "sku": "8806097205401",
@@ -18120,8 +18644,16 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_1.png/f7bi41tRMwclRmOT8FInZrXWV1U%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_1.png/f7bi41tRMwclRmOT8FInZrXWV1U%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_2.png/6PDXs8ai5CCBHgjuOWtIrCs8LEk%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_3.png/NRoIMhZ0f5EgxRFFPvqXpNQfuc4%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_4.png/ubZO-bZdNx7FjXfKT0-hlvJ5Mbg%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_5.png/z99MXLkGTqjqM6rXIrD9U_igMhI%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_6.png/NprBrBO2IphWQU0hJto99cH-Wbg%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/samsung-galaxy-tab-s10-fe-wifi-128gb-x520-grijs_7.png/dn82Ygg9fwA4vrYa4v8huv9ge50%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "8806097416418",
@@ -18246,8 +18778,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_pr_cobaltblue_cmyk_ecommerce_6919.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_01_pr_cobaltblue_cmyk_ecommerce_6919.png",
+      "https://www.hificorp.co.za/api/catalog/product/d/u/dualsense_03_pr_cobaltblue_cmyk_ecommerce_afc9.png"
+    ]
   },
   {
     "sku": "4948872415934",
@@ -18270,8 +18805,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/0/10261749_ecommerce_ded5.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/0/10261749_ecommerce_ded5.png",
+      "https://www.hificorp.co.za/api/catalog/product/1/0/10261749__2__ecommerce_b88c.png"
+    ]
   },
   {
     "sku": "4894947020469",
@@ -18551,8 +19089,11 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_4g_02_ecommerce_b97f.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_4g_02_ecommerce_b97f.png",
+      "https://www.hificorp.co.za/api/catalog/product/r/e/redmi_pad_2_4g_01_ecommerce_fe5c.png"
+    ]
   },
   {
     "sku": "6932554467395",
@@ -18578,8 +19119,16 @@
     "garantia": "6 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_1.png/8EgY6G9vq0QkyFsaegLa98RAObo%3D/fit-in/0x0/filters%3Aupscale%28%29",
+    "galeria_fotos": [
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_1.png/8EgY6G9vq0QkyFsaegLa98RAObo%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_2.png/b0GgsEMESImTY1Etqcu6acs0jnc%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_3.png/OjG8fPhofOE0rwTjUDXklRXTnLM%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_4.png/f3RUcEfdvhjpV_NnvtrMpAuLNmM%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_5.png/5O36m1ff_gyn_KJIxyJ2XTWFh3E%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_6.png/iy_N_b1d1BpfYI4Dhlk34iMN5zM%3D/fit-in/0x0/filters%3Aupscale%28%29",
+      "https://bsimg.nl/images/xiaomi-redmi-pad-2-pro-wifi-6gb-128gb-zilver_7.png/22W4KynmGG5fln4ApVCEsvAovHs%3D/fit-in/0x0/filters%3Aupscale%28%29"
+    ]
   },
   {
     "sku": "6939093027004",
@@ -18713,8 +19262,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+      "https://crudos.baratto.app/p/f9d42474-f100-42ee-8692-6b91de5f9287",
+      "https://crudos.baratto.app/p/dc899742-8307-465e-a7d3-c3a096e89708"
+    ]
   },
   {
     "sku": "6932554492380",
@@ -18740,8 +19293,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+      "https://crudos.baratto.app/p/f9d42474-f100-42ee-8692-6b91de5f9287",
+      "https://crudos.baratto.app/p/dc899742-8307-465e-a7d3-c3a096e89708"
+    ]
   },
   {
     "sku": "6932554492298",
@@ -18798,8 +19355,12 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+    "galeria_fotos": [
+      "https://crudos.baratto.app/p/32758037-9503-446b-9256-4d203bfcf261",
+      "https://crudos.baratto.app/p/f9d42474-f100-42ee-8692-6b91de5f9287",
+      "https://crudos.baratto.app/p/dc899742-8307-465e-a7d3-c3a096e89708"
+    ]
   },
   {
     "sku": "6932554455958",
