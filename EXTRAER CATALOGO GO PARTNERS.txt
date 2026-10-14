@@ -1,0 +1,126 @@
+(async function actualizarCatalogoCyM() {
+  console.log("🔄 1/3: Rescatando tus fotos y galerías actuales desde tu web (Catalogo_CyM)...");
+  const fotosPorSku = new Map();
+  const fotosPorModeloColor = new Map();
+  const datosPreviosPorSku = new Map();
+
+  try {
+    // Lee tu catálogo actual publicado en GitHub para no perder ni una sola foto
+    const urlGitHub = 'https://raw.githubusercontent.com/juntosenlafe1999-collab/Catalogo_CyM/main/catalogo_clientes_sin_comision.json?t=' + Date.now();
+    const resPrevio = await fetch(urlGitHub, { cache: 'no-store' });
+    if (resPrevio.ok) {
+      const catalogoPrevio = await resPrevio.json();
+      catalogoPrevio.forEach(item => {
+        if (!item || !item.sku) return;
+        datosPreviosPorSku.set(String(item.sku), item);
+
+        const galeria = Array.isArray(item.galeria_fotos) && item.galeria_fotos.length
+          ? item.galeria_fotos
+          : (item.imagen_principal ? [item.imagen_principal] : []);
+        const principal = item.imagen_principal || galeria[0] || '';
+
+        if (principal || galeria.length) {
+          const paqueteFotos = { imagen_principal: principal, galeria_fotos: galeria };
+          fotosPorSku.set(String(item.sku), paqueteFotos);
+
+          const color = (item.atributos && item.atributos.COLOR) || '';
+          const claveMC = `${item.nombre}_${color}`.toUpperCase();
+          if (!fotosPorModeloColor.has(claveMC)) {
+            fotosPorModeloColor.set(claveMC, paqueteFotos);
+          }
+        }
+      });
+      console.log(`✅ Se recuperaron fotos de ${fotosPorSku.size} productos de tu catálogo actual.`);
+    }
+  } catch (e) {
+    console.warn("⚠️ No se pudo conectar con GitHub, se extraerá el catálogo base:", e);
+  }
+
+  console.log("📡 2/3: Descargando precios, stock y productos nuevos desde Go Partners...");
+  const resGP = await fetch('/api/catalogo/productos?todo=1', { credentials: 'same-origin' });
+  if (!resGP.ok) {
+    alert("Error al descargar de Go Partners. Asegurate de tener tu sesión iniciada.");
+    return;
+  }
+  const dataGP = await resGP.json();
+  const productosGP = dataGP.productos || [];
+
+  console.log("🛠️ 3/3: Fusionando precios nuevos con tus fotos y limpiando comisiones...");
+  const catalogoFinal = productosGP.map(p => {
+    const skuStr = String(p.sku);
+    const previo = datosPreviosPorSku.get(skuStr) || {};
+
+    const tasa = Number(p.tasa_cambio) || 37;
+    const precioUSD = Number(p.precio ?? p.precio_regular) || 0;
+    const precioNIO = Math.round(precioUSD * tasa);
+
+    // Separar nombre base y variantes entre paréntesis
+    const partes = String(p.nombre || '').split('(');
+    const nombreLimpio = partes[0].trim();
+    const detalles = partes[1] ? partes[1].replace(/[()]/g, '').split('/').map(s => s.trim()).filter(Boolean) : [];
+
+    // Extraer atributos (o conservar los que ya tenías)
+    const atributos = (p.atributos && Object.keys(p.atributos).length) ? p.atributos : (previo.atributos || {});
+    const colorActual = atributos.COLOR || '';
+    const claveMC = `${nombreLimpio}_${colorActual}`.toUpperCase();
+
+    // Fotos que vienen desde Go Partners
+    const fotosApp = Array.isArray(p.fotos_reales) && p.fotos_reales.length
+      ? p.fotos_reales
+      : (p.imagen ? [p.imagen] : []);
+
+    // Fotos que tú ya habías subido (por SKU exacto o heredadas del mismo Modelo+Color)
+    const misFotos = fotosPorSku.get(skuStr) || fotosPorModeloColor.get(claveMC);
+
+    let galeriaCombinada = [];
+    let imagenPrincipal = '';
+
+    if (misFotos) {
+      // Tus fotos tienen prioridad absoluta (se respeta tu 1ra foto principal)
+      galeriaCombinada = [...misFotos.galeria_fotos];
+      fotosApp.forEach(f => {
+        if (f && !galeriaCombinada.includes(f)) galeriaCombinada.push(f);
+      });
+      imagenPrincipal = misFotos.imagen_principal || galeriaCombinada[0] || '';
+    } else {
+      galeriaCombinada = [...fotosApp];
+      imagenPrincipal = fotosApp[0] || '';
+    }
+
+    return {
+      sku: p.sku,
+      nombre: nombreLimpio,
+      nombre_completo: p.nombre,
+      marca: p.marca || previo.marca || 'General',
+      categoria: p.categoria || previo.categoria || 'OTROS',
+      detalles_variante: detalles.join(' · ') || previo.detalles_variante || '',
+      descripcion: p.descripcion || previo.descripcion || '',
+      atributos: atributos,
+      precio_usd: precioUSD,
+      precio_nio: precioNIO,
+      medios_pago: [
+        `Efectivo: $${precioUSD} (C$ ${precioNIO.toLocaleString('en-US')})`,
+        `Transferencia bancaria: $${precioUSD} (C$ ${precioNIO.toLocaleString('en-US')})`,
+        `Tarjeta de crédito / Credex: Consultar cuotas`
+      ],
+      garantia: p.garantia_meses != null
+        ? (p.garantia_meses > 0 ? `${p.garantia_meses} meses de garantía en taller` : 'Sin garantía')
+        : (previo.garantia || '12 meses de garantía en taller'),
+      disponible: Boolean(p.disponible),
+      estado_stock: p.disponible ? 'Disponible para entrega' : 'Bajo pedido',
+      imagen_principal: imagenPrincipal,
+      galeria_fotos: galeriaCombinada
+    };
+  });
+
+  // Descargar el archivo listo para reemplazar en tu carpeta / GitHub
+  const blob = new Blob([JSON.stringify(catalogoFinal, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'catalogo_clientes_sin_comision.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  console.log(`🎉 ¡Listo! Se descargaron ${catalogoFinal.length} productos actualizados y sin comisiones.`);
+})();

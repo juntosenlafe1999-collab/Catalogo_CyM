@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>Catálogo Digital · Multiservicios CyM</title>
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="apple-touch-icon" href="./logo.png">
   <style>
     :root {
       --bg: #0b0c14;
@@ -27,24 +30,39 @@
     .btn-admin { background: var(--accent); color: #14152a; border: 0; padding: 8px 14px; border-radius: 8px; font-weight: 700; font-size: 12.5px; cursor: pointer; }
     .btn-admin.sec { background: rgba(255,255,255,0.1); color: var(--text); }
 
-    /* Cabecera */
+    /* Cabecera y Logo */
     header { padding: 34px 20px 22px; text-align: center; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); user-select: none; }
+    .header-logo-container { display: flex; justify-content: center; align-items: center; margin-bottom: 14px; }
+    .header-logo { max-height: 65px; max-width: 90%; width: auto; height: auto; object-fit: contain; display: block; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45)); transition: transform 0.25s ease; cursor: pointer; }
+    .header-logo:hover { transform: scale(1.02); }
     header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; cursor: pointer; }
     header p { color: var(--muted); font-size: 14px; margin-top: 6px; }
-    .header-meta { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 12px; }
-    .contador { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 12.5px; font-weight: 700; }
-    .wa-directo { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(37, 211, 102, 0.15); color: #25D366; font-size: 12.5px; font-weight: 700; text-decoration: none; }
+    .header-meta { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+    .contador { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; }
+    .wa-directo { display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; border-radius: 999px; background: rgba(37, 211, 102, 0.15); color: #25D366; border: 1px solid rgba(37, 211, 102, 0.35); font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s ease; }
+    .wa-directo:hover { background: #25D366; color: #0c1a11; border-color: #25D366; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35); }
+    .wa-icon { width: 17px; height: 17px; flex-shrink: 0; }
 
-    /* Controles de búsqueda */
-    .controles { max-width: 1200px; margin: 16px auto 0; padding: 12px 20px 18px; position: sticky; top: 0; background: rgba(11, 12, 20, 0.92); backdrop-filter: blur(12px); z-index: 20; border-bottom: 1px solid var(--border); }
-    .fila-busqueda { display: flex; gap: 10px; flex-wrap: wrap; }
-    .buscador { flex: 1; min-width: 220px; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 14.5px; outline: none; }
+    /* Controles de búsqueda y filtros */
+    .controles { max-width: 1200px; margin: 16px auto 0; padding: 12px 20px 14px; position: sticky; top: 0; background: rgba(11, 12, 20, 0.94); backdrop-filter: blur(12px); z-index: 20; border-bottom: 1px solid var(--border); }
+    .fila-busqueda { display: flex; gap: 10px; align-items: center; width: 100%; }
+    .buscador { flex: 1; min-width: 140px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 14px; outline: none; transition: border-color 0.2s; }
     .buscador:focus { border-color: var(--accent); }
-    .ordenar { padding: 13px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 13.5px; outline: none; cursor: pointer; }
+    .select-categoria-mobile { display: none; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 13.5px; outline: none; cursor: pointer; font-weight: 600; }
+    .select-categoria-mobile:focus { border-color: var(--accent); }
+    .ordenar { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 13.5px; outline: none; cursor: pointer; font-weight: 600; flex-shrink: 0; }
+    .ordenar:focus { border-color: var(--accent); }
     
-    .categorias { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0 4px; scrollbar-width: none; }
-    .categorias::-webkit-scrollbar { display: none; }
-    .chip { padding: 8px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    /* Envoltorio de categorías con flechas de navegación */
+    .categorias-wrapper { position: relative; display: flex; align-items: center; margin-top: 10px; width: 100%; gap: 6px; }
+    .btn-scroll-cat { background: rgba(21, 23, 38, 0.9); color: var(--text); border: 1px solid var(--border); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; font-size: 17px; font-weight: 700; flex-shrink: 0; transition: all 0.15s; }
+    .btn-scroll-cat:hover { background: var(--accent); color: #14152a; border-color: var(--accent); }
+    .categorias { display: flex; gap: 8px; overflow-x: auto; padding: 6px 2px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(232, 188, 112, 0.4) transparent; flex: 1; }
+    .categorias::-webkit-scrollbar { height: 4px; }
+    .categorias::-webkit-scrollbar-thumb { background: rgba(232, 188, 112, 0.4); border-radius: 4px; }
+    .categorias::-webkit-scrollbar-track { background: transparent; }
+    .chip { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-size: 12.5px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: all 0.15s ease; user-select: none; }
+    .chip:hover { border-color: var(--accent); color: var(--text); }
     .chip.on { background: var(--accent); color: #14152a; border-color: var(--accent); font-weight: 700; }
 
     /* Carga manual local */
@@ -54,8 +72,8 @@
     .btn-subir { display: inline-block; background: var(--accent); color: #14152a; font-weight: 700; padding: 12px 22px; border-radius: 12px; cursor: pointer; font-size: 14px; }
 
     /* Grilla de productos */
-    .grid { max-width: 1200px; margin: 24px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+    .grid { max-width: 1200px; margin: 24px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; width: 100%; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; width: 100%; min-width: 0; }
     .card:hover { transform: translateY(-3px); border-color: rgba(232, 188, 112, 0.35); }
     
     .foto-box { height: 220px; background: #ffffff; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 12px; }
@@ -67,15 +85,30 @@
     .badge.warn { color: var(--warn); }
     .btn-galeria { position: absolute; bottom: 10px; right: 10px; background: rgba(11,12,20,0.85); color: var(--text); border: 1px solid var(--border); padding: 5px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; cursor: pointer; }
 
-    /* Panel Editor dentro de cada tarjeta */
+    /* Panel Editor dentro de cada tarjeta con soporte multifoto */
     .editor-foto { display: none; background: rgba(232, 188, 112, 0.08); border-bottom: 1px solid var(--border); padding: 12px; flex-direction: column; gap: 8px; }
     body.modo-admin .editor-foto { display: flex; }
-    .editor-input { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: #0b0c14; color: var(--text); font-size: 12px; }
+    .editor-input-group { display: flex; gap: 6px; }
+    .editor-input { flex: 1; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: #0b0c14; color: var(--text); font-size: 12px; outline: none; }
+    .editor-input:focus { border-color: var(--accent); }
     .editor-botones { display: flex; gap: 6px; flex-wrap: wrap; }
-    .btn-ed { flex: 1; padding: 7px 8px; border-radius: 7px; border: 0; font-size: 11.5px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; }
+    .btn-ed { flex: 1; min-width: 90px; padding: 7px 8px; border-radius: 7px; border: 0; font-size: 11px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; }
+    .btn-ed.add { background: var(--ok); color: #082115; font-weight: 800; }
+    .btn-ed.principal { background: #f59e0b; color: #1a1306; font-weight: 800; }
     .btn-ed.buscar { background: rgba(255,255,255,0.1); color: var(--text); }
     .btn-ed.color { background: var(--accent); color: #14152a; }
     .btn-ed.modelo { background: #3b82f6; color: #fff; }
+
+    /* Miniaturas en galería de edición */
+    .editor-galeria-preview { margin-top: 4px; padding-top: 6px; border-top: 1px dashed var(--border); }
+    .editor-galeria-titulo { font-size: 11px; font-weight: 700; color: var(--accent); display: block; margin-bottom: 4px; }
+    .editor-thumbs { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 4px; }
+    .editor-thumb-box { position: relative; width: 52px; height: 52px; border-radius: 8px; overflow: hidden; border: 2px solid var(--border); background: #fff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .editor-thumb-box.es-principal { border-color: var(--accent); box-shadow: 0 0 6px rgba(232, 188, 112, 0.4); }
+    .editor-thumb-box img { width: 100%; height: 100%; object-fit: contain; }
+    .thumb-badge { position: absolute; bottom: 0; inset-inline: 0; background: rgba(232, 188, 112, 0.95); color: #14152a; font-size: 7.5px; font-weight: 800; text-align: center; padding: 1px 0; }
+    .btn-thumb-star { position: absolute; top: 2px; left: 2px; background: rgba(0,0,0,0.7); color: #fff; border: 0; border-radius: 4px; font-size: 9px; padding: 1px 3px; cursor: pointer; line-height: 1; }
+    .btn-thumb-del { position: absolute; top: 2px; right: 2px; background: rgba(220, 38, 38, 0.85); color: #fff; border: 0; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 800; line-height: 1; }
 
     .cuerpo { padding: 18px; display: flex; flex-direction: column; gap: 11px; flex: 1; }
     .marca { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--accent); font-weight: 700; }
@@ -91,60 +124,112 @@
     .pagos b { color: var(--text); }
     .garantia { font-size: 12px; color: var(--accent); font-weight: 600; }
     
-    /* Botones de acción */
+    /* Botones de acción (Consultar y Compartir) */
     .acciones-card { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
     .btn-wa { flex: 1.3; display: flex; align-items: center; justify-content: center; text-align: center; background: #25D366; color: #091e11; font-weight: 800; font-size: 13.5px; padding: 12px 10px; border-radius: 12px; text-decoration: none; transition: opacity 0.15s; }
     .btn-wa:hover { opacity: 0.92; }
     .btn-share { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--border); font-weight: 700; font-size: 13px; padding: 12px 10px; border-radius: 12px; cursor: pointer; transition: background 0.15s; }
     .btn-share:hover { background: rgba(255,255,255,0.14); }
 
+    /* Toast notificación */
     .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #14152a; padding: 12px 20px; border-radius: 999px; font-size: 13.5px; font-weight: 800; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 200; display: none; }
     .toast.visible { display: block; }
 
+    /* Modal Galería */
     .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 100; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
     .modal.abierto { display: flex; }
     .modal img { max-width: 95%; max-height: 75vh; border-radius: 14px; object-fit: contain; background: #fff; padding: 10px; }
     .modal-controles { margin-top: 16px; display: flex; gap: 12px; align-items: center; }
     .modal-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 10px 18px; border-radius: 10px; cursor: pointer; font-weight: 600; }
     .modal-cerrar { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.12); color: #fff; border: 0; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; cursor: pointer; }
+
+    /* Responsividad 100% para Smartphones y Tablets */
+    @media (max-width: 820px) {
+      header { padding: 22px 14px 16px; }
+      header h1 { font-size: 23px; }
+      header p { font-size: 12.5px; }
+      .header-logo { max-height: 52px; }
+      .controles { padding: 10px 14px 12px; }
+      .select-categoria-mobile { display: block; }
+      .btn-scroll-cat { display: none; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; padding: 0 14px; }
+    }
+
+    @media (max-width: 580px) {
+      body { padding-bottom: 70px; }
+      .header-meta { gap: 6px; }
+      .contador, .wa-directo { font-size: 11.5px; padding: 6px 10px; }
+      .wa-icon { width: 14px; height: 14px; }
+      .fila-busqueda { flex-wrap: wrap; gap: 8px; }
+      .buscador { width: 100%; min-width: 100%; order: 1; }
+      .select-categoria-mobile { flex: 1.2; order: 2; width: auto; font-size: 12.5px; padding: 10px; }
+      .ordenar { flex: 1; order: 3; width: auto; font-size: 12.5px; padding: 10px; }
+      .grid { grid-template-columns: 1fr; padding: 0 10px; gap: 14px; }
+      .card { border-radius: 16px; }
+      .foto-box { height: 210px; }
+      .titulo { font-size: 15.5px; }
+      .precio-usd { font-size: 22px; }
+      .precio-nio { font-size: 13px; }
+      .acciones-card { flex-direction: row; gap: 6px; }
+      .btn-wa { font-size: 12.5px; padding: 11px 8px; }
+      .btn-share { font-size: 12px; padding: 11px 8px; }
+    }
   </style>
 </head>
 <body>
 
+<!-- Barra exclusiva para vos cuando activas el Modo Editor -->
 <div class="barra-admin">
   <div class="admin-info" id="admin-stats">🛠️ Modo Editor de Fotos Activo</div>
   <div class="admin-acciones">
-    <button class="btn-admin sec" onclick="filtrarSinFoto()">Ver solo sin foto</button>
-    <button class="btn-admin" onclick="descargarJSONActualizado()">💾 Descargar JSON actualizado</button>
-    <button class="btn-admin sec" onclick="limpiarCacheLocal()">🔄 Restaurar original</button>
-    <button class="btn-admin sec" onclick="toggleAdmin()">Salir</button>
+    <button class="btn-admin sec" id="btn-admin-sin-foto" type="button">Ver solo sin foto</button>
+    <label class="btn-admin" style="display:inline-flex; align-items:center; cursor:pointer;" title="Sube un archivo JSON de Go Partners para actualizar precios y stock protegiendo todas tus fotos">
+      🔄 Actualizar desde Go Partners
+      <input type="file" id="input-actualizar-gp" accept=".json" style="display:none">
+    </label>
+    <button class="btn-admin" id="btn-admin-descargar" type="button">💾 Descargar JSON actualizado</button>
+    <button class="btn-admin sec" id="btn-admin-limpiar" type="button" title="Descarta el borrador guardado en este navegador y recarga desde el archivo JSON">🔄 Resetear borrador</button>
+    <button class="btn-admin sec" id="btn-admin-salir" type="button">Salir</button>
   </div>
 </div>
 
 <header>
-  <h1 ondblclick="toggleAdmin()" title="Doble clic para abrir el editor de fotos">Catálogo Digital</h1>
+  <div class="header-logo-container">
+    <img src="./logo.png" alt="Multiservicios CyM" class="header-logo" onerror="this.style.display='none'">
+  </div>
+  <h1 id="titulo-catalogo" title="Doble clic para abrir el editor de fotos">Catálogo Digital</h1>
   <p>Equipos nuevos, originales y con respaldo de garantía en taller</p>
   <div class="header-meta">
     <span class="contador" id="contador">Cargando catálogo...</span>
-    <a class="wa-directo" href="https://wa.me/50585013284?text=Hola,%20estoy%20viendo%20el%20cat%C3%A1logo%20digital%20y%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">💬 WhatsApp: +505 8501 3284</a>
+    <a class="wa-directo" href="https://wa.me/50585013284?text=Hola,%20estoy%20viendo%20el%20cat%C3%A1logo%20digital%20y%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" title="Contactar por WhatsApp (+505 8501 3284)">
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m-3.53 3.42c-.19 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.12-.27-.2-.57-.35-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01"/>
+      </svg>
+      <span>+505 8501 3284</span>
+    </a>
   </div>
 </header>
 
 <div class="controles">
   <div class="fila-busqueda">
     <input type="search" id="buscador" class="buscador" placeholder="Buscar marca, modelo, capacidad o color...">
+    <select id="select-categoria-mobile" class="select-categoria-mobile" aria-label="Filtrar por categoría"></select>
     <select id="ordenar" class="ordenar">
       <option value="relevancia">Ordenar por nombre</option>
       <option value="menor">Precio: menor a mayor</option>
       <option value="mayor">Precio: mayor a menor</option>
     </select>
   </div>
-  <div class="categorias" id="categorias"></div>
+  <div class="categorias-wrapper">
+    <button type="button" class="btn-scroll-cat left" id="btn-scroll-cat-left" aria-label="Categorías anteriores">‹</button>
+    <div class="categorias" id="categorias"></div>
+    <button type="button" class="btn-scroll-cat right" id="btn-scroll-cat-right" aria-label="Siguientes categorías">›</button>
+  </div>
 </div>
 
 <div class="caja-archivo" id="caja-archivo">
-  <h3 id="titulo-error">Seleccioná tu archivo de catálogo</h3>
-  <p id="detalle-error">Cargá tu archivo <b>catalogo_clientes_sin_comision.json</b> para visualizar todos los productos.</p>
+  <h3>Seleccioná tu archivo de catálogo</h3>
+  <p>Cargá tu archivo <b>catalogo_clientes_sin_comision.json</b> para ver o editar las fotos de los productos.</p>
   <label class="btn-subir">
     Cargar catalogo_clientes_sin_comision.json
     <input type="file" id="input-json" accept=".json" style="display:none">
@@ -156,12 +241,12 @@
 <div class="toast" id="toast"></div>
 
 <div class="modal" id="modal-fotos">
-  <button class="modal-cerrar" onclick="cerrarGaleria()">✕</button>
+  <button class="modal-cerrar" id="btn-modal-cerrar" type="button">✕</button>
   <img id="modal-img" src="" alt="Foto del producto">
   <div class="modal-controles">
-    <button class="modal-btn" onclick="cambiarFoto(-1)">‹ Anterior</button>
+    <button class="modal-btn" id="btn-modal-ant" type="button">‹ Anterior</button>
     <span id="modal-indice" style="font-size:13px;color:var(--muted);">1 / 1</span>
-    <button class="modal-btn" onclick="cambiarFoto(1)">Siguiente ›</button>
+    <button class="modal-btn" id="btn-modal-sig" type="button">Siguiente ›</button>
   </div>
 </div>
 
@@ -187,9 +272,10 @@ let soloSinFoto = false;
 let galeriaActual = [];
 let fotoIndice = 0;
 
-// Escapador seguro para evitar que comillas en pulgadas (ej. 70" o 15.6") rompan el HTML
-function esc(texto) {
-  return String(texto == null ? '' : texto)
+// Escape seguro de atributos y texto HTML
+function esc(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -209,68 +295,126 @@ function mostrarAviso(msg) {
   t._timer = setTimeout(() => t.classList.remove("visible"), 3200);
 }
 
+let ultimoToggleAdmin = 0;
 function toggleAdmin() {
+  const ahora = Date.now();
+  if (ahora - ultimoToggleAdmin < 400) return; // evita doble ejecución accidental
+  ultimoToggleAdmin = ahora;
+
   document.body.classList.toggle("modo-admin");
   actualizarStatsAdmin();
+  const isAdmin = document.body.classList.contains("modo-admin");
+  mostrarAviso(isAdmin ? "🛠️ Modo Editor de Fotos activado" : "Modo Editor cerrado");
 }
 
 function filtrarSinFoto() {
   soloSinFoto = !soloSinFoto;
+  const btn = document.getElementById("btn-admin-sin-foto");
+  if (btn) btn.textContent = soloSinFoto ? "Ver todos los productos" : "Ver solo sin foto";
   renderProductos();
-}
-
-function limpiarCacheLocal() {
-  localStorage.removeItem("catalogo_borrador_fotos");
-  location.reload();
 }
 
 function actualizarStatsAdmin() {
   const conFoto = PRODUCTOS.filter(p => p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length)).length;
-  document.getElementById("admin-stats").textContent = `🛠️ Editor Activo · ${conFoto} de${PRODUCTOS.length} productos con foto`;
+  const el = document.getElementById("admin-stats");
+  if (el) el.textContent = `🛠️ Editor Activo · ${conFoto} de ${PRODUCTOS.length} productos con foto`;
 }
 
-// Carga robusta compatible con GitHub Pages (con o sin barra final) + respaldo Raw GitHub
-async function cargarDatos() {
+// Carga robusta del catálogo
+function cargarCatalogo() {
+  let borrador = null;
   try {
-    const borrador = localStorage.getItem("catalogo_borrador_fotos");
-    if (borrador) {
-      const parsed = JSON.parse(borrador);
+    const raw = localStorage.getItem("catalogo_borrador_fotos");
+    if (raw && raw.trim() && raw !== "undefined" && raw !== "null") {
+      const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        iniciarCatalogo(parsed);
-        return;
+        borrador = parsed;
+      } else {
+        localStorage.removeItem("catalogo_borrador_fotos");
       }
     }
   } catch (e) {
-    localStorage.removeItem("catalogo_borrador_fotos");
+    console.warn("Borrador local inválido, se descartará:", e);
+    try { localStorage.removeItem("catalogo_borrador_fotos"); } catch (_) {}
+    borrador = null;
   }
 
-  const urls = [
-    'catalogo_clientes_sin_comision.json',
-    '/Catalogo_CyM/catalogo_clientes_sin_comision.json',
-    'https://raw.githubusercontent.com/juntosenlafe1999-collab/Catalogo_CyM/main/catalogo_clientes_sin_comision.json'
-  ];
-
-  let ultimoError = "";
-  for (const url of urls) {
-    try {
-      const r = await fetch(url, { cache: 'no-store' });
-      if (!r.ok) continue;
-      const texto = await r.text();
-      const data = JSON.parse(texto);
-      if (Array.isArray(data) && data.length > 0) {
-        iniciarCatalogo(data);
-        return;
+  fetch('./catalogo_clientes_sin_comision.json', { cache: 'no-store' })
+    .then(r => {
+      if (!r.ok) throw new Error("HTTP error " + r.status);
+      return r.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error("Formato de catálogo inválido o vacío");
       }
-    } catch (err) {
-      ultimoError = err.message;
-    }
-  }
+      // Si el editor tenía fotos guardadas en borrador local, las fotos del borrador tienen prioridad absoluta
+      if (borrador && borrador.length > 0) {
+        const mapaFotos = new Map();
+        borrador.forEach(p => {
+          if (p && p.sku && (p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length))) {
+            const galeria = Array.isArray(p.galeria_fotos) && p.galeria_fotos.length 
+              ? p.galeria_fotos 
+              : (p.imagen_principal ? [p.imagen_principal] : []);
+            mapaFotos.set(p.sku, {
+              imagen_principal: p.imagen_principal || galeria[0] || '',
+              galeria_fotos: galeria
+            });
+          }
+        });
+        if (mapaFotos.size > 0) {
+          data.forEach(p => {
+            const f = mapaFotos.get(p.sku);
+            if (f) {
+              const fotosBorrador = f.galeria_fotos || (f.imagen_principal ? [f.imagen_principal] : []);
+              const fotosJSON = (p.galeria_fotos && p.galeria_fotos.length) 
+                ? p.galeria_fotos 
+                : (p.imagen_principal ? [p.imagen_principal] : []);
 
-  document.getElementById('caja-archivo').style.display = 'block';
-  document.getElementById('contador').textContent = 'Revisar archivo JSON';
-  if (ultimoError) {
-    document.getElementById('detalle-error').innerHTML = `No se pudo leer automáticamente (<b>${esc(ultimoError)}</b>). Podés seleccionarlo manualmente abajo o verificar que el archivo en GitHub esté completo hasta el corchete final <b>]</b>.`;
-  }
+              if (fotosBorrador.length > 0) {
+                // Las fotos del borrador tienen prioridad: foto principal del borrador
+                p.imagen_principal = f.imagen_principal || fotosBorrador[0];
+
+                // Combinar sin duplicados manteniendo primero el orden del borrador
+                const setFotos = new Set();
+                const combinadas = [];
+
+                if (p.imagen_principal) {
+                  setFotos.add(p.imagen_principal);
+                  combinadas.push(p.imagen_principal);
+                }
+
+                fotosBorrador.forEach(url => {
+                  if (url && !setFotos.has(url)) {
+                    setFotos.add(url);
+                    combinadas.push(url);
+                  }
+                });
+
+                fotosJSON.forEach(url => {
+                  if (url && !setFotos.has(url)) {
+                    setFotos.add(url);
+                    combinadas.push(url);
+                  }
+                });
+
+                p.galeria_fotos = combinadas;
+              }
+            }
+          });
+        }
+      }
+      iniciarCatalogo(data);
+    })
+    .catch(err => {
+      console.warn("No se pudo cargar ./catalogo_clientes_sin_comision.json automáticamente:", err);
+      if (borrador && borrador.length > 0) {
+        iniciarCatalogo(borrador);
+      } else {
+        document.getElementById('caja-archivo').style.display = 'block';
+        document.getElementById('contador').textContent = 'Esperando archivo JSON...';
+      }
+    });
 }
 
 document.getElementById('input-json').addEventListener('change', function(e) {
@@ -280,11 +424,16 @@ document.getElementById('input-json').addEventListener('change', function(e) {
   reader.onload = function(ev) {
     try {
       const data = JSON.parse(ev.target.result);
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error("El archivo no contiene una lista válida de productos");
+      }
       document.getElementById('caja-archivo').style.display = 'none';
-      localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(data));
+      try {
+        localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(data));
+      } catch (_) {}
       iniciarCatalogo(data);
     } catch (err) {
-      alert("El archivo JSON está incompleto o tiene un error de formato: " + err.message);
+      alert("El archivo no es un JSON válido o está vacío.");
     }
   };
   reader.readAsText(file);
@@ -292,6 +441,14 @@ document.getElementById('input-json').addEventListener('change', function(e) {
 
 function iniciarCatalogo(data) {
   PRODUCTOS = data;
+  PRODUCTOS.forEach(p => {
+    if (p.imagen_principal && (!p.galeria_fotos || !p.galeria_fotos.length)) {
+      p.galeria_fotos = [p.imagen_principal];
+    } else if (p.galeria_fotos && p.galeria_fotos.length && !p.imagen_principal) {
+      p.imagen_principal = p.galeria_fotos[0];
+    }
+  });
+  document.getElementById('caja-archivo').style.display = 'none';
   actualizarStatsAdmin();
   renderCategorias();
   renderProductos();
@@ -299,43 +456,169 @@ function iniciarCatalogo(data) {
 
 function renderCategorias() {
   const conteo = {};
-  PRODUCTOS.forEach(p => { conteo[p.categoria] = (conteo[p.categoria] || 0) + 1; });
+  PRODUCTOS.forEach(p => {
+    if (p.categoria) conteo[p.categoria] = (conteo[p.categoria] || 0) + 1;
+  });
   const cats = ["TODAS", ...Object.keys(conteo)];
   
+  // Renderizar chips de categorías
   document.getElementById("categorias").innerHTML = cats.map(c => {
-    const label = c === "TODAS" ? `Todos (${PRODUCTOS.length})` : `${NOMBRES_CAT[c] \vert{}\vert{} c} (${conteo[c]})`;
-    return `<button class="chip ${c === categoriaActiva ? 'on' : ''}" data-cat="${esc(c)}">${esc(label)}</button>`;
+    const label = c === "TODAS" ? `Todos (${PRODUCTOS.length})` : `${NOMBRES_CAT[c] || c} (${conteo[c]})`;
+    return `<button class="chip ${c === categoriaActiva ? 'on' : ''}" type="button" data-categoria="${esc(c)}">${esc(label)}</button>`;
   }).join("");
+
+  // Sincronizar select dropdown para móviles y tablets
+  const selMob = document.getElementById("select-categoria-mobile");
+  if (selMob) {
+    selMob.innerHTML = cats.map(c => {
+      const label = c === "TODAS" ? `📂 Todas las categorías (${PRODUCTOS.length})` : `${NOMBRES_CAT[c] || c} (${conteo[c]})`;
+      return `<option value="${esc(c)}" ${c === categoriaActiva ? 'selected' : ''}>${esc(label)}</option>`;
+    }).join("");
+  }
+}
+
+function filtrarCat(c) {
+  categoriaActiva = c;
+  renderCategorias();
+  renderProductos();
+
+  // Desplazar suavemente el chip seleccionado al centro de la vista
+  setTimeout(() => {
+    const chipActivo = document.querySelector(`.chip[data-categoria="${esc(c)}"]`);
+    if (chipActivo) {
+      chipActivo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, 50);
+}
+
+function validarUrlFoto(url) {
+  const parecePaginaWeb = /\.(html?|php|asp)(\?|$)/i.test(url) || 
+                          url.includes('/laptop-specs/') || 
+                          url.includes('/item/') || 
+                          url.includes('/dp/') || 
+                          url.includes('/product/');
+                          
+  if (parecePaginaWeb && !/\.(jpe?g|png|webp|avif|gif)(\?|$)/i.test(url)) {
+    return confirm(
+      "⚠️ Atención: El enlace que pegaste parece ser de una PÁGINA WEB y no de un archivo de imagen (.jpg, .png, .webp, etc.).\n\n" +
+      "👉 Para obtener el enlace real de la foto:\n" +
+      "1. En Google Imágenes o en la web, hacé clic DERECHO sobre la FOTO.\n" +
+      "2. Seleccioná 'Copiar dirección de la imagen' (Copy image address).\n" +
+      "3. El enlace suele terminar en .jpg, .png o .webp.\n\n" +
+      "¿Deseás aplicar este enlace de todos modos?"
+    );
+  }
+  return true;
+}
+
+function agregarFotoGaleria(sku, modo) {
+  const input = document.getElementById(`in-foto-${sku}`);
+  if (!input) return;
+  const url = (input.value || "").trim();
+  if (!url) return alert("Pegá primero el enlace (URL) de la imagen.");
+  if (!validarUrlFoto(url)) return;
+
+  const base = PRODUCTOS.find(x => x.sku === sku);
+  if (!base) return;
+
+  if (!base.galeria_fotos) base.galeria_fotos = base.imagen_principal ? [base.imagen_principal] : [];
+
+  if (modo === 'agregar') {
+    if (!base.galeria_fotos.includes(url)) {
+      base.galeria_fotos.push(url);
+    }
+    if (!base.imagen_principal) base.imagen_principal = base.galeria_fotos[0];
+  } else if (modo === 'principal') {
+    base.galeria_fotos = [url, ...base.galeria_fotos.filter(u => u !== url)];
+    base.imagen_principal = url;
+  }
+
+  input.value = "";
+  guardarBorradorYActualizar(`¡Foto ${modo === 'principal' ? 'fijada como principal (1ra)' : 'agregada a la galería'}!`);
+}
+
+function eliminarFotoGaleria(sku, idx) {
+  const p = PRODUCTOS.find(x => x.sku === sku);
+  if (!p || !p.galeria_fotos) return;
+  p.galeria_fotos.splice(idx, 1);
+  p.imagen_principal = p.galeria_fotos[0] || '';
+  guardarBorradorYActualizar("Foto eliminada de la galería.");
+}
+
+function hacerFotoPrincipal(sku, idx) {
+  const p = PRODUCTOS.find(x => x.sku === sku);
+  if (!p || !p.galeria_fotos) return;
+  const [foto] = p.galeria_fotos.splice(idx, 1);
+  p.galeria_fotos.unshift(foto);
+  p.imagen_principal = p.galeria_fotos[0];
+  guardarBorradorYActualizar("⭐ Foto fijada como 1ra (principal para compartir).");
 }
 
 function asignarFoto(sku, modo) {
-  const input = document.getElementById(`in-foto-${sku}`);
-  const url = (input ? input.value : "").trim();
-  if (!url) return alert("Pegá primero el enlace (URL) de la imagen.");
-
-  const base = PRODUCTOS.find(x => String(x.sku) === String(sku));
+  const base = PRODUCTOS.find(x => x.sku === sku);
   if (!base) return;
+
+  const input = document.getElementById(`in-foto-${sku}`);
+  const url = (input && input.value ? input.value : "").trim();
 
   const colorBase = (base.atributos && base.atributos.COLOR) || "";
   let actualizados = 0;
 
-  PRODUCTOS.forEach(p => {
-    const mismoModelo = p.nombre === base.nombre && p.marca === base.marca;
-    const mismoColor = ((p.atributos && p.atributos.COLOR) || "") === colorBase;
+  if (url) {
+    if (!validarUrlFoto(url)) return;
 
-    if (String(p.sku) === String(sku) || (modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo)) {
-      p.imagen_principal = url;
-      if (!p.galeria_fotos || !p.galeria_fotos.includes(url)) {
-        p.galeria_fotos = [url, ...(p.galeria_fotos || [])];
+    PRODUCTOS.forEach(p => {
+      const mismoModelo = p.nombre === base.nombre && p.marca === base.marca;
+      const mismoColor = ((p.atributos && p.atributos.COLOR) || "") === colorBase;
+
+      if (p.sku === sku || (modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo)) {
+        p.imagen_principal = url;
+        if (!p.galeria_fotos) p.galeria_fotos = [];
+        p.galeria_fotos = [url, ...p.galeria_fotos.filter(u => u !== url)];
+        actualizados++;
       }
-      actualizados++;
-    }
-  });
+    });
 
-  localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(PRODUCTOS));
+    if (input) input.value = "";
+    guardarBorradorYActualizar(`¡Foto aplicada como principal a ${actualizados} producto(s)!`);
+  } else {
+    // Si el input está vacío, copiamos la galería completa y la foto principal que ya tiene el producto base
+    const fotosBase = (base.galeria_fotos && base.galeria_fotos.length) 
+      ? [...base.galeria_fotos] 
+      : (base.imagen_principal ? [base.imagen_principal] : []);
+
+    if (fotosBase.length === 0) {
+      return alert("Pegá un enlace de foto o agregá fotos a este producto primero para poder copiarlas.");
+    }
+
+    PRODUCTOS.forEach(p => {
+      const mismoModelo = p.nombre === base.nombre && p.marca === base.marca;
+      const mismoColor = ((p.atributos && p.atributos.COLOR) || "") === colorBase;
+
+      if (p.sku !== sku && ((modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo))) {
+        p.imagen_principal = base.imagen_principal || fotosBase[0];
+        p.galeria_fotos = [...fotosBase];
+        actualizados++;
+      }
+    });
+
+    if (actualizados === 0) {
+      mostrarAviso(modo === 'color' ? "No hay otras variantes con el mismo color." : "No hay otras variantes de este modelo.");
+    } else {
+      guardarBorradorYActualizar(`¡Galería completa (${fotosBase.length} foto${fotosBase.length > 1 ? 's' : ''}) copiada a ${actualizados} variante(s) hermana(s)!`);
+    }
+  }
+}
+
+function guardarBorradorYActualizar(mensaje) {
+  try {
+    localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(PRODUCTOS));
+  } catch (e) {
+    console.warn("No se pudo guardar borrador en localStorage:", e);
+  }
   actualizarStatsAdmin();
   renderProductos();
-  mostrarAviso(`¡Foto aplicada a ${actualizados} producto(s)!`);
+  if (mensaje) mostrarAviso(mensaje);
 }
 
 function descargarJSONActualizado() {
@@ -343,16 +626,257 @@ function descargarJSONActualizado() {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'catalogo_clientes_sin_comision.json';
+  document.body.appendChild(a);
   a.click();
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  }, 100);
+  mostrarAviso("💾 Descargando JSON actualizado. Reemplazá el archivo en tu carpeta.");
 }
 
+function limpiarBorradorLocal() {
+  if (confirm("¿Deseás descartar el borrador guardado en este navegador y recargar las fotos del archivo JSON?")) {
+    localStorage.removeItem("catalogo_borrador_fotos");
+    location.reload();
+  }
+}
+
+// Normaliza un producto proveniente de Go Partners (formato crudo o procesado) eliminando comisiones
+function normalizarProductoGoPartners(p) {
+  let nombre = (p.nombre || '').trim();
+  let nombreCompleto = (p.nombre_completo || p.nombre || '').trim();
+  let detallesVariante = (p.detalles_variante || '').trim();
+
+  // Si el nombre viene con variantes entre paréntesis (ej: "SAMSUNG A15 (4GB / 128GB / BLACK)")
+  if (nombre.includes('(')) {
+    const partes = nombre.split('(');
+    nombre = partes[0].trim();
+    if (!detallesVariante) {
+      const dentro = partes[1].replace(')', '').trim();
+      detallesVariante = dentro.split('/').map(s => s.trim()).join(' · ');
+    }
+  } else if (!nombreCompleto && detallesVariante) {
+    nombreCompleto = `${nombre} (${detallesVariante.replace(/ · /g, ' / ')})`;
+  }
+
+  const precioUsd = Number(p.precio_usd ?? p.precio ?? p.precio_regular) || 0;
+  const tasaCambio = Number(p.tasa_cambio) || 37;
+  const precioNio = Number(p.precio_nio) || Math.round(precioUsd * tasaCambio);
+
+  const mediosPago = Array.isArray(p.medios_pago) && p.medios_pago.length === 3 && p.precio_usd === precioUsd
+    ? p.medios_pago
+    : [
+        `Efectivo: $${precioUsd.toLocaleString('en-US')} (C$ ${precioNio.toLocaleString('en-US')})`,
+        `Transferencia bancaria: $${precioUsd.toLocaleString('en-US')} (C$ ${precioNio.toLocaleString('en-US')})`,
+        `Tarjeta de crédito / Credex: Consultar cuotas`
+      ];
+
+  let garantia = "12 meses de garantía en taller";
+  if (typeof p.garantia === 'string' && p.garantia.trim()) {
+    garantia = p.garantia.trim();
+  } else if (p.garantia_meses) {
+    garantia = `${p.garantia_meses} meses de garantía en taller`;
+  }
+
+  const disponible = Boolean(p.disponible);
+  const estadoStock = p.estado_stock || (disponible ? "Disponible para entrega" : "Bajo pedido");
+
+  // Atributos normalizados
+  let atributos = p.atributos && typeof p.atributos === 'object' ? { ...p.atributos } : null;
+  if (!atributos && detallesVariante) {
+    atributos = {};
+    detallesVariante.split('·').forEach(item => {
+      const t = item.trim();
+      if (/^\d+\s*GB$/i.test(t)) {
+        if (!atributos.RAM) atributos.RAM = t;
+        else if (!atributos.ROM) atributos.ROM = t;
+      } else if (t) {
+        atributos.COLOR = t;
+      }
+    });
+  }
+
+  // Extraer posibles fotos entrantes
+  let fotosEntrantes = [];
+  if (Array.isArray(p.galeria_fotos) && p.galeria_fotos.length) {
+    fotosEntrantes = p.galeria_fotos.filter(Boolean);
+  } else if (Array.isArray(p.fotos_reales) && p.fotos_reales.length) {
+    fotosEntrantes = p.fotos_reales.filter(Boolean);
+  } else if (Array.isArray(p.fotos) && p.fotos.length) {
+    fotosEntrantes = p.fotos.filter(Boolean);
+  } else if (p.imagen_principal) {
+    fotosEntrantes = [p.imagen_principal];
+  }
+
+  return {
+    sku: String(p.sku || '').trim(),
+    nombre: nombre,
+    nombre_completo: nombreCompleto || nombre,
+    marca: (p.marca || '').toUpperCase().trim(),
+    categoria: (p.categoria || 'VARIOS').toUpperCase().trim(),
+    detalles_variante: detallesVariante,
+    descripcion: p.descripcion || '',
+    atributos: atributos || {},
+    precio_usd: precioUsd,
+    precio_nio: precioNio,
+    medios_pago: mediosPago,
+    garantia: garantia,
+    disponible: disponible,
+    estado_stock: estadoStock,
+    imagen_principal: p.imagen_principal || (fotosEntrantes[0] || ''),
+    galeria_fotos: fotosEntrantes
+    // Cero rastro de comisiones
+  };
+}
+
+// Fusionador y Traductor Inteligente: actualiza precios y stock protegiendo fotos y atributos
+function fusionarCatalogoGoPartners(nuevosRaw) {
+  let listaEntrante = [];
+  if (Array.isArray(nuevosRaw)) {
+    listaEntrante = nuevosRaw;
+  } else if (nuevosRaw && Array.isArray(nuevosRaw.productos)) {
+    listaEntrante = nuevosRaw.productos;
+  } else if (nuevosRaw && typeof nuevosRaw === 'object') {
+    const keys = Object.keys(nuevosRaw);
+    if (keys.length > 0 && Array.isArray(nuevosRaw[keys[0]])) {
+      listaEntrante = nuevosRaw[keys[0]];
+    }
+  }
+
+  if (!listaEntrante || !listaEntrante.length) {
+    throw new Error("El archivo no contiene un catálogo o lista de productos válida.");
+  }
+
+  // Indexar catálogo actual por SKU y por clave NOMBRE_COLOR
+  const mapaPorSku = new Map();
+  const mapaPorNombreColor = new Map();
+
+  PRODUCTOS.forEach(p => {
+    if (p && p.sku) {
+      mapaPorSku.set(String(p.sku).trim(), p);
+      const color = ((p.atributos && p.atributos.COLOR) || '').trim().toUpperCase();
+      const claveNC = `${(p.nombre || '').trim().toUpperCase()}_${color}`;
+      if (!mapaPorNombreColor.has(claveNC) && (p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length))) {
+        mapaPorNombreColor.set(claveNC, p);
+      }
+    }
+  });
+
+  let preciosOStockActualizados = 0;
+  let productosNuevosAgregados = 0;
+  let fotosHeredadas = 0;
+
+  const catalogoFusionado = [];
+  const skusProcesados = new Set();
+
+  listaEntrante.forEach(rawItem => {
+    const item = normalizarProductoGoPartners(rawItem);
+    if (!item.sku) return;
+    skusProcesados.add(item.sku);
+
+    const actual = mapaPorSku.get(item.sku);
+
+    if (actual) {
+      // 1. Conservar intactas las fotos que el usuario ya eligió y ordenó
+      item.imagen_principal = actual.imagen_principal || item.imagen_principal || '';
+      
+      const fotosActuales = (actual.galeria_fotos && actual.galeria_fotos.length)
+        ? [...actual.galeria_fotos]
+        : (actual.imagen_principal ? [actual.imagen_principal] : []);
+
+      const setFotos = new Set(fotosActuales);
+      // Si el nuevo JSON de Go Partners trae fotos nuevas, agregarlas al final sin alterar la principal
+      item.galeria_fotos.forEach(f => {
+        if (f && !setFotos.has(f)) {
+          setFotos.add(f);
+          fotosActuales.push(f);
+        }
+      });
+      item.galeria_fotos = fotosActuales;
+      if (!item.imagen_principal && item.galeria_fotos.length) {
+        item.imagen_principal = item.galeria_fotos[0];
+      }
+
+      // 2. Conservar atributos o descripción si el nuevo viene incompleto
+      if ((!item.atributos || Object.keys(item.atributos).length === 0) && actual.atributos) {
+        item.atributos = actual.atributos;
+      }
+      if (!item.descripcion && actual.descripcion) {
+        item.descripcion = actual.descripcion;
+      }
+
+      // 3. Contabilizar cambios en precios o stock
+      if (item.precio_usd !== actual.precio_usd || item.disponible !== actual.disponible) {
+        preciosOStockActualizados++;
+      }
+
+      catalogoFusionado.push(item);
+    } else {
+      // Es un producto nuevo
+      productosNuevosAgregados++;
+      const color = ((item.atributos && item.atributos.COLOR) || '').trim().toUpperCase();
+      const claveNC = `${(item.nombre || '').trim().toUpperCase()}_${color}`;
+      const hermanoConFoto = mapaPorNombreColor.get(claveNC);
+
+      // Si existe un hermano de mismo modelo y color con foto, heredarla automáticamente
+      if (hermanoConFoto && (!item.galeria_fotos || !item.galeria_fotos.length)) {
+        item.imagen_principal = hermanoConFoto.imagen_principal;
+        item.galeria_fotos = [...(hermanoConFoto.galeria_fotos || (hermanoConFoto.imagen_principal ? [hermanoConFoto.imagen_principal] : []))];
+        fotosHeredadas++;
+      }
+
+      catalogoFusionado.push(item);
+    }
+  });
+
+  // Conservar productos previos que no venían en este feed (marcándolos bajo pedido para no perder nada)
+  PRODUCTOS.forEach(p => {
+    if (p && p.sku && !skusProcesados.has(String(p.sku).trim())) {
+      p.disponible = false;
+      p.estado_stock = "Bajo pedido";
+      catalogoFusionado.push(p);
+    }
+  });
+
+  // Normalizar sincronización imagen_principal y galeria_fotos
+  catalogoFusionado.forEach(p => {
+    if (p.imagen_principal && (!p.galeria_fotos || !p.galeria_fotos.length)) {
+      p.galeria_fotos = [p.imagen_principal];
+    } else if (p.galeria_fotos && p.galeria_fotos.length && !p.imagen_principal) {
+      p.imagen_principal = p.galeria_fotos[0];
+    }
+  });
+
+  PRODUCTOS = catalogoFusionado;
+
+  try {
+    localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(PRODUCTOS));
+  } catch (e) {
+    console.warn("No se pudo guardar borrador en localStorage:", e);
+  }
+
+  actualizarStatsAdmin();
+  renderCategorias();
+  renderProductos();
+
+  const msg = `¡Catálogo actualizado! ${preciosOStockActualizados} precios/stock al día, ${productosNuevosAgregados} nuevos${fotosHeredadas ? ` (${fotosHeredadas} fotos heredadas)` : ''} y todas tus fotos intactas.`;
+  mostrarAviso(msg);
+
+  // Disparar descarga automática del JSON actualizado
+  setTimeout(() => {
+    descargarJSONActualizado();
+  }, 400);
+}
+
+// Arma la ficha comercial en el formato exacto para pie de foto / comentario
 function armarTextoCompartir(p) {
   const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}:${v}`).join(' · ') : '';
   const specs = p.descripcion || atr || p.detalles_variante || 'Equipo original garantizado';
-  const urlFoto = (p.galeria_fotos && p.galeria_fotos[0]) || p.imagen_principal || '';
+  const nombreProd = p.nombre_completo || p.nombre;
 
-  let lineas = [
-    `✨ *${p.nombre_completo}* ✨`,
+  return [
+    `✨ *${nombreProd}* ✨`,
     `🏷️ Marca: ${p.marca}`,
     `📋 Especificaciones: ${specs}`,
     ``,
@@ -363,89 +887,149 @@ function armarTextoCompartir(p) {
     `🛡️ *Garantía:* ${p.garantia}`,
     `📦 *Estado:* ${p.estado_stock}`,
     ``,
-    `📲 *Pedilo por WhatsApp al +505 8501 3284:*`,
-    `https://wa.me/${MI_WHATSAPP}?text=${encodeURIComponent(`Hola, me interesa el ${p.nombre_completo} de $${p.precio_usd}`)}`
-  ];
-
-  if (urlFoto) {
-    lineas.push(``, `🖼️ Foto del equipo: ${urlFoto}`);
-  }
-  return lineas.join('\n');
+    `📲 *Pedilo por WhatsApp al +505 8501 3284*`
+  ].join('\n');
 }
 
+// Genera o descarga el archivo de imagen del producto (o tarjeta visual HD si no hay foto)
 async function obtenerArchivoImagen(p) {
-  const urlFoto = (p.galeria_fotos && p.galeria_fotos[0]) || p.imagen_principal || '';
+  const urlFoto = (p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos[0] : '') || p.imagen_principal || '';
   
   if (urlFoto) {
+    // 1. Intento con fetch directo (para fotos locales, data URLs o servidores con CORS)
     try {
       const resp = await fetch(urlFoto, { mode: 'cors' });
       if (resp.ok) {
         const blob = await resp.blob();
-        const ext = blob.type.includes('png') ? 'png' : blob.type.includes('webp') ? 'webp' : 'jpg';
-        return new File([blob], `${p.sku}.${ext}`, { type: blob.type || 'image/jpeg' });
+        if (blob.type.startsWith('image/')) {
+          const ext = blob.type.includes('png') ? 'png' : blob.type.includes('webp') ? 'webp' : 'jpg';
+          return new File([blob], `${p.sku || 'producto'}.${ext}`, { type: blob.type || 'image/jpeg' });
+        }
       }
-    } catch (e) {}
+    } catch (e) {
+      // Si fetch directo falla por CORS del hosting externo, probamos con el proxy
+    }
+
+    // 2. Intento mediante proxy CORS gratuito de imágenes (images.weserv.nl)
+    try {
+      const proxyUrl = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}`;
+      const respProxy = await fetch(proxyUrl);
+      if (respProxy.ok) {
+        const blob = await respProxy.blob();
+        if (blob.type.startsWith('image/')) {
+          const ext = blob.type.includes('png') ? 'png' : blob.type.includes('webp') ? 'webp' : 'jpg';
+          return new File([blob], `${p.sku || 'producto'}.${ext}`, { type: blob.type || 'image/jpeg' });
+        }
+      }
+    } catch (eProxy) {
+      // Si el fetch del proxy falla, intentamos mediante Image + Canvas
+    }
+
+    // 3. Intento mediante Image y Canvas cargando a través del proxy CORS
+    try {
+      const imgBlob = await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          try {
+            const c = document.createElement('canvas');
+            c.width = img.naturalWidth || 800;
+            c.height = img.naturalHeight || 800;
+            const ctx = c.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            c.toBlob(b => {
+              if (b) resolve(b);
+              else reject(new Error('Canvas blob failed'));
+            }, 'image/jpeg', 0.92);
+          } catch (err) {
+            reject(err);
+          }
+        };
+        img.onerror = () => reject(new Error('Image load failed'));
+        img.src = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}`;
+      });
+      if (imgBlob) {
+        return new File([imgBlob], `${p.sku || 'producto'}.jpg`, { type: 'image/jpeg' });
+      }
+    } catch (e2) {
+      // Fallback a tarjeta gráfica HD solo si fallaron todos los métodos anteriores
+    }
   }
 
+  // Creador automático de tarjeta gráfica HD del producto (1080x1080)
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = 1080;
   const ctx = canvas.getContext('2d');
 
+  // Fondo elegante oscuro
   const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
   grad.addColorStop(0, '#0f101a');
   grad.addColorStop(1, '#1b1e36');
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 1080, 1080);
 
+  // Marco dorado sutil
   ctx.strokeStyle = '#e8bc70';
   ctx.lineWidth = 6;
   ctx.strokeRect(40, 40, 1000, 1000);
 
+  // Encabezado marca comercial
   ctx.fillStyle = '#e8bc70';
-  ctx.font = 'bold 34px sans-serif';
-  ctx.fillText(`${p.marca} · ${p.categoria}`, 90, 140);
+  ctx.font = 'bold 34px Inter, sans-serif';
+  ctx.fillText('MULTISERVICIOS CyM', 90, 120);
 
+  ctx.fillStyle = '#9a9cb5';
+  ctx.font = 'bold 26px Inter, sans-serif';
+  ctx.fillText(`${p.marca} · ${NOMBRES_CAT[p.categoria] || p.categoria}`, 90, 168);
+
+  // Nombre del Producto
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 52px sans-serif';
-  const palabras = String(p.nombre || '').split(' ');
-  let linea = '', y = 240;
+  ctx.font = 'bold 50px Inter, sans-serif';
+  const nombreTexto = p.nombre || p.nombre_completo;
+  const palabras = (nombreTexto || '').split(' ');
+  let linea = '', y = 250;
   for (let w of palabras) {
-    if ((linea + w).length > 24) {
-      ctx.fillText(linea, 90, y);
+    if ((linea + w).length > 25) {
+      ctx.fillText(linea.trim(), 90, y);
       linea = w + ' ';
-      y += 66;
+      y += 64;
     } else {
       linea += w + ' ';
     }
   }
-  ctx.fillText(linea, 90, y);
+  if (linea.trim()) {
+    ctx.fillText(linea.trim(), 90, y);
+  }
 
+  // Variante / Especificaciones
   const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
   const sub = p.detalles_variante || atr || '';
   if (sub) {
     ctx.fillStyle = '#9a9cb5';
-    ctx.font = '34px sans-serif';
-    ctx.fillText(sub.slice(0, 48), 90, y + 70);
+    ctx.font = '32px Inter, sans-serif';
+    ctx.fillText(sub.slice(0, 52), 90, y + 65);
   }
 
+  // Caja de Precio
   ctx.fillStyle = 'rgba(232, 188, 112, 0.12)';
   ctx.fillRect(90, 520, 900, 220);
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 90px sans-serif';
+  ctx.font = 'bold 92px Inter, sans-serif';
   ctx.fillText(`$${Number(p.precio_usd).toLocaleString('en-US')}`, 130, 640);
 
   ctx.fillStyle = '#e8bc70';
-  ctx.font = 'bold 40px sans-serif';
+  ctx.font = 'bold 42px Inter, sans-serif';
   ctx.fillText(`C$ ${Number(p.precio_nio).toLocaleString('en-US')} · Efectivo / Transf.`, 130, 705);
 
+  // Garantía y Contacto
   ctx.fillStyle = '#f2f2f8';
-  ctx.font = '32px sans-serif';
+  ctx.font = '30px Inter, sans-serif';
   ctx.fillText(`🛡️ ${p.garantia}   |   💳 Tarjetas y Credex disponible`, 90, 840);
 
   ctx.fillStyle = '#25D366';
-  ctx.font = 'bold 40px sans-serif';
-  ctx.fillText(`📲 Pedidos por WhatsApp: +505 8501 3284`, 90, 940);
+  ctx.font = 'bold 38px Inter, sans-serif';
+  ctx.fillText(`📲 Pedidos por WhatsApp: +505 8501 3284`, 90, 930);
 
   return new Promise(resolve => {
     canvas.toBlob(blob => {
@@ -454,8 +1038,9 @@ async function obtenerArchivoImagen(p) {
   });
 }
 
+// Función principal para compartir: la foto primero y la ficha como comentario (caption)
 async function compartirProducto(sku, btn) {
-  const p = PRODUCTOS.find(x => String(x.sku) === String(sku));
+  const p = PRODUCTOS.find(x => x.sku === sku);
   if (!p) return;
 
   const textoOriginal = btn.innerHTML;
@@ -467,20 +1052,10 @@ async function compartirProducto(sku, btn) {
   try {
     const archivoImagen = await obtenerArchivoImagen(p);
 
+    // 1. Móviles (Android / iOS): envía archivo + texto (sin 'title') para que WhatsApp coloque la foto primero y la información como comentario
     if (navigator.canShare && archivoImagen && navigator.canShare({ files: [archivoImagen] })) {
       await navigator.share({
-        title: p.nombre_completo,
-        text: textoFicha,
-        files: [archivoImagen]
-      });
-      btn.innerHTML = textoOriginal;
-      btn.disabled = false;
-      return;
-    }
-
-    if (navigator.share) {
-      await navigator.share({
-        title: p.nombre_completo,
+        files: [archivoImagen],
         text: textoFicha
       });
       btn.innerHTML = textoOriginal;
@@ -488,6 +1063,17 @@ async function compartirProducto(sku, btn) {
       return;
     }
 
+    // 2. Si el navegador solo soporta texto
+    if (navigator.share) {
+      await navigator.share({
+        text: textoFicha
+      });
+      btn.innerHTML = textoOriginal;
+      btn.disabled = false;
+      return;
+    }
+
+    // 3. En PC de escritorio: copia la ficha al portapapeles, descarga la foto y abre WhatsApp
     if (navigator.clipboard) {
       await navigator.clipboard.writeText(textoFicha);
     }
@@ -495,14 +1081,21 @@ async function compartirProducto(sku, btn) {
       const a = document.createElement('a');
       a.href = URL.createObjectURL(archivoImagen);
       a.download = archivoImagen.name;
+      document.body.appendChild(a);
       a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+      }, 200);
     }
-    mostrarAviso("📋 Ficha copiada y foto descargada. Abriendo WhatsApp...");
+    mostrarAviso("📷 Foto descargada y texto copiado. ¡Arrastrá la foto a WhatsApp y pegá el comentario!");
     setTimeout(() => {
-      window.open(`https://wa.me/?text=${encodeURIComponent(textoFicha)}`, '_blank');
+      window.open('https://web.whatsapp.com/', '_blank');
     }, 600);
 
-  } catch (err) {}
+  } catch (err) {
+    console.log("Compartir cancelado o finalizado:", err);
+  }
 
   btn.innerHTML = textoOriginal;
   btn.disabled = false;
@@ -516,47 +1109,68 @@ function renderProductos() {
     const pasaCat = categoriaActiva === "TODAS" || p.categoria === categoriaActiva;
     const tieneFoto = Boolean(p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length));
     if (soloSinFoto && tieneFoto) return false;
-    const texto = `${p.nombre_completo || ''} ${p.marca || ''} ${p.categoria || ''} ${p.descripcion || ''}`.toLowerCase();
-    const pasaTexto = !q || q.split(" ").every(palabra => texto.includes(palabra));
+    const texto = `${p.nombre_completo || ''} ${p.nombre || ''} ${p.marca || ''} ${p.categoria || ''} ${p.descripcion || ''}`.toLowerCase();
+    const pasaTexto = !q || q.split(" ").filter(Boolean).every(palabra => texto.includes(palabra));
     return pasaCat && pasaTexto;
   });
 
-  if (orden === "menor") filtrados.sort((a, b) => Number(a.precio_usd) - Number(b.precio_usd));
-  else if (orden === "mayor") filtrados.sort((a, b) => Number(b.precio_usd) - Number(a.precio_usd));
+  if (orden === "menor") filtrados.sort((a, b) => a.precio_usd - b.precio_usd);
+  else if (orden === "mayor") filtrados.sort((a, b) => b.precio_usd - a.precio_usd);
 
   document.getElementById("contador").textContent = `${filtrados.length} productos disponibles`;
 
   const html = filtrados.map(p => {
-    const skuSafe = esc(p.sku);
     const icono = ICONOS_CAT[p.categoria] || "📦";
     const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
     const tieneFotos = fotos.length > 0;
-    const msj = encodeURIComponent(`Hola, vi en el catálogo el *${p.nombre_completo}* (SKU: ${p.sku}) a *$${p.precio_usd}* (C$ ${Number(p.precio_nio).toLocaleString('en-US')}). ¿Me brindás más información?`);
+    const msj = encodeURIComponent(`Hola, vi en el catálogo de Multiservicios CyM el *${p.nombre_completo || p.nombre}* (SKU: ${p.sku}) a *$${p.precio_usd}* (C$ ${Number(p.precio_nio).toLocaleString('en-US')}). ¿Me brindás más información?`);
 
     const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
     const extraInfo = p.descripcion || atr;
 
     const color = (p.atributos && p.atributos.COLOR) || p.detalles_variante || '';
-    const queryGoogle = encodeURIComponent(`${p.nombre} ${color} official product png`);
+    const queryGoogle = encodeURIComponent(`${p.nombre || ''} ${color} official product png`);
 
     return `
       <div class="card">
         <div class="foto-box ${tieneFotos ? '' : 'sin-foto'}">
           <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
           ${tieneFotos 
-            ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" data-ver-sku="${skuSafe}">`
-            : `<span class="icono-cat">${icono}</span>`
+            ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" class="img-preview" data-accion="galeria" data-sku="${esc(p.sku)}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box').classList.add('sin-foto');">
+               <span class="icono-cat" style="display:none">${esc(icono)}</span>`
+            : `<span class="icono-cat">${esc(icono)}</span>`
           }
-          ${fotos.length > 1 ? `<button class="btn-galeria" type="button" data-ver-sku="${skuSafe}">📷 Ver ${fotos.length} fotos</button>` : ''}
+          ${fotos.length > 1 ? `<button class="btn-galeria" type="button" data-accion="galeria" data-sku="${esc(p.sku)}">📷 Ver ${fotos.length} fotos</button>` : ''}
         </div>
 
         <div class="editor-foto">
-          <input type="url" id="in-foto-${skuSafe}" class="editor-input" placeholder="Pegá aquí el link de la foto..." value="${esc(p.imagen_principal || '')}">
-          <div class="editor-botones">
-            <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener">🔍 Buscar foto</a>
-            <button class="btn-ed color" type="button" data-asig-sku="${skuSafe}" data-modo="color">Aplicar a color</button>
-            <button class="btn-ed modelo" type="button" data-asig-sku="${skuSafe}" data-modo="modelo">Todo el modelo</button>
+          <div class="editor-input-group">
+            <input type="url" id="in-foto-${esc(p.sku)}" class="editor-input" placeholder="Pegá link de foto (.jpg, .png, etc.)...">
+            <button class="btn-ed add" type="button" data-accion="foto-agregar" data-sku="${esc(p.sku)}" title="Agregar esta foto a la galería del producto">➕ Agregar</button>
+            <button class="btn-ed principal" type="button" data-accion="foto-principal" data-sku="${esc(p.sku)}" title="Fijar como 1ra foto principal (se envía al compartir)">⭐ Como 1ra</button>
           </div>
+          <div class="editor-botones">
+            <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener">🔍 Buscar en Google</a>
+            <button class="btn-ed color" type="button" data-accion="foto-color" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las memorias de este mismo modelo y color">🎨 Todo el color</button>
+            <button class="btn-ed modelo" type="button" data-accion="foto-modelo" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las variantes de ${esc(p.nombre)}">📦 Todo el modelo</button>
+          </div>
+          ${fotos.length > 0 ? `
+            <div class="editor-galeria-preview">
+              <span class="editor-galeria-titulo">Fotos guardadas (${fotos.length}):</span>
+              <div class="editor-thumbs">
+                ${fotos.map((f, idx) => `
+                  <div class="editor-thumb-box ${idx === 0 ? 'es-principal' : ''}">
+                    <img src="${esc(f)}" alt="Foto ${idx + 1}" onerror="this.src='';">
+                    ${idx === 0 
+                      ? `<span class="thumb-badge">1ra (Se comparte)</span>` 
+                      : `<button type="button" class="btn-thumb-star" data-accion="foto-hacer-principal" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Mover a 1ra posición (principal)">⭐</button>`
+                    }
+                    <button type="button" class="btn-thumb-del" data-accion="foto-eliminar" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Eliminar foto">✕</button>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
         </div>
 
         <div class="cuerpo">
@@ -578,7 +1192,7 @@ function renderProductos() {
           <div class="garantia">🛡️ ${esc(p.garantia)}</div>
           <div class="acciones-card">
             <a class="btn-wa" href="https://wa.me/${MI_WHATSAPP}?text=${msj}" target="_blank" rel="noopener">💬 Pedir info</a>
-            <button class="btn-share" type="button" data-share-sku="${skuSafe}">📲 Compartir</button>
+            <button class="btn-share" type="button" data-accion="compartir" data-sku="${esc(p.sku)}">📲 Compartir</button>
           </div>
         </div>
       </div>
@@ -588,39 +1202,8 @@ function renderProductos() {
   document.getElementById("contenedor-productos").innerHTML = html;
 }
 
-// Delegación de eventos segura (evita errores de comillas en onclick)
-document.addEventListener("click", function(e) {
-  const chip = e.target.closest("[data-cat]");
-  if (chip) {
-    categoriaActiva = chip.getAttribute("data-cat");
-    renderCategorias();
-    renderProductos();
-    return;
-  }
-
-  const verSku = e.target.closest("[data-ver-sku]");
-  if (verSku) {
-    const p = PRODUCTOS.find(x => String(x.sku) === String(verSku.getAttribute("data-ver-sku")));
-    if (p) {
-      const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
-      if (fotos.length) abrirGaleria(fotos);
-    }
-    return;
-  }
-
-  const asig = e.target.closest("[data-asig-sku]");
-  if (asig) {
-    asignarFoto(asig.getAttribute("data-asig-sku"), asig.getAttribute("data-modo"));
-    return;
-  }
-
-  const share = e.target.closest("[data-share-sku]");
-  if (share) {
-    compartirProducto(share.getAttribute("data-share-sku"), share);
-  }
-});
-
 function abrirGaleria(fotos) {
+  if (!fotos || !fotos.length) return;
   galeriaActual = fotos;
   fotoIndice = 0;
   actualizarModal();
@@ -638,14 +1221,173 @@ function cambiarFoto(dir) {
 }
 
 function actualizarModal() {
-  document.getElementById("modal-img").src = galeriaActual[fotoIndice];
+  const modalImg = document.getElementById("modal-img");
+  modalImg.src = galeriaActual[fotoIndice] || "";
   document.getElementById("modal-indice").textContent = `${fotoIndice + 1} / ${galeriaActual.length}`;
 }
 
+// Delegación de eventos en contenedor de productos (evita inline handlers con JSON)
+document.getElementById("contenedor-productos").addEventListener("click", function(e) {
+  const accionEl = e.target.closest("[data-accion]");
+  if (accionEl) {
+    const accion = accionEl.getAttribute("data-accion");
+    const sku = accionEl.getAttribute("data-sku");
+    if (!sku) return;
+
+    if (accion === "compartir") {
+      compartirProducto(sku, accionEl);
+      return;
+    }
+    if (accion === "foto-agregar") {
+      agregarFotoGaleria(sku, "agregar");
+      return;
+    }
+    if (accion === "foto-principal") {
+      agregarFotoGaleria(sku, "principal");
+      return;
+    }
+    if (accion === "foto-hacer-principal") {
+      const idx = parseInt(accionEl.getAttribute("data-idx"), 10);
+      if (!isNaN(idx)) hacerFotoPrincipal(sku, idx);
+      return;
+    }
+    if (accion === "foto-eliminar") {
+      const idx = parseInt(accionEl.getAttribute("data-idx"), 10);
+      if (!isNaN(idx)) eliminarFotoGaleria(sku, idx);
+      return;
+    }
+    if (accion === "foto-color") {
+      asignarFoto(sku, "color");
+      return;
+    }
+    if (accion === "foto-modelo") {
+      asignarFoto(sku, "modelo");
+      return;
+    }
+    if (accion === "galeria") {
+      const p = PRODUCTOS.find(x => x.sku === sku);
+      if (p) {
+        const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
+        if (fotos.length) abrirGaleria(fotos);
+      }
+      return;
+    }
+  }
+
+  const imgPreview = e.target.closest("img.img-preview");
+  if (imgPreview) {
+    const sku = imgPreview.getAttribute("data-sku");
+    const p = PRODUCTOS.find(x => x.sku === sku);
+    if (p) {
+      const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
+      if (fotos.length) abrirGaleria(fotos);
+    }
+  }
+});
+
+// Soporte para presionar 'Enter' al pegar el enlace en el editor
+document.getElementById("contenedor-productos").addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && e.target.classList.contains("editor-input")) {
+    e.preventDefault();
+    const id = e.target.id || "";
+    const sku = id.replace("in-foto-", "");
+    if (sku) agregarFotoGaleria(sku, "agregar");
+  }
+});
+
+// Delegación de eventos en chips de categoría
+document.getElementById("categorias").addEventListener("click", function(e) {
+  const chip = e.target.closest("[data-categoria]");
+  if (chip) {
+    filtrarCat(chip.getAttribute("data-categoria"));
+  }
+});
+
+// Selector de categorías desplegable para smartphones
+const selectCatMob = document.getElementById("select-categoria-mobile");
+if (selectCatMob) {
+  selectCatMob.addEventListener("change", function() {
+    filtrarCat(this.value);
+  });
+}
+
+// Botones de desplazamiento horizontal para chips de categorías
+const btnScrollLeft = document.getElementById("btn-scroll-cat-left");
+if (btnScrollLeft) {
+  btnScrollLeft.addEventListener("click", () => {
+    document.getElementById("categorias").scrollBy({ left: -220, behavior: 'smooth' });
+  });
+}
+const btnScrollRight = document.getElementById("btn-scroll-cat-right");
+if (btnScrollRight) {
+  btnScrollRight.addEventListener("click", () => {
+    document.getElementById("categorias").scrollBy({ left: 220, behavior: 'smooth' });
+  });
+}
+
+// Botones barra admin
+const btnSinFoto = document.getElementById("btn-admin-sin-foto");
+if (btnSinFoto) btnSinFoto.addEventListener("click", filtrarSinFoto);
+
+const inputActualizarGP = document.getElementById("input-actualizar-gp");
+if (inputActualizarGP) {
+  inputActualizarGP.addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        const raw = JSON.parse(ev.target.result);
+        fusionarCatalogoGoPartners(raw);
+      } catch (err) {
+        alert("Error al procesar el archivo de Go Partners: " + err.message);
+      } finally {
+        e.target.value = "";
+      }
+    };
+    reader.readAsText(file);
+  });
+}
+
+const btnDescargar = document.getElementById("btn-admin-descargar");
+if (btnDescargar) btnDescargar.addEventListener("click", descargarJSONActualizado);
+
+const btnLimpiar = document.getElementById("btn-admin-limpiar");
+if (btnLimpiar) btnLimpiar.addEventListener("click", limpiarBorradorLocal);
+
+const btnSalir = document.getElementById("btn-admin-salir");
+if (btnSalir) btnSalir.addEventListener("click", toggleAdmin);
+
+// Botones modal
+document.getElementById("btn-modal-cerrar").addEventListener("click", cerrarGaleria);
+document.getElementById("btn-modal-ant").addEventListener("click", () => cambiarFoto(-1));
+document.getElementById("btn-modal-sig").addEventListener("click", () => cambiarFoto(1));
+document.getElementById("modal-fotos").addEventListener("click", function(e) {
+  if (e.target === this) cerrarGaleria();
+});
+
+document.addEventListener("keydown", function(e) {
+  const modal = document.getElementById("modal-fotos");
+  if (modal && modal.classList.contains("abierto")) {
+    if (e.key === "Escape") cerrarGaleria();
+    else if (e.key === "ArrowLeft") cambiarFoto(-1);
+    else if (e.key === "ArrowRight") cambiarFoto(1);
+  }
+});
+
+// Doble clic en título o logo para abrir Modo Editor
+const tituloCat = document.getElementById("titulo-catalogo");
+if (tituloCat) tituloCat.addEventListener("dblclick", toggleAdmin);
+
+const logoPrincipal = document.querySelector(".header-logo");
+if (logoPrincipal) logoPrincipal.addEventListener("dblclick", toggleAdmin);
+
+// Buscador y ordenamiento
 document.getElementById("buscador").addEventListener("input", renderProductos);
 document.getElementById("ordenar").addEventListener("change", renderProductos);
 
-cargarDatos();
+// Iniciar carga del catálogo
+cargarCatalogo();
 </script>
 </body>
 </html>

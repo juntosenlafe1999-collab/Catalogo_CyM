@@ -22,8 +22,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://laptopmedia.com/wp-content/uploads/2025/01/acer-aspire-go-15-ag15-51p-non-fingerprint-non-backlit-wp-logo-steel-gray-01-custom-scaled-e1736846619678.jpg",
+    "galeria_fotos": [
+      "https://laptopmedia.com/wp-content/uploads/2025/01/acer-aspire-go-15-ag15-51p-non-fingerprint-non-backlit-wp-logo-steel-gray-01-custom-scaled-e1736846619678.jpg"
+    ]
   },
   {
     "sku": "7022250515",
