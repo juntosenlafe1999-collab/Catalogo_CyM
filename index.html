@@ -73,7 +73,7 @@
 
     /* Grilla de productos */
     .grid { max-width: 1200px; margin: 24px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; width: 100%; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; width: 100%; min-width: 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; width: 100%; min-width: 0; content-visibility: auto; contain-intrinsic-size: 320px 480px; }
     .card:hover { transform: translateY(-3px); border-color: rgba(232, 188, 112, 0.35); }
     
     .foto-box { height: 220px; background: #ffffff; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 12px; }
@@ -96,8 +96,8 @@
     .btn-ed.add { background: var(--ok); color: #082115; font-weight: 800; }
     .btn-ed.principal { background: #f59e0b; color: #1a1306; font-weight: 800; }
     .btn-ed.buscar { background: rgba(255,255,255,0.1); color: var(--text); }
-    .btn-ed.buscar-hifi { background: #dc2626; color: #ffffff; font-weight: 800; }
-    .btn-ed.buscar-gomibo { background: #0284c7; color: #ffffff; font-weight: 800; }
+    .btn-ed.buscar-oficial { background: #2563eb; color: #ffffff; font-weight: 800; }
+    .btn-ed.buscar-oficial:hover { background: #1d4ed8; }
     .btn-ed.color { background: var(--accent); color: #14152a; }
     .btn-ed.modelo { background: #3b82f6; color: #fff; }
 
@@ -1165,6 +1165,48 @@ let cantidadRenderizada = 0;
 const TAMANO_LOTE = 24;
 let observerScroll = null;
 
+function obtenerUrlWebOficial(p) {
+  const marca = (p.marca || '').toUpperCase().trim();
+  const nombre = (p.nombre || '').replace(/["']/g, '');
+  const color = (p.atributos && p.atributos.COLOR) || '';
+  
+  const dominios = {
+    'APPLE': 'apple.com',
+    'IPHONE': 'apple.com',
+    'SAMSUNG': 'samsung.com',
+    'HONOR': 'hihonor.com',
+    'XIAOMI': (nombre.toUpperCase().includes('POCO') ? 'po.co' : 'mi.com'),
+    'INFINIX': 'infinixmobility.com',
+    'CUBITT': 'cubitt.com',
+    'JBL': 'jbl.com',
+    'BLACKVIEW': 'blackview.hk',
+    'OSTER': 'osterlatino.com',
+    'TECNO': 'tecno-mobile.com',
+    'ITEL': 'itel-life.com',
+    'REALME': 'realme.com',
+    'VIVO': 'vivo.com',
+    'SONY': 'sony.com',
+    'BLACK SHARK': 'blackshark.com',
+    'NINTENDO': 'nintendo.com',
+    'MOTOROLA': 'motorola.com',
+    'DJI': 'dji.com',
+    'ANKER': 'anker.com',
+    'SOUNDCORE': 'soundcore.com',
+    'DELL': 'dell.com',
+    'HP': 'hp.com',
+    'ACER': 'acer.com',
+    'MSI': 'msi.com',
+    'RAZER': 'razer.com',
+    'PIXEL': 'store.google.com',
+    'LG': 'lg.com',
+    'HISENSE': 'hisense.com'
+  };
+
+  const dominio = dominios[marca] || `${marca.toLowerCase().replace(/[^a-z0-9]/g, '')}.com`;
+  const cleanQ = `site:${dominio} ${nombre} ${color}`.trim();
+  return `https://www.google.com/search?q=${encodeURIComponent(cleanQ)}`;
+}
+
 function generarCardHTML(p) {
   const icono = ICONOS_CAT[p.categoria] || "📦";
   const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
@@ -1176,15 +1218,14 @@ function generarCardHTML(p) {
 
   const color = (p.atributos && p.atributos.COLOR) || p.detalles_variante || '';
   const queryGoogle = encodeURIComponent(`${p.nombre || ''} ${color} official product png`);
-  const queryHiFi = encodeURIComponent(`${p.marca || ''} ${p.nombre || ''}`.replace(/["']/g, ''));
-  const queryGomibo = encodeURIComponent(`site:gomibo.ie ${p.marca || ''} ${p.nombre || ''}`.replace(/["']/g, ''));
+  const urlOficial = obtenerUrlWebOficial(p);
 
   return `
     <div class="card">
       <div class="foto-box ${tieneFotos ? '' : 'sin-foto'}">
         <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
         ${tieneFotos 
-          ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" class="img-preview" data-accion="galeria" data-sku="${esc(p.sku)}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box').classList.add('sin-foto');">
+          ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" decoding="async" class="img-preview" data-accion="galeria" data-sku="${esc(p.sku)}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box').classList.add('sin-foto');">
              <span class="icono-cat" style="display:none">${esc(icono)}</span>`
           : `<span class="icono-cat">${esc(icono)}</span>`
         }
@@ -1198,9 +1239,8 @@ function generarCardHTML(p) {
           <button class="btn-ed principal" type="button" data-accion="foto-principal" data-sku="${esc(p.sku)}" title="Fijar como 1ra foto principal (se envía al compartir)">⭐ Como 1ra</button>
         </div>
         <div class="editor-botones">
-          <a class="btn-ed buscar-hifi" href="https://www.hificorp.co.za/catalogsearch/result/?q=${queryHiFi}" target="_blank" rel="noopener" title="Buscar este producto en HiFi Corp">🏬 En HiFi Corp</a>
-          <a class="btn-ed buscar-gomibo" href="https://www.google.com/search?q=${queryGomibo}" target="_blank" rel="noopener" title="Buscar este producto en Gomibo">📱 En Gomibo</a>
-          <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener">🔍 En Google</a>
+          <a class="btn-ed buscar-oficial" href="${urlOficial}" target="_blank" rel="noopener" title="Buscar este producto en la web oficial de su marca">🌐 Web Oficial</a>
+          <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener" title="Buscar imágenes en Google">🔍 En Google</a>
           <button class="btn-ed color" type="button" data-accion="foto-color" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las memorias de este mismo modelo y color">🎨 Todo el color</button>
           <button class="btn-ed modelo" type="button" data-accion="foto-modelo" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las variantes de ${esc(p.nombre)}">📦 Todo el modelo</button>
         </div>
@@ -1280,11 +1320,13 @@ function renderizarSiguienteLote() {
   const contenedor = document.getElementById("contenedor-productos");
   const proximoLote = productosFiltrados.slice(cantidadRenderizada, cantidadRenderizada + TAMANO_LOTE);
   
+  const fragment = document.createDocumentFragment();
   const divTemp = document.createElement("div");
   divTemp.innerHTML = proximoLote.map(generarCardHTML).join("");
   while (divTemp.firstChild) {
-    contenedor.appendChild(divTemp.firstChild);
+    fragment.appendChild(divTemp.firstChild);
   }
+  contenedor.appendChild(fragment);
 
   cantidadRenderizada += proximoLote.length;
 
@@ -1495,7 +1537,11 @@ const logoPrincipal = document.querySelector(".header-logo");
 if (logoPrincipal) logoPrincipal.addEventListener("dblclick", toggleAdmin);
 
 // Buscador y ordenamiento
-document.getElementById("buscador").addEventListener("input", renderProductos);
+let debounceTimer = null;
+document.getElementById("buscador").addEventListener("input", () => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(renderProductos, 120);
+});
 document.getElementById("ordenar").addEventListener("change", renderProductos);
 
 // Modal de Sincronización entre Dispositivos
