@@ -116,7 +116,8 @@ def extraer_galeria_producto(product_url):
 PALABRAS_GENERICAS = {
     'portable', 'bluetooth', 'speaker', 'parlante', 'audifonos', 'headphones',
     'earbuds', 'wireless', 'smart', 'tv', 'celular', 'telefono', 'laptop',
-    'notebook', 'desktop', 'screen', 'pantalla', 'official', 'original'
+    'notebook', 'desktop', 'screen', 'pantalla', 'official', 'original',
+    'esim', '1sim', 'sim', 'wifi', 'cell', 'lte', '5g', '4g', 'gen'
 }
 
 def separar_tokens_modelo(texto):
@@ -180,6 +181,13 @@ def evaluar_coincidencia(prod, candidate):
         score += 8
     else:
         return -30
+
+    # 2.5 Validación de Modificadores de Gama/Tier (Pro, Max, Ultra, Mini, Air, Plus, SE, FE)
+    TIER_MODIFIERS = {'pro', 'max', 'ultra', 'mini', 'air', 'plus', 'se', 'fe'}
+    p_tiers = {w for w in p_nombre.split() if w in TIER_MODIFIERS}
+    c_tiers = {w for w in c_name.split() if w in TIER_MODIFIERS}
+    if p_tiers != c_tiers:
+        return -50 # Conflicto de gama (ej: AirPods Pro vs AirPods normal, o iPhone Pro vs iPhone base)
 
     # 3. Validación de tokens del modelo
     tokens_modelo = extraer_palabras_clave_modelo(p_nombre, p_marca)
