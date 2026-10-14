@@ -248,8 +248,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/i/airpods_4_with_active_noise_cancellation_pdp_image_position_1__wwen_ecommerce_903c.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/i/airpods_4_with_active_noise_cancellation_pdp_image_position_1__wwen_ecommerce_903c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/i/airpods_4_with_active_noise_cancellation_pdp_image_position_2__wwen_ecommerce_2884.png"
+    ]
   },
   {
     "sku": "195949689604",
@@ -487,8 +490,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png"
+    ]
   },
   {
     "sku": "195950086928",
@@ -512,8 +517,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_pink_pdp_image_position_1__wwen_ecommerce_b8c1.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_pink_pdp_image_position_1__wwen_ecommerce_b8c1.png"
+    ]
   },
   {
     "sku": "195950086232",
@@ -537,8 +544,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png"
+    ]
   },
   {
     "sku": "195950086690",
@@ -562,8 +571,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png"
+    ]
   },
   {
     "sku": "195950087383",
@@ -588,8 +599,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png"
+    ]
   },
   {
     "sku": "195949976032",
@@ -614,8 +627,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_air_13_inch_m3_wifi_space_gray_pdp_image_position_1__wwen_ecommerce_def3.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_air_13_inch_m3_wifi_space_gray_pdp_image_position_1__wwen_ecommerce_def3.png"
+    ]
   },
   {
     "sku": "195949975349",
@@ -640,8 +655,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_air_13_inch_m3_wifi_space_gray_pdp_image_position_1__wwen_ecommerce_def3.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_air_13_inch_m3_wifi_space_gray_pdp_image_position_1__wwen_ecommerce_def3.png"
+    ]
   },
   {
     "sku": "195949975806",
@@ -666,8 +683,19 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_ecommerce_297e.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_ecommerce_297e.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_2_ecommerce_f197.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_3_ecommerce_3815.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_4_ecommerce_07fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_5_ecommerce_2ec4.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_6_ecommerce_d941.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_7_ecommerce_d62e.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_8_ecommerce_64e7.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_9_ecommerce_e163.png",
+      "https://www.hificorp.co.za/api/catalog/product/s/p/spk150526_d143_pack_ecommerce_0e75.png"
+    ]
   },
   {
     "sku": "195950823806",
@@ -899,8 +927,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_1__wwen_ecommerce_e80c.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_1__wwen_ecommerce_e80c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_2__wwen_ecommerce_589a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_3__wwen_ecommerce_fe66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_4__wwen_ecommerce_b4b9.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_5__wwen_ecommerce_56bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_6__wwen_ecommerce_141d.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_7__wwen_ecommerce_7d58.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16e_white_pdp_image_position_9__wwen_ecommerce_8dca.png"
+    ]
   },
   {
     "sku": "195950643442",
@@ -924,8 +961,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_13_starlight_pdp_image_position_1a__wwen_ecommerce_44ef.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_13_starlight_pdp_image_position_1a__wwen_ecommerce_44ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_13_starlight_pdp_image_position_1b__wwen_ecommerce_e087.png"
+    ]
   },
   {
     "sku": "195950642827",
@@ -949,8 +989,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png"
+    ]
   },
   {
     "sku": "195950642841",
@@ -974,8 +1016,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png"
+    ]
   },
   {
     "sku": "195950642834",
@@ -999,8 +1043,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png"
+    ]
   },
   {
     "sku": "195950626179",
@@ -1024,8 +1070,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_deep_blue_2_up_screen__usen_ecommerce_6202.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_deep_blue_2_up_screen__usen_ecommerce_6202.png"
+    ]
   },
   {
     "sku": "195950626162",
@@ -1049,8 +1097,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_cosmic_orange_2_up_screen__usen_ecommerce_fb2e.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_cosmic_orange_2_up_screen__usen_ecommerce_fb2e.png"
+    ]
   },
   {
     "sku": "195950638073",
@@ -1074,8 +1124,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_deep_blue_2_up_screen__usen_ecommerce_5ea9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_deep_blue_2_up_screen__usen_ecommerce_5ea9.png"
+    ]
   },
   {
     "sku": "195950638011",
@@ -1099,8 +1151,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_deep_blue_2_up_screen__usen_ecommerce_5ea9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_deep_blue_2_up_screen__usen_ecommerce_5ea9.png"
+    ]
   },
   {
     "sku": "195950638004",
@@ -1124,8 +1178,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_silver_2_up_screen__usen_ecommerce_c660.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_silver_2_up_screen__usen_ecommerce_c660.png"
+    ]
   },
   {
     "sku": "195950637151",
@@ -1149,8 +1205,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_silver_2_up_screen__usen_ecommerce_c660.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_silver_2_up_screen__usen_ecommerce_c660.png"
+    ]
   },
   {
     "sku": "195951414706",
@@ -1174,8 +1232,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1b__en_za_ecommerce_acef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_9__en_za_ecommerce_29a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_4__en_za_ecommerce_7ad9.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_8__en_za_ecommerce_8a55.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png"
+    ]
   },
   {
     "sku": "195951414720",
@@ -1199,8 +1269,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1b__en_za_ecommerce_acef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_9__en_za_ecommerce_29a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_4__en_za_ecommerce_7ad9.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_8__en_za_ecommerce_8a55.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png"
+    ]
   },
   {
     "sku": "195951414737",
@@ -1224,8 +1306,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1b__en_za_ecommerce_acef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_9__en_za_ecommerce_29a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_4__en_za_ecommerce_7ad9.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_8__en_za_ecommerce_8a55.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png"
+    ]
   },
   {
     "sku": "195951414768",
@@ -1249,8 +1343,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1b__en_za_ecommerce_acef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_9__en_za_ecommerce_29a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_4__en_za_ecommerce_7ad9.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_8__en_za_ecommerce_8a55.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png"
+    ]
   },
   {
     "sku": "195951409160",
@@ -1274,8 +1380,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409177",
@@ -1299,8 +1417,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409061",
@@ -1444,8 +1574,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409207",
@@ -1469,8 +1611,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409214",
@@ -1494,8 +1648,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409108",
@@ -1519,8 +1685,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409122",
@@ -1544,8 +1722,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409115",
@@ -1569,8 +1759,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195949836251",
@@ -1595,8 +1797,13 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_silver_pdp_image_position_1__en_ww_ecommerce_1fe4.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_silver_pdp_image_position_1__en_ww_ecommerce_1fe4.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_silver_pdp_image_position_2__en_ww_ecommerce_3f77.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_silver_pdp_image_position_6__en_ww_ecommerce_0e04.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_silver_pdp_image_position_9__en_ww_ecommerce_e2f5.png"
+    ]
   },
   {
     "sku": "195949890260",
@@ -1620,8 +1827,13 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_2__en_ww_ecommerce_5ea7.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_6__en_ww_ecommerce_1a75.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_9__en_ww_ecommerce_0e70.png"
+    ]
   },
   {
     "sku": "195949838606",
@@ -1645,8 +1857,13 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_2__en_ww_ecommerce_5ea7.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_6__en_ww_ecommerce_1a75.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_9__en_ww_ecommerce_0e70.png"
+    ]
   },
   {
     "sku": "195950687859",
@@ -1670,8 +1887,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png"
+    ]
   },
   {
     "sku": "195950688795",
@@ -1695,8 +1914,13 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_1__en_ww_ecommerce_6c86.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_2__en_ww_ecommerce_5ea7.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_6__en_ww_ecommerce_1a75.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_13_in_m5_starlight_pdp_image_position_9__en_ww_ecommerce_0e70.png"
+    ]
   },
   {
     "sku": "MAC-AIR2025ST",
@@ -1721,8 +1945,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_15_in_m4_chip_sky_blue_pure_front_screen__usen_ecommerce_e9d9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_air_15_in_m4_chip_sky_blue_pure_front_screen__usen_ecommerce_e9d9.png"
+    ]
   },
   {
     "sku": "195950851809",
@@ -1797,8 +2023,18 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_1__en_ww_ecommerce_cdc1.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_1__en_ww_ecommerce_cdc1.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_2__en_ww_ecommerce_0072.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_7__en_ww_ecommerce_7817.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_9__en_ww_ecommerce_80a6.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_8a__en_ww_ecommerce_e9a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_6__en_ww_ecommerce_a060.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_5a__en_ww_ecommerce_fcdd.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_4__en_ww_ecommerce_5107.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_3a__en_ww_ecommerce_f60a.png"
+    ]
   },
   {
     "sku": "195950489934",
@@ -1822,8 +2058,18 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_1__en_ww_ecommerce_cdc1.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_1__en_ww_ecommerce_cdc1.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_2__en_ww_ecommerce_0072.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_7__en_ww_ecommerce_7817.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_9__en_ww_ecommerce_80a6.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_8a__en_ww_ecommerce_e9a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_6__en_ww_ecommerce_a060.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_5a__en_ww_ecommerce_fcdd.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_4__en_ww_ecommerce_5107.png",
+      "https://www.hificorp.co.za/api/catalog/product/m/a/macbook_pro_16_in_m5_pro_space_black_pdp_image_position_3a__en_ww_ecommerce_f60a.png"
+    ]
   },
   {
     "sku": "195949560965",
@@ -1846,8 +2092,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/9/195950630596___mf8548f_a_ecommerce_9132.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/9/195950630596___mf8548f_a_ecommerce_9132.png"
+    ]
   },
   {
     "sku": "195951374017",
@@ -1870,8 +2118,79 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_59eb.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_8e2e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_d8fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_7f22.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3ae1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_53fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_11ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3711.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_a250.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_639b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8084.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_e0e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_cc03.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9c51.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_14ad.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_9c29.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_8e9c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_1cd1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_613e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_1332.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3377.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9411.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_a6e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3a86.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_0d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_4543.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_7306.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8fb5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_d7b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_4bac.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_5c49.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_06a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_a238.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_c3ba.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b654.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_0cd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_987f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_9d82.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b04c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_15af.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_3aec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b699.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c310.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_40bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_5865.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c688.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_258b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_89ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c8de.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c83c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_b6a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_db52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_08f7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_c473.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_164b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_9a76.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_4b7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dc2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_6593.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_f836.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_21c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_74fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_2655.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_0bec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_7fc7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_92ac.png"
+    ]
   },
   {
     "sku": "195951374055",
@@ -1894,8 +2213,79 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_59eb.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_8e2e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_d8fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_7f22.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3ae1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_53fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_11ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3711.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_a250.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_639b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8084.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_e0e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_cc03.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9c51.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_14ad.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_9c29.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_8e9c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_1cd1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_613e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_1332.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3377.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9411.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_a6e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3a86.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_0d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_4543.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_7306.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8fb5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_d7b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_4bac.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_5c49.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_06a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_a238.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_c3ba.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b654.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_0cd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_987f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_9d82.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b04c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_15af.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_3aec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b699.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c310.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_40bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_5865.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c688.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_258b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_89ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c8de.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c83c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_b6a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_db52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_08f7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_c473.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_164b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_9a76.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_4b7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dc2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_6593.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_f836.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_21c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_74fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_2655.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_0bec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_7fc7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_92ac.png"
+    ]
   },
   {
     "sku": "195951374031",
@@ -1918,8 +2308,79 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_59eb.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_8e2e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_d8fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_7f22.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3ae1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_53fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_11ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3711.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_a250.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_639b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8084.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_e0e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_cc03.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9c51.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_14ad.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_9c29.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_8e9c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_1cd1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_613e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_1332.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3377.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9411.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_a6e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3a86.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_0d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_4543.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_7306.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8fb5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_d7b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_4bac.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_5c49.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_06a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_a238.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_c3ba.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b654.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_0cd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_987f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_9d82.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b04c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_15af.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_3aec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b699.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c310.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_40bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_5865.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c688.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_258b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_89ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c8de.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c83c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_b6a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_db52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_08f7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_c473.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_164b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_9a76.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_4b7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dc2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_6593.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_f836.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_21c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_74fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_2655.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_0bec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_7fc7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_92ac.png"
+    ]
   },
   {
     "sku": "195951374093",
@@ -1942,8 +2403,79 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_59eb.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_8e2e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_d8fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_7f22.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3ae1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_53fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_11ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3711.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_a250.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_639b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8084.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_e0e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_cc03.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9c51.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_14ad.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_9c29.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_8e9c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_1cd1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_613e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_1332.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3377.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9411.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_a6e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3a86.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_0d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_4543.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_7306.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8fb5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_d7b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_4bac.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_5c49.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_06a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_a238.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_c3ba.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b654.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_0cd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_987f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_9d82.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b04c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_15af.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_3aec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b699.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c310.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_40bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_5865.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c688.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_258b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_89ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c8de.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c83c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_b6a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_db52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_08f7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_c473.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_164b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_9a76.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_4b7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dc2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_6593.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_f836.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_21c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_74fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_2655.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_0bec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_7fc7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_92ac.png"
+    ]
   },
   {
     "sku": "195951374116",
@@ -1966,8 +2498,79 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_59eb.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_8e2e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_d8fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_7f22.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3ae1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_53fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_11ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3711.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_a250.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_639b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8084.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_e0e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_cc03.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9c51.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_14ad.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_9c29.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_8e9c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_1cd1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_613e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_1332.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3377.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9411.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_a6e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3a86.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_0d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_4543.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_7306.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8fb5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_d7b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_4bac.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_5c49.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_06a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_a238.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_c3ba.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b654.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_0cd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_987f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_9d82.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b04c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_15af.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_3aec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b699.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c310.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_40bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_5865.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c688.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_258b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_89ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c8de.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c83c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_b6a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_db52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_08f7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_c473.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_164b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_9a76.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_4b7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dc2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_6593.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_f836.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_21c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_74fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_2655.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_0bec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_7fc7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_92ac.png"
+    ]
   },
   {
     "sku": "195950387872",
@@ -2012,8 +2615,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/9/195950608748___mewh4af_a_ecommerce_b10a.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/9/195950608748___mewh4af_a_ecommerce_b10a.png"
+    ]
   },
   {
     "sku": "50875826779",
@@ -14873,8 +15478,11 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/i/airpods_4_with_active_noise_cancellation_pdp_image_position_1__wwen_ecommerce_903c.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/i/airpods_4_with_active_noise_cancellation_pdp_image_position_1__wwen_ecommerce_903c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/i/airpods_4_with_active_noise_cancellation_pdp_image_position_2__wwen_ecommerce_2884.png"
+    ]
   },
   {
     "sku": "195949544316",
@@ -14921,8 +15529,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png"
+    ]
   },
   {
     "sku": "PEND-2df76fbb",
@@ -14943,8 +15553,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_pink_pdp_image_position_1__wwen_ecommerce_b8c1.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_pink_pdp_image_position_1__wwen_ecommerce_b8c1.png"
+    ]
   },
   {
     "sku": "195949986215",
@@ -14994,8 +15606,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_1__gben_ecommerce_b9de.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_1__gben_ecommerce_b9de.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_1b__gben_ecommerce_717d.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_2__gben_ecommerce_6e7f.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_3__gben_ecommerce_abba.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_4__gben_ecommerce_316d.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_8__gben_ecommerce_cbad.png"
+    ]
   },
   {
     "sku": "195949822193",
@@ -15044,8 +15663,15 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_1__gben_ecommerce_b9de.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_1__gben_ecommerce_b9de.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_1b__gben_ecommerce_717d.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_2__gben_ecommerce_6e7f.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_3__gben_ecommerce_abba.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_4__gben_ecommerce_316d.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_16_black_pdp_image_position_8__gben_ecommerce_cbad.png"
+    ]
   },
   {
     "sku": "195950643039",
@@ -15069,8 +15695,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png"
+    ]
   },
   {
     "sku": "195950642810",
@@ -15094,8 +15722,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_lavender_2_up_screen__usen_ecommerce_bf35.png"
+    ]
   },
   {
     "sku": "195950626186",
@@ -15119,8 +15749,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_deep_blue_2_up_screen__usen_ecommerce_6202.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_deep_blue_2_up_screen__usen_ecommerce_6202.png"
+    ]
   },
   {
     "sku": "195950638059",
@@ -15144,8 +15776,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_silver_2_up_screen__usen_ecommerce_c660.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_17_pro_max_silver_2_up_screen__usen_ecommerce_c660.png"
+    ]
   },
   {
     "sku": "195951414751",
@@ -15169,8 +15803,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1__en_za_ecommerce_3663.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_1b__en_za_ecommerce_acef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_9__en_za_ecommerce_29a3.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_4__en_za_ecommerce_7ad9.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_8__en_za_ecommerce_8a55.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png"
+    ]
   },
   {
     "sku": "195951409146",
@@ -15194,8 +15840,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195951409139",
@@ -15219,8 +15877,20 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1__en_za_ecommerce_1184.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_1b__en_za_ecommerce_202a.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_2__en_za_ecommerce_fd66.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_3__en_za_ecommerce_1257.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_black_pdp_image_position_9__en_za_ecommerce_ffdc.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_5__en_za_ecommerce_610c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_6__en_za_ecommerce_1ed7.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_10__en_za_ecommerce_9eef.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_burgundy_pdp_image_position_7__en_za_ecommerce_a63c.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_4__en_za_ecommerce_a4c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/i/p/iphone_18_pro_max_black_pdp_image_position_8__en_za_ecommerce_30f2.png"
+    ]
   },
   {
     "sku": "195950851335",
@@ -15268,8 +15938,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/9/195950630596___mf8548f_a_ecommerce_9132.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/9/195950630596___mf8548f_a_ecommerce_9132.png"
+    ]
   },
   {
     "sku": "195950461138",
@@ -15292,8 +15964,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/9/195950632095___mev74af_a_ecommerce_c639.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/9/195950632095___mev74af_a_ecommerce_c639.png"
+    ]
   },
   {
     "sku": "195950466447",
@@ -15316,8 +15990,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/9/195950632095___mev74af_a_ecommerce_c639.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/9/195950632095___mev74af_a_ecommerce_c639.png"
+    ]
   },
   {
     "sku": "195951374130",
@@ -15340,8 +16016,79 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_4d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_59eb.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_8e2e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_d8fc.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_7f22.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3ae1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_53fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_11ec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_3711.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_a250.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_639b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8084.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_e0e0.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_cc03.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9c51.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12f4.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_14ad.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_9c29.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_8e9c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_1cd1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_613e.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_12ef.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_1332.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3377.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_9411.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_a6e8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_space_gray_aluminum_sport_band_nav_3a86.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_0d52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_black_aluminum_sport_band_black_pd_4543.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_7306.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_8fb5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_d7b1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_4bac.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_5c49.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_06a9.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_a238.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_light_gold_aluminum_sport_band_san_c3ba.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b654.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_0cd8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_987f.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_9d82.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b04c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_15af.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_3aec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_dark_bronze_aluminum_sport_band_ol_b699.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c310.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_40bf.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_5865.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c688.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_258b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_89ce.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c8de.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_c83c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_b6a8.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_natural_titanium_sport_band_navy_b_db52.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_08f7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_radiant_gold_titanium_sport_band_b_c473.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dce1.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_164b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_9a76.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_42mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_4b7a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_dc2a.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_6593.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_f836.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_21c5.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_74fa.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_pearl_white_ceramic_sport_band_san_2655.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_0bec.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_7fc7.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_series_12_46mm_gps_plus_cellular_night_blue_ceramic_sport_band_navy_92ac.png"
+    ]
   },
   {
     "sku": "195950481259",
@@ -15364,8 +16111,10 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/1/9/195950608748___mewh4af_a_ecommerce_b10a.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/1/9/195950608748___mewh4af_a_ecommerce_b10a.png"
+    ]
   },
   {
     "sku": "195951394480",
@@ -15388,8 +16137,17 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": false,
     "estado_stock": "Bajo pedido",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_cf10.png",
+    "galeria_fotos": [
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_cf10.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_7233.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_bb33.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_8e5b.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_12c2.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_2f8c.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_1797.png",
+      "https://www.hificorp.co.za/api/catalog/product/a/p/apple_watch_ultra_4_49mm_gps_plus_cellular_natural_titanium_milanese_loop_natur_a517.png"
+    ]
   },
   {
     "sku": "6977541631007",

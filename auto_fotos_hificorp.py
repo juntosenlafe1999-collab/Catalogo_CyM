@@ -49,7 +49,12 @@ PALABRAS_ACCESORIOS = {
 COLOR_SYNONYMS = {
     'negro': 'black', 'blanco': 'white', 'azul': 'blue', 'rojo': 'red',
     'gris': 'gray', 'plateado': 'silver', 'dorado': 'gold', 'verde': 'green',
-    'morado': 'purple', 'rosa': 'pink'
+    'morado': 'purple', 'rosa': 'pink', 'amarillo': 'yellow', 'naranja': 'orange',
+    'lavender': 'lavender', 'teal': 'teal', 'burgundy': 'burgundy', 'glacier': 'glacier',
+    'starlight': 'starlight', 'midnight': 'midnight', 'titanium': 'titanium', 'bronze': 'bronze',
+    'graphite': 'graphite', 'space gray': 'space gray', 'space black': 'space black',
+    'jet black': 'jet black', 'natural titanium': 'natural titanium', 'desert gold': 'desert gold',
+    'cosmic orange': 'cosmic orange', 'deep blue': 'deep blue'
 }
 
 def normalizar_texto(t):
