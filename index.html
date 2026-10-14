@@ -187,6 +187,7 @@
       🔄 Actualizar desde Go Partners
       <input type="file" id="input-actualizar-gp" accept=".json" style="display:none">
     </label>
+    <button class="btn-admin sec" id="btn-admin-sync" type="button" title="Pasa fácilmente tus fotos guardadas entre tu teléfono y tu PC">📲 Sincronizar fotos</button>
     <button class="btn-admin" id="btn-admin-descargar" type="button">💾 Descargar JSON actualizado</button>
     <button class="btn-admin sec" id="btn-admin-limpiar" type="button" title="Descarta el borrador guardado en este navegador y recarga desde el archivo JSON">🔄 Resetear borrador</button>
     <button class="btn-admin sec" id="btn-admin-salir" type="button">Salir</button>
@@ -247,6 +248,31 @@
     <button class="modal-btn" id="btn-modal-ant" type="button">‹ Anterior</button>
     <span id="modal-indice" style="font-size:13px;color:var(--muted);">1 / 1</span>
     <button class="modal-btn" id="btn-modal-sig" type="button">Siguiente ›</button>
+  </div>
+</div>
+
+<div class="modal" id="modal-sync">
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:18px; max-width:520px; width:92%; padding:22px; position:relative; box-shadow:0 12px 40px rgba(0,0,0,0.6); display:flex; flex-direction:column; gap:14px;">
+    <button class="modal-cerrar" id="btn-modal-sync-cerrar" type="button" style="top:14px; right:14px;">✕</button>
+    <div>
+      <h3 style="color:var(--accent); font-size:18px; margin-bottom:4px;">📲 Sincronizar fotos entre dispositivos</h3>
+      <p style="font-size:12.5px; color:var(--muted); line-height:1.45;">
+        Pasa tus fotos agregadas desde tu teléfono a tu PC (o viceversa) en un solo clic sin perder nada.
+      </p>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px; padding:12px;">
+      <b style="font-size:12.5px; color:var(--text); display:block; margin-bottom:4px;">Paso 1: En el dispositivo donde están las fotos nuevas</b>
+      <p style="font-size:11.5px; color:var(--muted); margin-bottom:8px;">Copia el paquete de tus fotos para enviártelo por WhatsApp o Telegram a tu otro dispositivo.</p>
+      <button class="btn-admin" id="btn-sync-exportar" type="button" style="width:100%; font-size:12.5px;">📤 Copiar código de mis fotos</button>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px; padding:12px;">
+      <b style="font-size:12.5px; color:var(--text); display:block; margin-bottom:4px;">Paso 2: En el dispositivo donde deseas recibirlas</b>
+      <p style="font-size:11.5px; color:var(--muted); margin-bottom:6px;">Pega aquí el código que copiaste y presiona aplicar:</p>
+      <textarea id="txt-sync-importar" placeholder="Pega aquí el código copiado..." style="width:100%; height:75px; background:#0b0c14; border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:11px; padding:8px; resize:none; outline:none; font-family:monospace;"></textarea>
+      <button class="btn-admin" id="btn-sync-importar" type="button" style="width:100%; margin-top:8px; font-size:12.5px;">📥 Importar y aplicar fotos</button>
+    </div>
   </div>
 </div>
 
@@ -339,7 +365,7 @@ function cargarCatalogo() {
     borrador = null;
   }
 
-  fetch('./catalogo_clientes_sin_comision.json', { cache: 'no-store' })
+  fetch('./catalogo_clientes_sin_comision.json?v=' + Date.now(), { cache: 'no-store' })
     .then(r => {
       if (!r.ok) throw new Error("HTTP error " + r.status);
       return r.json();
@@ -891,72 +917,45 @@ function armarTextoCompartir(p) {
   ].join('\n');
 }
 
-// Genera o descarga el archivo de imagen del producto (o tarjeta visual HD si no hay foto)
-async function obtenerArchivoImagen(p) {
-  const urlFoto = (p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos[0] : '') || p.imagen_principal || '';
-  
-  if (urlFoto) {
-    // 1. Intento con fetch directo (para fotos locales, data URLs o servidores con CORS)
-    try {
-      const resp = await fetch(urlFoto, { mode: 'cors' });
-      if (resp.ok) {
-        const blob = await resp.blob();
-        if (blob.type.startsWith('image/')) {
-          const ext = blob.type.includes('png') ? 'png' : blob.type.includes('webp') ? 'webp' : 'jpg';
-          return new File([blob], `${p.sku || 'producto'}.${ext}`, { type: blob.type || 'image/jpeg' });
-        }
-      }
-    } catch (e) {
-      // Si fetch directo falla por CORS del hosting externo, probamos con el proxy
-    }
+// Cache en memoria para archivos de compartir (evita re-descargas y hace el compartir instantáneo)
+const CACHE_ARCHIVOS_COMPARTIR = new Map();
 
-    // 2. Intento mediante proxy CORS gratuito de imágenes (images.weserv.nl)
-    try {
-      const proxyUrl = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}`;
-      const respProxy = await fetch(proxyUrl);
-      if (respProxy.ok) {
-        const blob = await respProxy.blob();
-        if (blob.type.startsWith('image/')) {
-          const ext = blob.type.includes('png') ? 'png' : blob.type.includes('webp') ? 'webp' : 'jpg';
-          return new File([blob], `${p.sku || 'producto'}.${ext}`, { type: blob.type || 'image/jpeg' });
-        }
-      }
-    } catch (eProxy) {
-      // Si el fetch del proxy falla, intentamos mediante Image + Canvas
-    }
+// Función para estandarizar cualquier imagen a un lienzo cuadrado HD (1080x1080) con fondo blanco
+function estandarizarLienzoBlanco(img, nombreArchivo) {
+  const c = document.createElement('canvas');
+  c.width = 1080;
+  c.height = 1080;
+  const ctx = c.getContext('2d');
 
-    // 3. Intento mediante Image y Canvas cargando a través del proxy CORS
-    try {
-      const imgBlob = await new Promise((resolve, reject) => {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = () => {
-          try {
-            const c = document.createElement('canvas');
-            c.width = img.naturalWidth || 800;
-            c.height = img.naturalHeight || 800;
-            const ctx = c.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            c.toBlob(b => {
-              if (b) resolve(b);
-              else reject(new Error('Canvas blob failed'));
-            }, 'image/jpeg', 0.92);
-          } catch (err) {
-            reject(err);
-          }
-        };
-        img.onerror = () => reject(new Error('Image load failed'));
-        img.src = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}`;
-      });
-      if (imgBlob) {
-        return new File([imgBlob], `${p.sku || 'producto'}.jpg`, { type: 'image/jpeg' });
-      }
-    } catch (e2) {
-      // Fallback a tarjeta gráfica HD solo si fallaron todos los métodos anteriores
-    }
-  }
+  // 1. Fondo blanco puro impecable (elimina para siempre el fondo negro de WhatsApp en PNGs transparentes)
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, 1080, 1080);
 
-  // Creador automático de tarjeta gráfica HD del producto (1080x1080)
+  // 2. Centrado proporcional del producto con 8% de margen de seguridad (evita que toque los bordes)
+  const maxDim = 920;
+  const imgW = img.naturalWidth || img.width || 800;
+  const imgH = img.naturalHeight || img.height || 800;
+  const scale = Math.min(maxDim / imgW, maxDim / imgH);
+  const drawW = Math.round(imgW * scale);
+  const drawH = Math.round(imgH * scale);
+  const drawX = Math.round((1080 - drawW) / 2);
+  const drawY = Math.round((1080 - drawH) / 2);
+
+  ctx.drawImage(img, drawX, drawY, drawW, drawH);
+
+  return new Promise((resolve, reject) => {
+    c.toBlob(blob => {
+      if (blob) {
+        resolve(new File([blob], `${nombreArchivo}.jpg`, { type: 'image/jpeg' }));
+      } else {
+        reject(new Error("Error generando blob de imagen estandarizada"));
+      }
+    }, 'image/jpeg', 0.90);
+  });
+}
+
+// Creador automático de tarjeta gráfica HD del producto (1080x1080)
+function crearTarjetaGraficaHD(p) {
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
   canvas.height = 1080;
@@ -1038,6 +1037,64 @@ async function obtenerArchivoImagen(p) {
   });
 }
 
+// Genera o descarga el archivo de imagen del producto en formato cuadrado HD estandarizado con fondo blanco
+async function obtenerArchivoImagen(p) {
+  const urlFoto = (p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos[0] : '') || p.imagen_principal || '';
+  const fileBaseName = p.sku || 'producto';
+
+  if (!urlFoto) {
+    return crearTarjetaGraficaHD(p);
+  }
+
+  // 0. Si ya fue procesada antes en esta sesión, devolver al instante (0ms de espera)
+  if (CACHE_ARCHIVOS_COMPARTIR.has(urlFoto)) {
+    return CACHE_ARCHIVOS_COMPARTIR.get(urlFoto);
+  }
+
+  // 1. Optimización CDN: Fondo blanco puro + formato cuadrado 1080x1080 + JPEG (pesa solo ~90-120KB y descarga ultrarrápida)
+  const cdnStandardUrl = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}&w=1080&h=1080&fit=contain&cbg=white&output=jpg&q=88`;
+
+  try {
+    const resp = await fetch(cdnStandardUrl);
+    if (resp.ok) {
+      const blob = await resp.blob();
+      if (blob.type.startsWith('image/')) {
+        const file = new File([blob], `${fileBaseName}.jpg`, { type: 'image/jpeg' });
+        CACHE_ARCHIVOS_COMPARTIR.set(urlFoto, file);
+        return file;
+      }
+    }
+  } catch (_) {
+    // Si la descarga rápida del CDN falla, probamos con Canvas local
+  }
+
+  // 2. Intento mediante Image y Canvas local con fondo blanco puro
+  try {
+    const file = await new Promise((resolve, reject) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = async () => {
+        try {
+          const resFile = await estandarizarLienzoBlanco(img, fileBaseName);
+          resolve(resFile);
+        } catch (err) {
+          reject(err);
+        }
+      };
+      img.onerror = () => reject(new Error('Image load failed'));
+      img.src = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}`;
+    });
+
+    if (file) {
+      CACHE_ARCHIVOS_COMPARTIR.set(urlFoto, file);
+      return file;
+    }
+  } catch (_) {}
+
+  // 3. Fallback a tarjeta gráfica HD solo si fallaron todos los métodos anteriores
+  return crearTarjetaGraficaHD(p);
+}
+
 // Función principal para compartir: la foto primero y la ficha como comentario (caption)
 async function compartirProducto(sku, btn) {
   const p = PRODUCTOS.find(x => x.sku === sku);
@@ -1101,11 +1158,96 @@ async function compartirProducto(sku, btn) {
   btn.disabled = false;
 }
 
+let productosFiltrados = [];
+let cantidadRenderizada = 0;
+const TAMANO_LOTE = 24;
+let observerScroll = null;
+
+function generarCardHTML(p) {
+  const icono = ICONOS_CAT[p.categoria] || "📦";
+  const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
+  const tieneFotos = fotos.length > 0;
+  const msj = encodeURIComponent(`Hola, vi en el catálogo de Multiservicios CyM el *${p.nombre_completo || p.nombre}* (SKU: ${p.sku}) a *$${p.precio_usd}* (C$ ${Number(p.precio_nio).toLocaleString('en-US')}). ¿Me brindás más información?`);
+
+  const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
+  const extraInfo = p.descripcion || atr;
+
+  const color = (p.atributos && p.atributos.COLOR) || p.detalles_variante || '';
+  const queryGoogle = encodeURIComponent(`${p.nombre || ''} ${color} official product png`);
+
+  return `
+    <div class="card">
+      <div class="foto-box ${tieneFotos ? '' : 'sin-foto'}">
+        <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
+        ${tieneFotos 
+          ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" class="img-preview" data-accion="galeria" data-sku="${esc(p.sku)}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box').classList.add('sin-foto');">
+             <span class="icono-cat" style="display:none">${esc(icono)}</span>`
+          : `<span class="icono-cat">${esc(icono)}</span>`
+        }
+        ${fotos.length > 1 ? `<button class="btn-galeria" type="button" data-accion="galeria" data-sku="${esc(p.sku)}">📷 Ver ${fotos.length} fotos</button>` : ''}
+      </div>
+
+      <div class="editor-foto">
+        <div class="editor-input-group">
+          <input type="url" id="in-foto-${esc(p.sku)}" class="editor-input" placeholder="Pegá link de foto (.jpg, .png, etc.)...">
+          <button class="btn-ed add" type="button" data-accion="foto-agregar" data-sku="${esc(p.sku)}" title="Agregar esta foto a la galería del producto">➕ Agregar</button>
+          <button class="btn-ed principal" type="button" data-accion="foto-principal" data-sku="${esc(p.sku)}" title="Fijar como 1ra foto principal (se envía al compartir)">⭐ Como 1ra</button>
+        </div>
+        <div class="editor-botones">
+          <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener">🔍 Buscar en Google</a>
+          <button class="btn-ed color" type="button" data-accion="foto-color" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las memorias de este mismo modelo y color">🎨 Todo el color</button>
+          <button class="btn-ed modelo" type="button" data-accion="foto-modelo" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las variantes de ${esc(p.nombre)}">📦 Todo el modelo</button>
+        </div>
+        ${fotos.length > 0 ? `
+          <div class="editor-galeria-preview">
+            <span class="editor-galeria-titulo">Fotos guardadas (${fotos.length}):</span>
+            <div class="editor-thumbs">
+              ${fotos.map((f, idx) => `
+                <div class="editor-thumb-box ${idx === 0 ? 'es-principal' : ''}">
+                  <img src="${esc(f)}" alt="Foto ${idx + 1}" onerror="this.src='';">
+                  ${idx === 0 
+                    ? `<span class="thumb-badge">1ra (Se comparte)</span>` 
+                    : `<button type="button" class="btn-thumb-star" data-accion="foto-hacer-principal" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Mover a 1ra posición (principal)">⭐</button>`
+                  }
+                  <button type="button" class="btn-thumb-del" data-accion="foto-eliminar" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Eliminar foto">✕</button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+
+      <div class="cuerpo">
+        <div>
+          <div class="marca">${esc(p.marca)} · ${esc(NOMBRES_CAT[p.categoria] || p.categoria)}</div>
+          <div class="titulo">${esc(p.nombre)}</div>
+          ${p.detalles_variante ? `<div class="variante">${esc(p.detalles_variante)}</div>` : ''}
+        </div>
+        ${extraInfo ? `<div class="specs">${esc(extraInfo)}</div>` : ''}
+        <div class="precio-caja">
+          <div class="precio-usd">$${Number(p.precio_usd).toLocaleString('en-US')}</div>
+          <div class="precio-nio">C$ ${Number(p.precio_nio).toLocaleString('en-US')}</div>
+        </div>
+        <div class="pagos">
+          <b>Medios de pago:</b><br>
+          • Efectivo o Transferencia: C$ ${Number(p.precio_nio).toLocaleString('en-US')}<br>
+          • Tarjeta de crédito / Credex: Consultar cuotas
+        </div>
+        <div class="garantia">🛡️ ${esc(p.garantia)}</div>
+        <div class="acciones-card">
+          <a class="btn-wa" href="https://wa.me/${MI_WHATSAPP}?text=${msj}" target="_blank" rel="noopener">💬 Pedir info</a>
+          <button class="btn-share" type="button" data-accion="compartir" data-sku="${esc(p.sku)}">📲 Compartir</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderProductos() {
   const q = document.getElementById("buscador").value.toLowerCase().trim();
   const orden = document.getElementById("ordenar").value;
 
-  let filtrados = PRODUCTOS.filter(p => {
+  productosFiltrados = PRODUCTOS.filter(p => {
     const pasaCat = categoriaActiva === "TODAS" || p.categoria === categoriaActiva;
     const tieneFoto = Boolean(p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length));
     if (soloSinFoto && tieneFoto) return false;
@@ -1114,92 +1256,56 @@ function renderProductos() {
     return pasaCat && pasaTexto;
   });
 
-  if (orden === "menor") filtrados.sort((a, b) => a.precio_usd - b.precio_usd);
-  else if (orden === "mayor") filtrados.sort((a, b) => b.precio_usd - a.precio_usd);
+  if (orden === "menor") productosFiltrados.sort((a, b) => a.precio_usd - b.precio_usd);
+  else if (orden === "mayor") productosFiltrados.sort((a, b) => b.precio_usd - a.precio_usd);
 
-  document.getElementById("contador").textContent = `${filtrados.length} productos disponibles`;
+  document.getElementById("contador").textContent = `${productosFiltrados.length} productos disponibles`;
 
-  const html = filtrados.map(p => {
-    const icono = ICONOS_CAT[p.categoria] || "📦";
-    const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
-    const tieneFotos = fotos.length > 0;
-    const msj = encodeURIComponent(`Hola, vi en el catálogo de Multiservicios CyM el *${p.nombre_completo || p.nombre}* (SKU: ${p.sku}) a *$${p.precio_usd}* (C$ ${Number(p.precio_nio).toLocaleString('en-US')}). ¿Me brindás más información?`);
+  const contenedor = document.getElementById("contenedor-productos");
+  contenedor.innerHTML = "";
+  cantidadRenderizada = 0;
 
-    const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
-    const extraInfo = p.descripcion || atr;
+  renderizarSiguienteLote();
+}
 
-    const color = (p.atributos && p.atributos.COLOR) || p.detalles_variante || '';
-    const queryGoogle = encodeURIComponent(`${p.nombre || ''} ${color} official product png`);
+function renderizarSiguienteLote() {
+  if (cantidadRenderizada >= productosFiltrados.length) return;
 
-    return `
-      <div class="card">
-        <div class="foto-box ${tieneFotos ? '' : 'sin-foto'}">
-          <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
-          ${tieneFotos 
-            ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" class="img-preview" data-accion="galeria" data-sku="${esc(p.sku)}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box').classList.add('sin-foto');">
-               <span class="icono-cat" style="display:none">${esc(icono)}</span>`
-            : `<span class="icono-cat">${esc(icono)}</span>`
-          }
-          ${fotos.length > 1 ? `<button class="btn-galeria" type="button" data-accion="galeria" data-sku="${esc(p.sku)}">📷 Ver ${fotos.length} fotos</button>` : ''}
-        </div>
+  const contenedor = document.getElementById("contenedor-productos");
+  const proximoLote = productosFiltrados.slice(cantidadRenderizada, cantidadRenderizada + TAMANO_LOTE);
+  
+  const divTemp = document.createElement("div");
+  divTemp.innerHTML = proximoLote.map(generarCardHTML).join("");
+  while (divTemp.firstChild) {
+    contenedor.appendChild(divTemp.firstChild);
+  }
 
-        <div class="editor-foto">
-          <div class="editor-input-group">
-            <input type="url" id="in-foto-${esc(p.sku)}" class="editor-input" placeholder="Pegá link de foto (.jpg, .png, etc.)...">
-            <button class="btn-ed add" type="button" data-accion="foto-agregar" data-sku="${esc(p.sku)}" title="Agregar esta foto a la galería del producto">➕ Agregar</button>
-            <button class="btn-ed principal" type="button" data-accion="foto-principal" data-sku="${esc(p.sku)}" title="Fijar como 1ra foto principal (se envía al compartir)">⭐ Como 1ra</button>
-          </div>
-          <div class="editor-botones">
-            <a class="btn-ed buscar" href="https://www.google.com/search?tbm=isch&q=${queryGoogle}" target="_blank" rel="noopener">🔍 Buscar en Google</a>
-            <button class="btn-ed color" type="button" data-accion="foto-color" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las memorias de este mismo modelo y color">🎨 Todo el color</button>
-            <button class="btn-ed modelo" type="button" data-accion="foto-modelo" data-sku="${esc(p.sku)}" title="Aplica esta foto a todas las variantes de ${esc(p.nombre)}">📦 Todo el modelo</button>
-          </div>
-          ${fotos.length > 0 ? `
-            <div class="editor-galeria-preview">
-              <span class="editor-galeria-titulo">Fotos guardadas (${fotos.length}):</span>
-              <div class="editor-thumbs">
-                ${fotos.map((f, idx) => `
-                  <div class="editor-thumb-box ${idx === 0 ? 'es-principal' : ''}">
-                    <img src="${esc(f)}" alt="Foto ${idx + 1}" onerror="this.src='';">
-                    ${idx === 0 
-                      ? `<span class="thumb-badge">1ra (Se comparte)</span>` 
-                      : `<button type="button" class="btn-thumb-star" data-accion="foto-hacer-principal" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Mover a 1ra posición (principal)">⭐</button>`
-                    }
-                    <button type="button" class="btn-thumb-del" data-accion="foto-eliminar" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Eliminar foto">✕</button>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-          ` : ''}
-        </div>
+  cantidadRenderizada += proximoLote.length;
 
-        <div class="cuerpo">
-          <div>
-            <div class="marca">${esc(p.marca)} · ${esc(NOMBRES_CAT[p.categoria] || p.categoria)}</div>
-            <div class="titulo">${esc(p.nombre)}</div>
-            ${p.detalles_variante ? `<div class="variante">${esc(p.detalles_variante)}</div>` : ''}
-          </div>
-          ${extraInfo ? `<div class="specs">${esc(extraInfo)}</div>` : ''}
-          <div class="precio-caja">
-            <div class="precio-usd">$${Number(p.precio_usd).toLocaleString('en-US')}</div>
-            <div class="precio-nio">C$ ${Number(p.precio_nio).toLocaleString('en-US')}</div>
-          </div>
-          <div class="pagos">
-            <b>Medios de pago:</b><br>
-            • Efectivo o Transferencia: C$ ${Number(p.precio_nio).toLocaleString('en-US')}<br>
-            • Tarjeta de crédito / Credex: Consultar cuotas
-          </div>
-          <div class="garantia">🛡️ ${esc(p.garantia)}</div>
-          <div class="acciones-card">
-            <a class="btn-wa" href="https://wa.me/${MI_WHATSAPP}?text=${msj}" target="_blank" rel="noopener">💬 Pedir info</a>
-            <button class="btn-share" type="button" data-accion="compartir" data-sku="${esc(p.sku)}">📲 Compartir</button>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join("");
+  let centinela = document.getElementById("scroll-sentinel");
+  if (!centinela) {
+    centinela = document.createElement("div");
+    centinela.id = "scroll-sentinel";
+    centinela.style.cssText = "width:100%;height:45px;grid-column:1/-1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;";
+  }
 
-  document.getElementById("contenedor-productos").innerHTML = html;
+  if (cantidadRenderizada < productosFiltrados.length) {
+    centinela.textContent = `Mostrando ${cantidadRenderizada} de ${productosFiltrados.length} productos...`;
+    contenedor.appendChild(centinela);
+    iniciarObserverScroll(centinela);
+  } else {
+    if (centinela.parentNode) centinela.parentNode.removeChild(centinela);
+  }
+}
+
+function iniciarObserverScroll(centinela) {
+  if (observerScroll) observerScroll.disconnect();
+  observerScroll = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      renderizarSiguienteLote();
+    }
+  }, { rootMargin: '350px' });
+  observerScroll.observe(centinela);
 }
 
 function abrirGaleria(fotos) {
@@ -1385,6 +1491,87 @@ if (logoPrincipal) logoPrincipal.addEventListener("dblclick", toggleAdmin);
 // Buscador y ordenamiento
 document.getElementById("buscador").addEventListener("input", renderProductos);
 document.getElementById("ordenar").addEventListener("change", renderProductos);
+
+// Modal de Sincronización entre Dispositivos
+const modalSync = document.getElementById("modal-sync");
+const btnAdminSync = document.getElementById("btn-admin-sync");
+const btnModalSyncCerrar = document.getElementById("btn-modal-sync-cerrar");
+const btnSyncExportar = document.getElementById("btn-sync-exportar");
+const btnSyncImportar = document.getElementById("btn-sync-importar");
+const txtSyncImportar = document.getElementById("txt-sync-importar");
+
+if (btnAdminSync) {
+  btnAdminSync.addEventListener("click", () => {
+    modalSync.classList.add("abierto");
+  });
+}
+
+if (btnModalSyncCerrar) {
+  btnModalSyncCerrar.addEventListener("click", () => {
+    modalSync.classList.remove("abierto");
+  });
+}
+
+if (modalSync) {
+  modalSync.addEventListener("click", function(e) {
+    if (e.target === this) modalSync.classList.remove("abierto");
+  });
+}
+
+if (btnSyncExportar) {
+  btnSyncExportar.addEventListener("click", async () => {
+    const fotosData = PRODUCTOS.filter(p => p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length)).map(p => ({
+      sku: p.sku,
+      imagen_principal: p.imagen_principal,
+      galeria_fotos: p.galeria_fotos
+    }));
+    
+    if (fotosData.length === 0) {
+      return alert("Aún no tienes productos con fotos para exportar.");
+    }
+
+    const payload = JSON.stringify(fotosData);
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(payload);
+    }
+    mostrarAviso(`¡Código copiado! (${fotosData.length} productos con fotos). Pégalo en tu otro dispositivo.`);
+  });
+}
+
+if (btnSyncImportar) {
+  btnSyncImportar.addEventListener("click", () => {
+    const raw = (txtSyncImportar.value || "").trim();
+    if (!raw) return alert("Pega primero el código copiado en el campo de texto.");
+
+    try {
+      const data = JSON.parse(raw);
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error("El código no tiene una lista válida de fotos.");
+      }
+
+      let actualizados = 0;
+      data.forEach(item => {
+        if (!item || !item.sku) return;
+        const p = PRODUCTOS.find(x => x.sku === item.sku);
+        if (p) {
+          if (item.imagen_principal) p.imagen_principal = item.imagen_principal;
+          if (Array.isArray(item.galeria_fotos) && item.galeria_fotos.length) {
+            p.galeria_fotos = item.galeria_fotos;
+          } else if (item.imagen_principal) {
+            p.galeria_fotos = [item.imagen_principal];
+          }
+          actualizados++;
+        }
+      });
+
+      guardarBorradorYActualizar(`¡${actualizados} productos actualizados con las fotos del otro dispositivo!`);
+      modalSync.classList.remove("abierto");
+      txtSyncImportar.value = "";
+    } catch (err) {
+      alert("Código inválido: " + err.message);
+    }
+  });
+}
 
 // Iniciar carga del catálogo
 cargarCatalogo();
