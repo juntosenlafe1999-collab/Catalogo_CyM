@@ -103,7 +103,10 @@
 
     /* Miniaturas en galería de edición */
     .editor-galeria-preview { margin-top: 4px; padding-top: 6px; border-top: 1px dashed var(--border); }
-    .editor-galeria-titulo { font-size: 11px; font-weight: 700; color: var(--accent); display: block; margin-bottom: 4px; }
+    .editor-galeria-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; gap: 6px; }
+    .editor-galeria-titulo { font-size: 11px; font-weight: 700; color: var(--accent); }
+    .btn-ed-vaciar { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); padding: 3px 8px; border-radius: 6px; font-size: 10.5px; font-weight: 700; cursor: pointer; transition: all 0.15s ease; white-space: nowrap; }
+    .btn-ed-vaciar:hover { background: #ef4444; color: #fff; border-color: #ef4444; }
     .editor-thumbs { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 4px; }
     .editor-thumb-box { position: relative; width: 52px; height: 52px; border-radius: 8px; overflow: hidden; border: 2px solid var(--border); background: #fff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
     .editor-thumb-box.es-principal { border-color: var(--accent); box-shadow: 0 0 6px rgba(232, 188, 112, 0.4); }
@@ -111,6 +114,14 @@
     .thumb-badge { position: absolute; bottom: 0; inset-inline: 0; background: rgba(232, 188, 112, 0.95); color: #14152a; font-size: 7.5px; font-weight: 800; text-align: center; padding: 1px 0; }
     .btn-thumb-star { position: absolute; top: 2px; left: 2px; background: rgba(0,0,0,0.7); color: #fff; border: 0; border-radius: 4px; font-size: 9px; padding: 1px 3px; cursor: pointer; line-height: 1; }
     .btn-thumb-del { position: absolute; top: 2px; right: 2px; background: rgba(220, 38, 38, 0.85); color: #fff; border: 0; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 800; line-height: 1; }
+
+    /* Barra flotante de Deshacer / Rehacer */
+    .floating-historial { display: none; position: fixed; bottom: 24px; right: 24px; z-index: 95; background: rgba(21, 23, 38, 0.95); backdrop-filter: blur(10px); border: 1px solid var(--accent); box-shadow: 0 8px 30px rgba(0,0,0,0.65); border-radius: 999px; padding: 5px 8px; gap: 6px; align-items: center; }
+    body.modo-admin .floating-historial { display: flex; }
+    .btn-float-historial { background: transparent; color: var(--text); border: 0; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.15s ease; user-select: none; }
+    .btn-float-historial:hover:not(:disabled) { background: var(--accent); color: #14152a; }
+    .btn-float-historial:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-float-historial.activo { background: var(--accent-soft); color: var(--accent); }
 
     .cuerpo { padding: 18px; display: flex; flex-direction: column; gap: 11px; flex: 1; }
     .marca { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--accent); font-weight: 700; }
@@ -184,6 +195,8 @@
 <div class="barra-admin">
   <div class="admin-info" id="admin-stats">🛠️ Modo Editor de Fotos Activo</div>
   <div class="admin-acciones">
+    <button class="btn-admin sec" id="btn-admin-undo" type="button" title="Deshacer última acción de fotos (Ctrl+Z)" disabled>↩️ Deshacer</button>
+    <button class="btn-admin sec" id="btn-admin-redo" type="button" title="Rehacer acción de fotos (Ctrl+Y)" disabled>↪️ Rehacer</button>
     <button class="btn-admin sec" id="btn-admin-sin-foto" type="button">Ver solo sin foto</button>
     <label class="btn-admin" style="display:inline-flex; align-items:center; cursor:pointer;" title="Sube un archivo JSON de Go Partners para actualizar precios y stock protegiendo todas tus fotos">
       🔄 Actualizar desde Go Partners
@@ -242,6 +255,16 @@
 <div class="grid" id="contenedor-productos"></div>
 
 <div class="toast" id="toast"></div>
+
+<!-- Botones flotantes de deshacer/rehacer accesibles en cualquier parte de la pantalla -->
+<div class="floating-historial" id="floating-historial">
+  <button type="button" class="btn-float-historial" id="btn-float-undo" title="Deshacer última acción de fotos (Ctrl+Z)" disabled>
+    ↩️ Deshacer
+  </button>
+  <button type="button" class="btn-float-historial" id="btn-float-redo" title="Rehacer acción de fotos (Ctrl+Y)" disabled>
+    ↪️ Rehacer
+  </button>
+</div>
 
 <div class="modal" id="modal-fotos">
   <button class="modal-cerrar" id="btn-modal-cerrar" type="button">✕</button>
@@ -331,6 +354,7 @@ function toggleAdmin() {
 
   document.body.classList.toggle("modo-admin");
   actualizarStatsAdmin();
+  actualizarBotonesHistorial();
   const isAdmin = document.body.classList.contains("modo-admin");
   mostrarAviso(isAdmin ? "🛠️ Modo Editor de Fotos activado" : "Modo Editor cerrado");
 }
@@ -481,6 +505,7 @@ function iniciarCatalogo(data) {
   });
   document.getElementById('caja-archivo').style.display = 'none';
   actualizarStatsAdmin();
+  actualizarBotonesHistorial();
   renderCategorias();
   renderProductos();
 }
@@ -542,6 +567,121 @@ function validarUrlFoto(url) {
   return true;
 }
 
+// --- SISTEMA DE HISTORIAL (DESHACER / REHACER FOTOS) ---
+let pilaDeshacer = [];
+let pilaRehacer = [];
+const MAX_HISTORIAL = 40;
+
+function capturarSnapshotFotos() {
+  return PRODUCTOS.map(p => ({
+    sku: p.sku,
+    imagen_principal: p.imagen_principal || '',
+    galeria_fotos: Array.isArray(p.galeria_fotos) ? [...p.galeria_fotos] : []
+  }));
+}
+
+function restaurarSnapshotFotos(snapshot) {
+  const map = new Map(snapshot.map(s => [s.sku, s]));
+  PRODUCTOS.forEach(p => {
+    const s = map.get(p.sku);
+    if (s) {
+      p.imagen_principal = s.imagen_principal || '';
+      p.galeria_fotos = [...s.galeria_fotos];
+    }
+  });
+}
+
+function registrarAccionHistorial(descripcion) {
+  const snapshot = capturarSnapshotFotos();
+  pilaDeshacer.push({
+    descripcion: descripcion || "Modificación de fotos",
+    snapshot: snapshot
+  });
+  if (pilaDeshacer.length > MAX_HISTORIAL) {
+    pilaDeshacer.shift();
+  }
+  pilaRehacer = []; // Nueva acción limpia el rehacer
+  actualizarBotonesHistorial();
+}
+
+function deshacerAccion() {
+  if (pilaDeshacer.length === 0) {
+    mostrarAviso("ℹ️ No hay más acciones para deshacer.");
+    return;
+  }
+  const estadoActual = capturarSnapshotFotos();
+  const paso = pilaDeshacer.pop();
+  pilaRehacer.push({
+    descripcion: paso.descripcion,
+    snapshot: estadoActual
+  });
+  if (pilaRehacer.length > MAX_HISTORIAL) {
+    pilaRehacer.shift();
+  }
+
+  restaurarSnapshotFotos(paso.snapshot);
+  guardarBorradorYActualizar(`↩️ Deshecho: ${paso.descripcion}`);
+  actualizarBotonesHistorial();
+}
+
+function rehacerAccion() {
+  if (pilaRehacer.length === 0) {
+    mostrarAviso("ℹ️ No hay más acciones para rehacer.");
+    return;
+  }
+  const estadoActual = capturarSnapshotFotos();
+  const paso = pilaRehacer.pop();
+  pilaDeshacer.push({
+    descripcion: paso.descripcion,
+    snapshot: estadoActual
+  });
+  if (pilaDeshacer.length > MAX_HISTORIAL) {
+    pilaDeshacer.shift();
+  }
+
+  restaurarSnapshotFotos(paso.snapshot);
+  guardarBorradorYActualizar(`↪️ Rehecho: ${paso.descripcion}`);
+  actualizarBotonesHistorial();
+}
+
+function actualizarBotonesHistorial() {
+  const canUndo = pilaDeshacer.length > 0;
+  const canRedo = pilaRehacer.length > 0;
+
+  const ultimoUndo = canUndo ? pilaDeshacer[pilaDeshacer.length - 1].descripcion : "";
+  const ultimoRedo = canRedo ? pilaRehacer[pilaRehacer.length - 1].descripcion : "";
+
+  // Botones en barra admin
+  const bUndo = document.getElementById("btn-admin-undo");
+  const bRedo = document.getElementById("btn-admin-redo");
+  if (bUndo) {
+    bUndo.disabled = !canUndo;
+    bUndo.title = canUndo ? `Deshacer: ${ultimoUndo} (Ctrl+Z)` : "No hay acciones para deshacer (Ctrl+Z)";
+    bUndo.textContent = canUndo ? `↩️ Deshacer (${pilaDeshacer.length})` : `↩️ Deshacer`;
+  }
+  if (bRedo) {
+    bRedo.disabled = !canRedo;
+    bRedo.title = canRedo ? `Rehacer: ${ultimoRedo} (Ctrl+Y)` : "No hay acciones para rehacer (Ctrl+Y)";
+    bRedo.textContent = canRedo ? `↪️ Rehacer (${pilaRehacer.length})` : `↪️ Rehacer`;
+  }
+
+  // Botones flotantes
+  const fUndo = document.getElementById("btn-float-undo");
+  const fRedo = document.getElementById("btn-float-redo");
+  if (fUndo) {
+    fUndo.disabled = !canUndo;
+    fUndo.title = canUndo ? `Deshacer: ${ultimoUndo} (Ctrl+Z)` : "No hay acciones para deshacer";
+    fUndo.classList.toggle("activo", canUndo);
+    fUndo.textContent = canUndo ? `↩️ Deshacer (${pilaDeshacer.length})` : `↩️ Deshacer`;
+  }
+  if (fRedo) {
+    fRedo.disabled = !canRedo;
+    fRedo.title = canRedo ? `Rehacer: ${ultimoRedo} (Ctrl+Y)` : "No hay acciones para rehacer";
+    fRedo.classList.toggle("activo", canRedo);
+    fRedo.textContent = canRedo ? `↪️ Rehacer (${pilaRehacer.length})` : `↪️ Rehacer`;
+  }
+}
+
 function agregarFotoGaleria(sku, modo) {
   const input = document.getElementById(`in-foto-${sku}`);
   if (!input) return;
@@ -558,11 +698,13 @@ function agregarFotoGaleria(sku, modo) {
     if (base.galeria_fotos.length >= 5) {
       return alert("Cada producto puede tener un máximo de 5 fotos en su galería.");
     }
+    registrarAccionHistorial(`Agregar foto a ${base.nombre || sku}`);
     if (!base.galeria_fotos.includes(url)) {
       base.galeria_fotos.push(url);
     }
     if (!base.imagen_principal) base.imagen_principal = base.galeria_fotos[0];
   } else if (modo === 'principal') {
+    registrarAccionHistorial(`Fijar foto principal en ${base.nombre || sku}`);
     base.galeria_fotos = [url, ...base.galeria_fotos.filter(u => u !== url)].slice(0, 5);
     base.imagen_principal = url;
   }
@@ -573,7 +715,10 @@ function agregarFotoGaleria(sku, modo) {
 
 function eliminarFotoGaleria(sku, idx) {
   const p = PRODUCTOS.find(x => x.sku === sku);
-  if (!p || !p.galeria_fotos) return;
+  if (!p || !p.galeria_fotos || !p.galeria_fotos[idx]) return;
+  
+  registrarAccionHistorial(`Eliminar foto #${idx + 1} de ${p.nombre || sku}`);
+  
   p.galeria_fotos.splice(idx, 1);
   p.imagen_principal = p.galeria_fotos[0] || '';
   guardarBorradorYActualizar("Foto eliminada de la galería.");
@@ -581,11 +726,40 @@ function eliminarFotoGaleria(sku, idx) {
 
 function hacerFotoPrincipal(sku, idx) {
   const p = PRODUCTOS.find(x => x.sku === sku);
-  if (!p || !p.galeria_fotos) return;
+  if (!p || !p.galeria_fotos || idx <= 0 || idx >= p.galeria_fotos.length) return;
+  
+  registrarAccionHistorial(`Cambiar foto principal en ${p.nombre || sku}`);
+  
   const [foto] = p.galeria_fotos.splice(idx, 1);
   p.galeria_fotos.unshift(foto);
   p.imagen_principal = p.galeria_fotos[0];
   guardarBorradorYActualizar("⭐ Foto fijada como 1ra (principal para compartir).");
+}
+
+function quitarTodasLasFotos(sku) {
+  const p = PRODUCTOS.find(x => x.sku === sku);
+  if (!p) return;
+  const fotos = (p.galeria_fotos && p.galeria_fotos.length) ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
+  if (fotos.length === 0) {
+    return mostrarAviso("Este producto ya no tiene fotos.");
+  }
+
+  const nombreProd = p.nombre_completo || p.nombre || sku;
+  const confirmar = confirm(
+    `¿Seguro que querés quitar todas las fotos (${fotos.length}) de:\n"${nombreProd}"?\n\n` +
+    `💡 Si te equivocaste de producto, podés presionar "Deshacer" o Ctrl+Z para recuperarlas al instante.`
+  );
+  if (!confirmar) return;
+
+  registrarAccionHistorial(`Quitar todas las fotos de ${p.nombre || sku}`);
+
+  p.galeria_fotos = [];
+  p.imagen_principal = '';
+
+  const input = document.getElementById(`in-foto-${sku}`);
+  if (input) input.value = '';
+
+  guardarBorradorYActualizar(`🗑️ Se quitaron todas las fotos de "${p.nombre || sku}". Podés presionar ↩️ Deshacer si fue un error.`);
 }
 
 function asignarFoto(sku, modo) {
@@ -600,6 +774,11 @@ function asignarFoto(sku, modo) {
 
   if (url) {
     if (!validarUrlFoto(url)) return;
+
+    registrarAccionHistorial(modo === 'color' 
+      ? `Aplicar foto a color ${colorBase || 'sin color'} (${base.nombre})`
+      : `Aplicar foto a todo el modelo (${base.nombre})`
+    );
 
     PRODUCTOS.forEach(p => {
       const mismoModelo = p.nombre === base.nombre && p.marca === base.marca;
@@ -625,6 +804,11 @@ function asignarFoto(sku, modo) {
       return alert("Pegá un enlace de foto o agregá fotos a este producto primero para poder copiarlas.");
     }
 
+    registrarAccionHistorial(modo === 'color' 
+      ? `Copiar galería a color ${colorBase || 'sin color'} (${base.nombre})`
+      : `Copiar galería a todo el modelo (${base.nombre})`
+    );
+
     PRODUCTOS.forEach(p => {
       const mismoModelo = p.nombre === base.nombre && p.marca === base.marca;
       const mismoColor = ((p.atributos && p.atributos.COLOR) || "") === colorBase;
@@ -637,6 +821,8 @@ function asignarFoto(sku, modo) {
     });
 
     if (actualizados === 0) {
+      pilaDeshacer.pop();
+      actualizarBotonesHistorial();
       mostrarAviso(modo === 'color' ? "No hay otras variantes con el mismo color." : "No hay otras variantes de este modelo.");
     } else {
       guardarBorradorYActualizar(`¡Galería completa (${fotosBase.length} foto${fotosBase.length > 1 ? 's' : ''}) copiada a ${actualizados} variante(s) hermana(s)!`);
@@ -651,6 +837,7 @@ function guardarBorradorYActualizar(mensaje) {
     console.warn("No se pudo guardar borrador en localStorage:", e);
   }
   actualizarStatsAdmin();
+  actualizarBotonesHistorial();
   renderProductos();
   if (mensaje) mostrarAviso(mensaje);
 }
@@ -781,6 +968,8 @@ function fusionarCatalogoGoPartners(nuevosRaw) {
   if (!listaEntrante || !listaEntrante.length) {
     throw new Error("El archivo no contiene un catálogo o lista de productos válida.");
   }
+
+  registrarAccionHistorial("Actualizar precios/stock desde Go Partners");
 
   // Indexar catálogo actual por SKU y por clave NOMBRE_COLOR
   const mapaPorSku = new Map();
@@ -1255,7 +1444,10 @@ function generarCardHTML(p) {
         </div>
         ${fotos.length > 0 ? `
           <div class="editor-galeria-preview">
-            <span class="editor-galeria-titulo">Fotos guardadas (${fotos.length}):</span>
+            <div class="editor-galeria-header">
+              <span class="editor-galeria-titulo">Fotos guardadas (${fotos.length}):</span>
+              <button type="button" class="btn-ed-vaciar" data-accion="foto-vaciar" data-sku="${esc(p.sku)}" title="Eliminar todas las fotos de este producto">🗑️ Quitar todas</button>
+            </div>
             <div class="editor-thumbs">
               ${fotos.map((f, idx) => `
                 <div class="editor-thumb-box ${idx === 0 ? 'es-principal' : ''}">
@@ -1419,6 +1611,10 @@ document.getElementById("contenedor-productos").addEventListener("click", functi
       if (!isNaN(idx)) eliminarFotoGaleria(sku, idx);
       return;
     }
+    if (accion === "foto-vaciar") {
+      quitarTodasLasFotos(sku);
+      return;
+    }
     if (accion === "foto-color") {
       asignarFoto(sku, "color");
       return;
@@ -1512,6 +1708,18 @@ if (inputActualizarGP) {
   });
 }
 
+const btnAdminUndo = document.getElementById("btn-admin-undo");
+if (btnAdminUndo) btnAdminUndo.addEventListener("click", deshacerAccion);
+
+const btnAdminRedo = document.getElementById("btn-admin-redo");
+if (btnAdminRedo) btnAdminRedo.addEventListener("click", rehacerAccion);
+
+const btnFloatUndo = document.getElementById("btn-float-undo");
+if (btnFloatUndo) btnFloatUndo.addEventListener("click", deshacerAccion);
+
+const btnFloatRedo = document.getElementById("btn-float-redo");
+if (btnFloatRedo) btnFloatRedo.addEventListener("click", rehacerAccion);
+
 const btnDescargar = document.getElementById("btn-admin-descargar");
 if (btnDescargar) btnDescargar.addEventListener("click", descargarJSONActualizado);
 
@@ -1535,6 +1743,24 @@ document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") cerrarGaleria();
     else if (e.key === "ArrowLeft") cambiarFoto(-1);
     else if (e.key === "ArrowRight") cambiarFoto(1);
+    return;
+  }
+
+  // Atajos para Deshacer (Ctrl+Z) y Rehacer (Ctrl+Y / Ctrl+Shift+Z) en Modo Editor
+  if (document.body.classList.contains("modo-admin")) {
+    const tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.shiftKey) {
+      e.preventDefault();
+      deshacerAccion();
+      return;
+    }
+    if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'y' || (e.shiftKey && e.key.toLowerCase() === 'z'))) {
+      e.preventDefault();
+      rehacerAccion();
+      return;
+    }
   }
 });
 
@@ -1611,6 +1837,7 @@ if (btnSyncImportar) {
       }
 
       let actualizados = 0;
+      registrarAccionHistorial("Importar fotos sincronizadas");
       data.forEach(item => {
         if (!item || !item.sku) return;
         const p = PRODUCTOS.find(x => x.sku === item.sku);
