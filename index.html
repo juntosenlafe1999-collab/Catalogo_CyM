@@ -470,6 +470,9 @@ document.getElementById('input-json').addEventListener('change', function(e) {
 function iniciarCatalogo(data) {
   PRODUCTOS = data;
   PRODUCTOS.forEach(p => {
+    if (p.galeria_fotos && p.galeria_fotos.length > 5) {
+      p.galeria_fotos = p.galeria_fotos.slice(0, 5);
+    }
     if (p.imagen_principal && (!p.galeria_fotos || !p.galeria_fotos.length)) {
       p.galeria_fotos = [p.imagen_principal];
     } else if (p.galeria_fotos && p.galeria_fotos.length && !p.imagen_principal) {
@@ -552,12 +555,15 @@ function agregarFotoGaleria(sku, modo) {
   if (!base.galeria_fotos) base.galeria_fotos = base.imagen_principal ? [base.imagen_principal] : [];
 
   if (modo === 'agregar') {
+    if (base.galeria_fotos.length >= 5) {
+      return alert("Cada producto puede tener un máximo de 5 fotos en su galería.");
+    }
     if (!base.galeria_fotos.includes(url)) {
       base.galeria_fotos.push(url);
     }
     if (!base.imagen_principal) base.imagen_principal = base.galeria_fotos[0];
   } else if (modo === 'principal') {
-    base.galeria_fotos = [url, ...base.galeria_fotos.filter(u => u !== url)];
+    base.galeria_fotos = [url, ...base.galeria_fotos.filter(u => u !== url)].slice(0, 5);
     base.imagen_principal = url;
   }
 
@@ -602,7 +608,7 @@ function asignarFoto(sku, modo) {
       if (p.sku === sku || (modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo)) {
         p.imagen_principal = url;
         if (!p.galeria_fotos) p.galeria_fotos = [];
-        p.galeria_fotos = [url, ...p.galeria_fotos.filter(u => u !== url)];
+        p.galeria_fotos = [url, ...p.galeria_fotos.filter(u => u !== url)].slice(0, 5);
         actualizados++;
       }
     });
@@ -612,7 +618,7 @@ function asignarFoto(sku, modo) {
   } else {
     // Si el input está vacío, copiamos la galería completa y la foto principal que ya tiene el producto base
     const fotosBase = (base.galeria_fotos && base.galeria_fotos.length) 
-      ? [...base.galeria_fotos] 
+      ? [...base.galeria_fotos].slice(0, 5) 
       : (base.imagen_principal ? [base.imagen_principal] : []);
 
     if (fotosBase.length === 0) {
@@ -625,7 +631,7 @@ function asignarFoto(sku, modo) {
 
       if (p.sku !== sku && ((modo === 'color' && mismoModelo && mismoColor) || (modo === 'modelo' && mismoModelo))) {
         p.imagen_principal = base.imagen_principal || fotosBase[0];
-        p.galeria_fotos = [...fotosBase];
+        p.galeria_fotos = [...fotosBase].slice(0, 5);
         actualizados++;
       }
     });
@@ -867,8 +873,11 @@ function fusionarCatalogoGoPartners(nuevosRaw) {
     }
   });
 
-  // Normalizar sincronización imagen_principal y galeria_fotos
+  // Normalizar sincronización imagen_principal y galeria_fotos (máximo 5 fotos)
   catalogoFusionado.forEach(p => {
+    if (p.galeria_fotos && p.galeria_fotos.length > 5) {
+      p.galeria_fotos = p.galeria_fotos.slice(0, 5);
+    }
     if (p.imagen_principal && (!p.galeria_fotos || !p.galeria_fotos.length)) {
       p.galeria_fotos = [p.imagen_principal];
     } else if (p.galeria_fotos && p.galeria_fotos.length && !p.imagen_principal) {
