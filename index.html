@@ -1119,180 +1119,403 @@ function armarTextoCompartir(p) {
 
 // Cache en memoria para archivos de compartir (evita re-descargas y hace el compartir instantáneo)
 const CACHE_ARCHIVOS_COMPARTIR = new Map();
+let LOGO_CYM_IMG = null;
 
-// Función para estandarizar cualquier imagen a un lienzo cuadrado HD (1080x1080) con fondo blanco
-function estandarizarLienzoBlanco(img, nombreArchivo) {
-  const c = document.createElement('canvas');
-  c.width = 1080;
-  c.height = 1080;
-  const ctx = c.getContext('2d');
-
-  // 1. Fondo blanco puro impecable (elimina para siempre el fondo negro de WhatsApp en PNGs transparentes)
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, 0, 1080, 1080);
-
-  // 2. Centrado proporcional del producto con 8% de margen de seguridad (evita que toque los bordes)
-  const maxDim = 920;
-  const imgW = img.naturalWidth || img.width || 800;
-  const imgH = img.naturalHeight || img.height || 800;
-  const scale = Math.min(maxDim / imgW, maxDim / imgH);
-  const drawW = Math.round(imgW * scale);
-  const drawH = Math.round(imgH * scale);
-  const drawX = Math.round((1080 - drawW) / 2);
-  const drawY = Math.round((1080 - drawH) / 2);
-
-  ctx.drawImage(img, drawX, drawY, drawW, drawH);
-
-  return new Promise((resolve, reject) => {
-    c.toBlob(blob => {
-      if (blob) {
-        resolve(new File([blob], `${nombreArchivo}.jpg`, { type: 'image/jpeg' }));
-      } else {
-        reject(new Error("Error generando blob de imagen estandarizada"));
-      }
-    }, 'image/jpeg', 0.90);
+function obtenerLogoCyM() {
+  if (LOGO_CYM_IMG && LOGO_CYM_IMG.complete) return Promise.resolve(LOGO_CYM_IMG);
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      LOGO_CYM_IMG = img;
+      resolve(img);
+    };
+    img.onerror = () => resolve(null);
+    img.src = './logo.png';
   });
 }
 
-// Creador automático de tarjeta gráfica HD del producto (1080x1080)
-function crearTarjetaGraficaHD(p) {
+function cargarImagenSegura(url) {
+  return new Promise((resolve) => {
+    if (!url) return resolve(null);
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => {
+      // Si la carga directa falla por CORS o restricción, recurrimos al proxy seguro weserv
+      const proxyImg = new Image();
+      proxyImg.crossOrigin = 'anonymous';
+      proxyImg.onload = () => resolve(proxyImg);
+      proxyImg.onerror = () => resolve(null);
+      proxyImg.src = `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+    };
+    if (url.startsWith('http')) {
+      img.src = `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+    } else {
+      img.src = url;
+    }
+  });
+}
+
+// Algoritmo de limpieza de fondo blanco para fotos JPG o PNG con fondo sólido
+function procesarImagenFondoTransparente(img) {
+  if (!img) return null;
+  const offCanvas = document.createElement('canvas');
+  const w = img.naturalWidth || img.width || 800;
+  const h = img.naturalHeight || img.height || 800;
+  offCanvas.width = w;
+  offCanvas.height = h;
+  const offCtx = offCanvas.getContext('2d');
+  offCtx.drawImage(img, 0, 0);
+
+  try {
+    const imgData = offCtx.getImageData(0, 0, w, h);
+    const data = imgData.data;
+
+    // Verificar si ya tiene transparencia en las esquinas
+    const esquinas = [
+      0,
+      (w - 1) * 4,
+      ((h - 1) * w) * 4,
+      ((h - 1) * w + (w - 1)) * 4
+    ];
+
+    let yaTieneTransparencia = false;
+    for (let idx of esquinas) {
+      if (data[idx + 3] < 180) {
+        yaTieneTransparencia = true;
+        break;
+      }
+    }
+
+    if (yaTieneTransparencia) {
+      return offCanvas;
+    }
+
+    // Verificar si las esquinas son fondo blanco/casi blanco (> 238)
+    const esBlanco = (idx) => data[idx] >= 238 && data[idx + 1] >= 238 && data[idx + 2] >= 238;
+    const esquinasBlancas = esquinas.filter(esBlanco).length;
+
+    if (esquinasBlancas >= 3) {
+      const visitado = new Uint8Array(w * h);
+      const queue = [];
+
+      for (let x = 0; x < w; x++) {
+        queue.push(x, 0);
+        queue.push(x, h - 1);
+      }
+      for (let y = 1; y < h - 1; y++) {
+        queue.push(0, y);
+        queue.push(w - 1, y);
+      }
+
+      let head = 0;
+      while (head < queue.length) {
+        const x = queue[head++];
+        const y = queue[head++];
+        const pIndex = y * w + x;
+        if (visitado[pIndex]) continue;
+        visitado[pIndex] = 1;
+
+        const dIndex = pIndex * 4;
+        const r = data[dIndex];
+        const g = data[dIndex + 1];
+        const b = data[dIndex + 2];
+
+        if (r >= 238 && g >= 238 && b >= 238) {
+          data[dIndex + 3] = 0; // Transparente
+          if (x > 0 && !visitado[pIndex - 1]) queue.push(x - 1, y);
+          if (x < w - 1 && !visitado[pIndex + 1]) queue.push(x + 1, y);
+          if (y > 0 && !visitado[pIndex - w]) queue.push(x, y - 1);
+          if (y < h - 1 && !visitado[pIndex + w]) queue.push(x, y + 1);
+        } else if (r >= 225 && g >= 225 && b >= 225) {
+          const diff = Math.min(r, g, b) - 225;
+          data[dIndex + 3] = Math.round((1 - (diff / 13)) * 255);
+        }
+      }
+      offCtx.putImageData(imgData, 0, 0);
+    }
+  } catch (err) {
+    console.warn("Filtro de fondo omitido:", err);
+  }
+
+  return offCanvas;
+}
+
+function dibujarRoundRect(ctx, x, y, w, h, r, fill, stroke) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  if (fill) ctx.fill();
+  if (stroke) ctx.stroke();
+}
+
+// Creador de la plantilla gráfica publicitaria vertical 4:5 (1080 x 1350)
+async function crearPlantillaPublicitaria45(p, imgProducto) {
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
-  canvas.height = 1080;
+  canvas.height = 1350;
   const ctx = canvas.getContext('2d');
+  const W = 1080;
+  const H = 1350;
 
-  // Fondo elegante oscuro
-  const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
-  grad.addColorStop(0, '#0f101a');
-  grad.addColorStop(1, '#1b1e36');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 1080, 1080);
+  // 1. Fondo elegante oscuro con textura/degradado de profundidad
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, "#0b0c14");
+  bg.addColorStop(0.35, "#141628");
+  bg.addColorStop(0.7, "#0f101c");
+  bg.addColorStop(1, "#08090f");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
 
-  // Marco dorado sutil
-  ctx.strokeStyle = '#e8bc70';
-  ctx.lineWidth = 6;
-  ctx.strokeRect(40, 40, 1000, 1000);
+  // Marco dorado de lujo en el contorno
+  ctx.strokeStyle = "rgba(232, 188, 112, 0.45)";
+  ctx.lineWidth = 4;
+  ctx.strokeRect(22, 22, W - 44, H - 44);
 
-  // Encabezado marca comercial
-  ctx.fillStyle = '#e8bc70';
-  ctx.font = 'bold 34px Inter, sans-serif';
-  ctx.fillText('MULTISERVICIOS CyM', 90, 120);
+  // 2. Encabezado superior
+  // Top Left: Badge de Stock
+  const esDisponible = Boolean(p.disponible);
+  ctx.fillStyle = esDisponible ? "rgba(46, 189, 127, 0.16)" : "rgba(217, 155, 56, 0.16)";
+  ctx.strokeStyle = esDisponible ? "#2ebd7f" : "#d99b38";
+  ctx.lineWidth = 1.8;
+  dibujarRoundRect(ctx, 55, 48, esDisponible ? 175 : 185, 34, 17, true, true);
 
-  ctx.fillStyle = '#9a9cb5';
-  ctx.font = 'bold 26px Inter, sans-serif';
-  ctx.fillText(`${p.marca} · ${NOMBRES_CAT[p.categoria] || p.categoria}`, 90, 168);
+  ctx.fillStyle = esDisponible ? "#2ebd7f" : "#d99b38";
+  ctx.beginPath();
+  ctx.arc(76, 65, 5, 0, Math.PI * 2);
+  ctx.fill();
 
-  // Nombre del Producto
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 50px Inter, sans-serif';
-  const nombreTexto = p.nombre || p.nombre_completo;
-  const palabras = (nombreTexto || '').split(' ');
-  let linea = '', y = 250;
-  for (let w of palabras) {
-    if ((linea + w).length > 25) {
-      ctx.fillText(linea.trim(), 90, y);
-      linea = w + ' ';
-      y += 64;
-    } else {
-      linea += w + ' ';
-    }
+  ctx.font = "bold 14px Inter, sans-serif";
+  ctx.fillText(esDisponible ? "DISPONIBLE" : "BAJO PEDIDO", 89, 70);
+
+  // Línea 1: Marca destacada en dorado
+  const marcaTexto = ((p.marca || 'PRODUCTO') + ' ORIGINAL').toUpperCase();
+  ctx.fillStyle = "#e8bc70";
+  ctx.font = "bold 26px Inter, sans-serif";
+  ctx.fillText(marcaTexto, 55, 118);
+
+  // Línea 2: Categoría justo debajo
+  const catTexto = `${NOMBRES_CAT[p.categoria] || p.categoria || 'Catálogo'}`;
+  ctx.fillStyle = "#f2f2f8";
+  ctx.font = "600 20px Inter, sans-serif";
+  ctx.fillText(catTexto, 55, 150);
+
+  // Top Right: Logo de Multiservicios CyM
+  const logoImg = await obtenerLogoCyM();
+  if (logoImg && logoImg.width) {
+    const logoW = 390;
+    const logoH = Math.round(logoW * (logoImg.height / logoImg.width));
+    ctx.drawImage(logoImg, W - 55 - logoW, 46, logoW, logoH);
   }
-  if (linea.trim()) {
-    ctx.fillText(linea.trim(), 90, y);
+
+  // 3. Área Central: Podio de luz suave y Producto centrado
+  const cx = 540;
+  const cy = 520;
+
+  // Foco radial de luz para contraste óptimo
+  const foco = ctx.createRadialGradient(cx, cy, 50, cx, cy, 420);
+  foco.addColorStop(0, "rgba(255, 255, 255, 0.22)");
+  foco.addColorStop(0.45, "rgba(232, 188, 112, 0.08)");
+  foco.addColorStop(1, "rgba(0, 0, 0, 0)");
+  ctx.fillStyle = foco;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 420, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Sombra estilizada de apoyo en doble capa
+  const sombraDifusaY = 820;
+  ctx.save();
+  const gradSombra1 = ctx.createRadialGradient(cx, sombraDifusaY, 10, cx, sombraDifusaY, 260);
+  gradSombra1.addColorStop(0, "rgba(0, 0, 0, 0.45)");
+  gradSombra1.addColorStop(0.5, "rgba(0, 0, 0, 0.18)");
+  gradSombra1.addColorStop(1, "rgba(0, 0, 0, 0)");
+  ctx.fillStyle = gradSombra1;
+  ctx.beginPath();
+  ctx.ellipse(cx, sombraDifusaY, 260, 32, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  const gradSombra2 = ctx.createRadialGradient(cx, sombraDifusaY - 6, 5, cx, sombraDifusaY - 6, 140);
+  gradSombra2.addColorStop(0, "rgba(0, 0, 0, 0.65)");
+  gradSombra2.addColorStop(0.7, "rgba(0, 0, 0, 0.2)");
+  gradSombra2.addColorStop(1, "rgba(0, 0, 0, 0)");
+  ctx.fillStyle = gradSombra2;
+  ctx.beginPath();
+  ctx.ellipse(cx, sombraDifusaY - 6, 140, 16, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // Dibujar el producto
+  if (imgProducto && imgProducto.width) {
+    const canvasProcesado = procesarImagenFondoTransparente(imgProducto) || imgProducto;
+    const maxBoxW = 640;
+    const maxBoxH = 580;
+    const pw = canvasProcesado.width || imgProducto.width;
+    const ph = canvasProcesado.height || imgProducto.height;
+    const scale = Math.min(maxBoxW / pw, maxBoxH / ph);
+    const dw = Math.round(pw * scale);
+    const dh = Math.round(ph * scale);
+    const dx = Math.round(cx - dw / 2);
+    const dy = Math.round((sombraDifusaY - 10) - dh);
+    ctx.drawImage(canvasProcesado, dx, dy, dw, dh);
+  } else {
+    // Si no tiene imagen, mostramos el ícono grande con marco
+    ctx.fillStyle = "rgba(232, 188, 112, 0.15)";
+    ctx.strokeStyle = "rgba(232, 188, 112, 0.4)";
+    dibujarRoundRect(ctx, cx - 120, cy - 120, 240, 240, 30, true, true);
+    ctx.font = "110px Inter, sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(ICONOS_CAT[p.categoria] || "📦", cx, cy + 40);
+    ctx.textAlign = "left";
   }
 
-  // Variante / Especificaciones
-  const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
-  const sub = p.detalles_variante || atr || '';
-  if (sub) {
-    ctx.fillStyle = '#9a9cb5';
-    ctx.font = '32px Inter, sans-serif';
-    ctx.fillText(sub.slice(0, 52), 90, y + 65);
+  // 4. Panel de Información del Producto (Caja estilizada)
+  const cardY = 885;
+  const cardH = 240;
+  ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
+  ctx.lineWidth = 1.5;
+  dibujarRoundRect(ctx, 55, cardY, W - 110, cardH, 24, true, true);
+
+  // Título del producto con ajuste inteligente de tamaño
+  const nombreProd = p.nombre || p.nombre_completo || 'Producto';
+  let fontTituloSize = 42;
+  ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  if (ctx.measureText(nombreProd).width > 600) {
+    fontTituloSize = 34;
+    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
   }
+  if (ctx.measureText(nombreProd).width > 600) {
+    fontTituloSize = 28;
+    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  }
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText(nombreProd, 90, cardY + 58);
 
-  // Caja de Precio
-  ctx.fillStyle = 'rgba(232, 188, 112, 0.12)';
-  ctx.fillRect(90, 520, 900, 220);
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 92px Inter, sans-serif';
-  ctx.fillText(`$${Number(p.precio_usd).toLocaleString('en-US')}`, 130, 640);
+  // Variante / especificaciones
+  const atrStr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
+  const specsTexto = p.detalles_variante || atrStr || p.descripcion || '';
+  ctx.fillStyle = "#9a9cb5";
+  ctx.font = "500 21px Inter, sans-serif";
+  ctx.fillText(specsTexto.slice(0, 56), 90, cardY + 104);
 
-  ctx.fillStyle = '#e8bc70';
-  ctx.font = 'bold 42px Inter, sans-serif';
-  ctx.fillText(`C$ ${Number(p.precio_nio).toLocaleString('en-US')} · Efectivo / Transf.`, 130, 705);
+  // Garantía
+  ctx.fillStyle = "#e8bc70";
+  ctx.font = "600 20px Inter, sans-serif";
+  ctx.fillText("🛡️ " + (p.garantia || "12 meses de garantía en taller"), 90, cardY + 150);
 
-  // Garantía y Contacto
-  ctx.fillStyle = '#f2f2f8';
-  ctx.font = '30px Inter, sans-serif';
-  ctx.fillText(`🛡️ ${p.garantia}   |   💳 Tarjetas y Credex disponible`, 90, 840);
+  // Medios de pago
+  ctx.fillStyle = "#b8bad0";
+  ctx.font = "500 18.5px Inter, sans-serif";
+  ctx.fillText("💳 Tarjetas de crédito, débito y Credex disponibles", 90, cardY + 190);
 
-  ctx.fillStyle = '#25D366';
-  ctx.font = 'bold 38px Inter, sans-serif';
-  ctx.fillText(`📲 Pedidos por WhatsApp: +505 8501 3284`, 90, 930);
+  // Caja de Precios a la derecha
+  const boxPrecioW = 270;
+  const boxPrecioH = 130;
+  const boxPrecioX = W - 55 - 35 - boxPrecioW;
+  const boxPrecioY = cardY + 32;
 
-  return new Promise(resolve => {
+  ctx.fillStyle = "rgba(232, 188, 112, 0.14)";
+  ctx.strokeStyle = "rgba(232, 188, 112, 0.4)";
+  dibujarRoundRect(ctx, boxPrecioX, boxPrecioY, boxPrecioW, boxPrecioH, 18, true, true);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 58px Inter, sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("$" + Number(p.precio_usd).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 68);
+
+  ctx.fillStyle = "#e8bc70";
+  ctx.font = "bold 23px Inter, sans-serif";
+  ctx.fillText("C$ " + Number(p.precio_nio).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 104);
+  ctx.textAlign = "left";
+
+  // 5. BANNER INFERIOR LLAMATIVO EN VERDE WHATSAPP CON TEXTO EN AZUL OSCURO DEL DISEÑO
+  const waY = 1160;
+  const waH = 132;
+  const barraWA = ctx.createLinearGradient(55, waY, W - 55, waY);
+  barraWA.addColorStop(0, "#25D366");
+  barraWA.addColorStop(1, "#128C7E");
+  ctx.fillStyle = barraWA;
+  dibujarRoundRect(ctx, 55, waY, W - 110, waH, 26, true, false);
+
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.35)";
+  ctx.lineWidth = 1.5;
+  dibujarRoundRect(ctx, 55, waY, W - 110, waH, 26, false, true);
+
+  const colorTextoBanner = "#0a0e1c";
+
+  // Ícono oficial vectorizado de WhatsApp (24x24 sin distorsión)
+  const waPath = new Path2D("M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z");
+
+  const telFormateado = "8501-3284";
+  const textoWA = "Pedidos WhatsApp: " + telFormateado;
+  ctx.font = "bold 50px Inter, sans-serif";
+  const textoW = ctx.measureText(textoWA).width;
+  const iconSize = 50;
+  const startX = cx - (textoW + iconSize + 16) / 2;
+
+  ctx.save();
+  ctx.translate(startX, waY + 28);
+  ctx.scale(iconSize / 24, iconSize / 24);
+  ctx.fillStyle = colorTextoBanner;
+  ctx.fill(waPath);
+  ctx.restore();
+
+  ctx.fillStyle = colorTextoBanner;
+  ctx.textAlign = "left";
+  ctx.fillText(textoWA, startX + iconSize + 16, waY + 70);
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = colorTextoBanner;
+  ctx.font = "bold 19px Inter, sans-serif";
+  ctx.letterSpacing = "0.5px";
+  ctx.fillText("¡ESCRIBINOS AHORA PARA APARTARLO! · ENVÍOS A TODA NICARAGUA", cx, waY + 110);
+  ctx.textAlign = "left";
+
+  return new Promise((resolve, reject) => {
     canvas.toBlob(blob => {
-      resolve(new File([blob], `${p.sku}-ficha.png`, { type: 'image/png' }));
-    }, 'image/png');
+      if (blob) {
+        resolve(new File([blob], `${p.sku || 'producto'}-publicidad-cym.jpg`, { type: 'image/jpeg' }));
+      } else {
+        reject(new Error("Error generando imagen"));
+      }
+    }, 'image/jpeg', 0.92);
   });
 }
 
-// Genera o descarga el archivo de imagen del producto en formato cuadrado HD estandarizado con fondo blanco
+// Función que obtiene o genera el archivo de imagen para compartir
 async function obtenerArchivoImagen(p) {
   const urlFoto = (p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos[0] : '') || p.imagen_principal || '';
-  const fileBaseName = p.sku || 'producto';
+  const cacheKey = p.sku || urlFoto || 'prod';
 
-  if (!urlFoto) {
-    return crearTarjetaGraficaHD(p);
+  // 0. Devolución instantánea desde caché en memoria (0ms)
+  if (CACHE_ARCHIVOS_COMPARTIR.has(cacheKey)) {
+    return CACHE_ARCHIVOS_COMPARTIR.get(cacheKey);
   }
-
-  // 0. Si ya fue procesada antes en esta sesión, devolver al instante (0ms de espera)
-  if (CACHE_ARCHIVOS_COMPARTIR.has(urlFoto)) {
-    return CACHE_ARCHIVOS_COMPARTIR.get(urlFoto);
-  }
-
-  // 1. Optimización CDN: Fondo blanco puro + formato cuadrado 1080x1080 + JPEG (pesa solo ~90-120KB y descarga ultrarrápida)
-  const cdnStandardUrl = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}&w=1080&h=1080&fit=contain&cbg=white&output=jpg&q=88`;
 
   try {
-    const resp = await fetch(cdnStandardUrl);
-    if (resp.ok) {
-      const blob = await resp.blob();
-      if (blob.type.startsWith('image/')) {
-        const file = new File([blob], `${fileBaseName}.jpg`, { type: 'image/jpeg' });
-        CACHE_ARCHIVOS_COMPARTIR.set(urlFoto, file);
-        return file;
-      }
+    let imgProducto = null;
+    if (urlFoto) {
+      imgProducto = await cargarImagenSegura(urlFoto);
     }
-  } catch (_) {
-    // Si la descarga rápida del CDN falla, probamos con Canvas local
+    const archivo = await crearPlantillaPublicitaria45(p, imgProducto);
+    if (archivo) {
+      CACHE_ARCHIVOS_COMPARTIR.set(cacheKey, archivo);
+      return archivo;
+    }
+  } catch (err) {
+    console.warn("Error creando plantilla publicitaria 4:5:", err);
   }
 
-  // 2. Intento mediante Image y Canvas local con fondo blanco puro
-  try {
-    const file = await new Promise((resolve, reject) => {
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = async () => {
-        try {
-          const resFile = await estandarizarLienzoBlanco(img, fileBaseName);
-          resolve(resFile);
-        } catch (err) {
-          reject(err);
-        }
-      };
-      img.onerror = () => reject(new Error('Image load failed'));
-      img.src = `https://images.weserv.nl/?url=${encodeURIComponent(urlFoto)}`;
-    });
-
-    if (file) {
-      CACHE_ARCHIVOS_COMPARTIR.set(urlFoto, file);
-      return file;
-    }
-  } catch (_) {}
-
-  // 3. Fallback a tarjeta gráfica HD solo si fallaron todos los métodos anteriores
-  return crearTarjetaGraficaHD(p);
+  // Fallback seguro
+  return crearPlantillaPublicitaria45(p, null);
 }
 
 // Función principal para compartir: la foto primero y la ficha como comentario (caption)
