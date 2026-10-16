@@ -1448,69 +1448,73 @@ async function crearPlantillaPublicitaria45(p, imgProducto) {
     ctx.textAlign = "left";
   }
 
-  // 4. Panel de Información del Producto (Caja estilizada)
-  const cardY = 885;
-  const cardH = 240;
-  ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
-  ctx.lineWidth = 1.5;
-  dibujarRoundRect(ctx, 55, cardY, W - 110, cardH, 24, true, true);
+  // 4. Panel de Información del Producto (Caja estilizada de alto impacto)
+  const cardY = 870;
+  const cardH = 260;
+  ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+  ctx.lineWidth = 1.8;
+  dibujarRoundRect(ctx, 55, cardY, W - 110, cardH, 26, true, true);
 
-  // Título del producto con ajuste inteligente de tamaño
-  const nombreProd = p.nombre || p.nombre_completo || 'Producto';
-  let fontTituloSize = 42;
-  ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
-  if (ctx.measureText(nombreProd).width > 600) {
-    fontTituloSize = 34;
-    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
-  }
-  if (ctx.measureText(nombreProd).width > 600) {
-    fontTituloSize = 28;
-    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
-  }
+  // Caja de Precios a la derecha (Agrandada para destacar en teléfonos)
+  const boxPrecioW = 310;
+  const boxPrecioH = 160;
+  const boxPrecioX = W - 55 - 25 - boxPrecioW;
+  const boxPrecioY = cardY + 50;
+
+  ctx.fillStyle = "rgba(232, 188, 112, 0.16)";
+  ctx.strokeStyle = "rgba(232, 188, 112, 0.45)";
+  ctx.lineWidth = 2;
+  dibujarRoundRect(ctx, boxPrecioX, boxPrecioY, boxPrecioW, boxPrecioH, 20, true, true);
+
+  // Precio en Dólares (Grande y destacado)
   ctx.fillStyle = "#ffffff";
-  ctx.fillText(nombreProd, 90, cardY + 58);
-
-  // Variante / especificaciones
-  const atrStr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
-  const specsTexto = p.detalles_variante || atrStr || p.descripcion || '';
-  ctx.fillStyle = "#9a9cb5";
-  ctx.font = "500 21px Inter, sans-serif";
-  ctx.fillText(specsTexto.slice(0, 56), 90, cardY + 104);
-
-  // Garantía
-  ctx.fillStyle = "#e8bc70";
-  ctx.font = "600 20px Inter, sans-serif";
-  ctx.fillText("🛡️ " + (p.garantia || "12 meses de garantía en taller"), 90, cardY + 150);
-
-  // Medios de pago
-  ctx.fillStyle = "#b8bad0";
-  ctx.font = "500 18.5px Inter, sans-serif";
-  ctx.fillText("💳 Tarjetas de crédito, débito y Credex disponibles", 90, cardY + 190);
-
-  // Caja de Precios a la derecha
-  const boxPrecioW = 270;
-  const boxPrecioH = 130;
-  const boxPrecioX = W - 55 - 35 - boxPrecioW;
-  const boxPrecioY = cardY + 32;
-
-  ctx.fillStyle = "rgba(232, 188, 112, 0.14)";
-  ctx.strokeStyle = "rgba(232, 188, 112, 0.4)";
-  dibujarRoundRect(ctx, boxPrecioX, boxPrecioY, boxPrecioW, boxPrecioH, 18, true, true);
-
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 58px Inter, sans-serif";
+  ctx.font = "bold 74px Inter, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("$" + Number(p.precio_usd).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 68);
+  ctx.fillText("$" + Number(p.precio_usd).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 76);
 
+  // Precio en Córdobas (Grande y claro)
   ctx.fillStyle = "#e8bc70";
-  ctx.font = "bold 23px Inter, sans-serif";
-  ctx.fillText("C$ " + Number(p.precio_nio).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 104);
+  ctx.font = "bold 30px Inter, sans-serif";
+  ctx.fillText("C$ " + Number(p.precio_nio).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 128);
   ctx.textAlign = "left";
 
+  // Título del producto con ajuste inteligente
+  const nombreProd = p.nombre || p.nombre_completo || 'Producto';
+  const maxTextoAncho = boxPrecioX - 85 - 20;
+  let fontTituloSize = 46;
+  ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  if (ctx.measureText(nombreProd).width > maxTextoAncho) {
+    fontTituloSize = 38;
+    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  }
+  if (ctx.measureText(nombreProd).width > maxTextoAncho) {
+    fontTituloSize = 31;
+    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  }
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText(nombreProd, 85, cardY + 56);
+
+  // Variante / especificaciones (Texto agrandado a 27px en blanco puro de alto contraste)
+  const atrStr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
+  const specsTexto = p.detalles_variante || atrStr || p.descripcion || '';
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 27px Inter, sans-serif";
+  ctx.fillText(specsTexto.slice(0, 40), 85, cardY + 106);
+
+  // Garantía (Agrandada a 25px en dorado)
+  ctx.fillStyle = "#e8bc70";
+  ctx.font = "bold 25px Inter, sans-serif";
+  ctx.fillText("🛡️ " + (p.garantia || "12 meses de garantía en taller"), 85, cardY + 156);
+
+  // Medios de pago (Agrandado a 23px con excelente visibilidad)
+  ctx.fillStyle = "#d0d2ea";
+  ctx.font = "600 23px Inter, sans-serif";
+  ctx.fillText("💳 Tarjetas de crédito y Credex disponibles", 85, cardY + 204);
+
   // 5. BANNER INFERIOR LLAMATIVO EN VERDE WHATSAPP CON TEXTO EN AZUL OSCURO DEL DISEÑO
-  const waY = 1160;
-  const waH = 132;
+  const waY = 1155;
+  const waH = 135;
   const barraWA = ctx.createLinearGradient(55, waY, W - 55, waY);
   barraWA.addColorStop(0, "#25D366");
   barraWA.addColorStop(1, "#128C7E");
