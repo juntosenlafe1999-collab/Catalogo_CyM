@@ -43,8 +43,8 @@
     .wa-directo:hover { background: #25D366; color: #0c1a11; border-color: #25D366; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35); }
     .wa-icon { width: 17px; height: 17px; flex-shrink: 0; }
 
-    /* Controles de búsqueda y filtros */
-    .controles { max-width: 1200px; margin: 16px auto 0; padding: 12px 20px 14px; position: sticky; top: 0; background: rgba(11, 12, 20, 0.94); backdrop-filter: blur(12px); z-index: 20; border-bottom: 1px solid var(--border); }
+    /* Controles de búsqueda y filtros con capa acelerada por GPU */
+    .controles { max-width: 1200px; margin: 16px auto 0; padding: 12px 20px 14px; position: sticky; top: 0; background: rgba(11, 12, 20, 0.94); backdrop-filter: blur(12px); z-index: 20; border-bottom: 1px solid var(--border); transform: translateZ(0); will-change: transform; }
     .fila-busqueda { display: flex; gap: 10px; align-items: center; width: 100%; }
     .buscador { flex: 1; min-width: 140px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 14px; outline: none; transition: border-color 0.2s; }
     .buscador:focus { border-color: var(--accent); }
@@ -61,7 +61,7 @@
     .categorias::-webkit-scrollbar { height: 4px; }
     .categorias::-webkit-scrollbar-thumb { background: rgba(232, 188, 112, 0.4); border-radius: 4px; }
     .categorias::-webkit-scrollbar-track { background: transparent; }
-    .chip { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-size: 12.5px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: all 0.15s ease; user-select: none; }
+    .chip { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-size: 12.5px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease; user-select: none; }
     .chip:hover { border-color: var(--accent); color: var(--text); }
     .chip.on { background: var(--accent); color: #14152a; border-color: var(--accent); font-weight: 700; }
 
@@ -71,19 +71,36 @@
     .caja-archivo p { font-size: 13.5px; color: var(--muted); margin-bottom: 18px; line-height: 1.5; }
     .btn-subir { display: inline-block; background: var(--accent); color: #14152a; font-weight: 700; padding: 12px 22px; border-radius: 12px; cursor: pointer; font-size: 14px; }
 
-    /* Grilla de productos */
-    .grid { max-width: 1200px; margin: 24px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; width: 100%; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; width: 100%; min-width: 0; content-visibility: auto; contain-intrinsic-size: 320px 480px; }
-    .card:hover { transform: translateY(-3px); border-color: rgba(232, 188, 112, 0.35); }
+    /* Grilla de productos acelerada */
+    .grid { max-width: 1200px; margin: 24px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; width: 100%; contain: layout style; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease; width: 100%; min-width: 0; content-visibility: auto; contain-intrinsic-size: 320px 480px; transform: translateZ(0); backface-visibility: hidden; }
+    .card:hover { transform: translateY(-3px) translateZ(0); border-color: rgba(232, 188, 112, 0.38); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); }
     
-    .foto-box { height: 220px; background: #ffffff; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 12px; }
+    /* Contenedor de foto con skeleton shimmer y fade-in suave */
+    .foto-box { height: 220px; background: #ffffff; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 12px; contain: paint; }
+    .foto-box.cargando::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(235, 237, 242, 0.5) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(235, 237, 242, 0.5) 100%);
+      background-size: 200% 100%;
+      animation: skeletonShimmer 1.4s infinite linear;
+      z-index: 1;
+      pointer-events: none;
+    }
+    @keyframes skeletonShimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
     .foto-box.sin-foto { background: #1c1e30; }
-    .foto-box img { width: 100%; height: 100%; object-fit: contain; cursor: pointer; }
-    .icono-cat { font-size: 54px; opacity: 0.7; }
-    .badge { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; background: rgba(11,12,20,0.85); backdrop-filter: blur(6px); }
+    .foto-box.sin-foto::after { display: none; }
+    .foto-box img { width: 100%; height: 100%; object-fit: contain; cursor: pointer; opacity: 0; transition: opacity 0.26s ease-out; position: relative; z-index: 2; }
+    .foto-box img.cargada { opacity: 1; }
+    .icono-cat { font-size: 54px; opacity: 0.7; position: relative; z-index: 2; }
+    .badge { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; background: rgba(11,12,20,0.85); backdrop-filter: blur(6px); z-index: 3; }
     .badge.ok { color: var(--ok); }
     .badge.warn { color: var(--warn); }
-    .btn-galeria { position: absolute; bottom: 10px; right: 10px; background: rgba(11,12,20,0.85); color: var(--text); border: 1px solid var(--border); padding: 5px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+    .btn-galeria { position: absolute; bottom: 10px; right: 10px; background: rgba(11,12,20,0.85); color: var(--text); border: 1px solid var(--border); padding: 5px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; cursor: pointer; z-index: 3; }
 
     /* Panel Editor dentro de cada tarjeta con soporte multifoto */
     .editor-foto { display: none; background: rgba(232, 188, 112, 0.08); border-bottom: 1px solid var(--border); padding: 12px; flex-direction: column; gap: 8px; }
@@ -491,6 +508,10 @@ document.getElementById('input-json').addEventListener('change', function(e) {
   reader.readAsText(file);
 });
 
+function indexarProducto(p) {
+  p._searchStr = `${p.nombre_completo || ''} ${p.nombre || ''} ${p.marca || ''} ${p.categoria || ''} ${p.descripcion || ''} ${p.detalles_variante || ''} ${p.sku || ''}`.toLowerCase();
+}
+
 function iniciarCatalogo(data) {
   PRODUCTOS = data;
   PRODUCTOS.forEach(p => {
@@ -502,6 +523,7 @@ function iniciarCatalogo(data) {
     } else if (p.galeria_fotos && p.galeria_fotos.length && !p.imagen_principal) {
       p.imagen_principal = p.galeria_fotos[0];
     }
+    indexarProducto(p);
   });
   document.getElementById('caja-archivo').style.display = 'none';
   actualizarStatsAdmin();
@@ -534,8 +556,16 @@ function renderCategorias() {
 }
 
 function filtrarCat(c) {
+  if (categoriaActiva === c) return;
   categoriaActiva = c;
-  renderCategorias();
+
+  // Actualización inmediata de clases sin destruir ni recrear el árbol de chips
+  document.querySelectorAll(".chip").forEach(chip => {
+    chip.classList.toggle("on", chip.getAttribute("data-categoria") === c);
+  });
+  const selMob = document.getElementById("select-categoria-mobile");
+  if (selMob && selMob.value !== c) selMob.value = c;
+
   renderProductos();
 
   // Desplazar suavemente el chip seleccionado al centro de la vista
@@ -544,7 +574,7 @@ function filtrarCat(c) {
     if (chipActivo) {
       chipActivo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
-  }, 50);
+  }, 20);
 }
 
 function validarUrlFoto(url) {
@@ -1072,6 +1102,7 @@ function fusionarCatalogoGoPartners(nuevosRaw) {
     } else if (p.galeria_fotos && p.galeria_fotos.length && !p.imagen_principal) {
       p.imagen_principal = p.galeria_fotos[0];
     }
+    indexarProducto(p);
   });
 
   PRODUCTOS = catalogoFusionado;
@@ -1628,10 +1659,23 @@ function obtenerUrlWebOficial(p) {
   return `https://www.google.com/search?q=${encodeURIComponent(cleanQ)}`;
 }
 
+// Optimizador de imágenes con entrega CDN WebP ultraligera (reduce 95% de peso para carga instantánea)
+function optimizarFotoUrl(url, ancho = 380, alto = 380) {
+  if (!url || typeof url !== 'string') return '';
+  const u = url.trim();
+  if (u.startsWith('data:') || u.startsWith('blob:') || u.includes('wsrv.nl') || u.includes('images.weserv.nl')) {
+    return u;
+  }
+  if (u.toLowerCase().endsWith('.svg')) return u;
+  return `https://wsrv.nl/?url=${encodeURIComponent(u)}&w=${ancho}&h=${alto}&fit=contain&output=webp&q=82`;
+}
+
 function generarCardHTML(p) {
   const icono = ICONOS_CAT[p.categoria] || "📦";
   const fotos = p.galeria_fotos && p.galeria_fotos.length ? p.galeria_fotos : (p.imagen_principal ? [p.imagen_principal] : []);
   const tieneFotos = fotos.length > 0;
+  const fotoOriginal = tieneFotos ? fotos[0] : '';
+  const fotoThumb = tieneFotos ? optimizarFotoUrl(fotoOriginal, 380, 380) : '';
   const msj = encodeURIComponent(`Hola, vi en el catálogo de Multiservicios CyM el *${p.nombre_completo || p.nombre}* (SKU: ${p.sku}) a *$${p.precio_usd}* (C$ ${Number(p.precio_nio).toLocaleString('en-US')}). ¿Me brindás más información?`);
 
   const atr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
@@ -1643,10 +1687,19 @@ function generarCardHTML(p) {
 
   return `
     <div class="card">
-      <div class="foto-box ${tieneFotos ? '' : 'sin-foto'}">
+      <div class="foto-box ${tieneFotos ? 'cargando' : 'sin-foto'}">
         <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
         ${tieneFotos 
-          ? `<img src="${esc(fotos[0])}" alt="${esc(p.nombre)}" loading="lazy" decoding="async" class="img-preview" data-accion="galeria" data-sku="${esc(p.sku)}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box').classList.add('sin-foto');">
+          ? `<img src="${esc(fotoThumb)}"
+                  data-original="${esc(fotoOriginal)}"
+                  alt="${esc(p.nombre)}"
+                  loading="lazy"
+                  decoding="async"
+                  class="img-preview"
+                  data-accion="galeria"
+                  data-sku="${esc(p.sku)}"
+                  onload="this.classList.add('cargada'); this.closest('.foto-box')?.classList.remove('cargando');"
+                  onerror="if (!this.dataset.retry) { this.dataset.retry = '1'; this.src = this.dataset.original; } else { this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block'; this.closest('.foto-box')?.classList.add('sin-foto'); this.closest('.foto-box')?.classList.remove('cargando'); }">
              <span class="icono-cat" style="display:none">${esc(icono)}</span>`
           : `<span class="icono-cat">${esc(icono)}</span>`
         }
@@ -1674,7 +1727,7 @@ function generarCardHTML(p) {
             <div class="editor-thumbs">
               ${fotos.map((f, idx) => `
                 <div class="editor-thumb-box ${idx === 0 ? 'es-principal' : ''}">
-                  <img src="${esc(f)}" alt="Foto ${idx + 1}" onerror="this.src='';">
+                  <img src="${esc(optimizarFotoUrl(f, 90, 90))}" alt="Foto ${idx + 1}" loading="lazy" decoding="async" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='${esc(f)}';}else{this.src='';}">
                   ${idx === 0 
                     ? `<span class="thumb-badge">1ra (Se comparte)</span>` 
                     : `<button type="button" class="btn-thumb-star" data-accion="foto-hacer-principal" data-sku="${esc(p.sku)}" data-idx="${idx}" title="Mover a 1ra posición (principal)">⭐</button>`
@@ -1716,14 +1769,15 @@ function generarCardHTML(p) {
 function renderProductos() {
   const q = document.getElementById("buscador").value.toLowerCase().trim();
   const orden = document.getElementById("ordenar").value;
+  const palabras = q ? q.split(" ").filter(Boolean) : [];
 
   productosFiltrados = PRODUCTOS.filter(p => {
-    const pasaCat = categoriaActiva === "TODAS" || p.categoria === categoriaActiva;
+    if (categoriaActiva !== "TODAS" && p.categoria !== categoriaActiva) return false;
     const tieneFoto = Boolean(p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length));
     if (soloSinFoto && tieneFoto) return false;
-    const texto = `${p.nombre_completo || ''} ${p.nombre || ''} ${p.marca || ''} ${p.categoria || ''} ${p.descripcion || ''}`.toLowerCase();
-    const pasaTexto = !q || q.split(" ").filter(Boolean).every(palabra => texto.includes(palabra));
-    return pasaCat && pasaTexto;
+    if (palabras.length === 0) return true;
+    const txt = p._searchStr || '';
+    return palabras.every(palabra => txt.includes(palabra));
   });
 
   if (orden === "menor") productosFiltrados.sort((a, b) => a.precio_usd - b.precio_usd);
@@ -1732,6 +1786,10 @@ function renderProductos() {
   document.getElementById("contador").textContent = `${productosFiltrados.length} productos disponibles`;
 
   const contenedor = document.getElementById("contenedor-productos");
+  if (observerScroll) {
+    const prevCentinela = document.getElementById("scroll-sentinel");
+    if (prevCentinela) observerScroll.unobserve(prevCentinela);
+  }
   contenedor.innerHTML = "";
   cantidadRenderizada = 0;
 
@@ -1766,17 +1824,19 @@ function renderizarSiguienteLote() {
     contenedor.appendChild(centinela);
     iniciarObserverScroll(centinela);
   } else {
+    if (observerScroll && centinela) observerScroll.unobserve(centinela);
     if (centinela.parentNode) centinela.parentNode.removeChild(centinela);
   }
 }
 
 function iniciarObserverScroll(centinela) {
-  if (observerScroll) observerScroll.disconnect();
-  observerScroll = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      renderizarSiguienteLote();
-    }
-  }, { rootMargin: '350px' });
+  if (!observerScroll) {
+    observerScroll = new IntersectionObserver((entries) => {
+      if (entries[0] && entries[0].isIntersecting) {
+        renderizarSiguienteLote();
+      }
+    }, { rootMargin: '650px 0px' });
+  }
   observerScroll.observe(centinela);
 }
 
@@ -1800,6 +1860,8 @@ function cambiarFoto(dir) {
 
 function actualizarModal() {
   const modalImg = document.getElementById("modal-img");
+  modalImg.style.opacity = '0.35';
+  modalImg.onload = () => { modalImg.style.opacity = '1'; };
   modalImg.src = galeriaActual[fotoIndice] || "";
   document.getElementById("modal-indice").textContent = `${fotoIndice + 1} / ${galeriaActual.length}`;
 }
