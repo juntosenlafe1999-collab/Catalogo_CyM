@@ -740,7 +740,7 @@ function agregarFotoGaleria(sku, modo) {
   }
 
   input.value = "";
-  guardarBorradorYActualizar(`¡Foto ${modo === 'principal' ? 'fijada como principal (1ra)' : 'agregada a la galería'}!`);
+  guardarBorradorYActualizar(`¡Foto ${modo === 'principal' ? 'fijada como principal (1ra)' : 'agregada a la galería'}!`, sku);
 }
 
 function eliminarFotoGaleria(sku, idx) {
@@ -751,7 +751,7 @@ function eliminarFotoGaleria(sku, idx) {
   
   p.galeria_fotos.splice(idx, 1);
   p.imagen_principal = p.galeria_fotos[0] || '';
-  guardarBorradorYActualizar("Foto eliminada de la galería.");
+  guardarBorradorYActualizar("Foto eliminada de la galería.", sku);
 }
 
 function hacerFotoPrincipal(sku, idx) {
@@ -763,7 +763,7 @@ function hacerFotoPrincipal(sku, idx) {
   const [foto] = p.galeria_fotos.splice(idx, 1);
   p.galeria_fotos.unshift(foto);
   p.imagen_principal = p.galeria_fotos[0];
-  guardarBorradorYActualizar("⭐ Foto fijada como 1ra (principal para compartir).");
+  guardarBorradorYActualizar("⭐ Foto fijada como 1ra (principal para compartir).", sku);
 }
 
 function quitarTodasLasFotos(sku) {
@@ -789,7 +789,7 @@ function quitarTodasLasFotos(sku) {
   const input = document.getElementById(`in-foto-${sku}`);
   if (input) input.value = '';
 
-  guardarBorradorYActualizar(`🗑️ Se quitaron todas las fotos de "${p.nombre || sku}". Podés presionar ↩️ Deshacer si fue un error.`);
+  guardarBorradorYActualizar(`🗑️ Se quitaron todas las fotos de "${p.nombre || sku}". Podés presionar ↩️ Deshacer si fue un error.`, sku);
 }
 
 function asignarFoto(sku, modo) {
@@ -801,6 +801,7 @@ function asignarFoto(sku, modo) {
 
   const colorBase = (base.atributos && base.atributos.COLOR) || "";
   let actualizados = 0;
+  const skusActualizados = [];
 
   if (url) {
     if (!validarUrlFoto(url)) return;
@@ -819,11 +820,12 @@ function asignarFoto(sku, modo) {
         if (!p.galeria_fotos) p.galeria_fotos = [];
         p.galeria_fotos = [url, ...p.galeria_fotos.filter(u => u !== url)].slice(0, 5);
         actualizados++;
+        skusActualizados.push(p.sku);
       }
     });
 
     if (input) input.value = "";
-    guardarBorradorYActualizar(`¡Foto aplicada como principal a ${actualizados} producto(s)!`);
+    guardarBorradorYActualizar(`¡Foto aplicada como principal a ${actualizados} producto(s)!`, skusActualizados);
   } else {
     // Si el input está vacío, copiamos la galería completa y la foto principal que ya tiene el producto base
     const fotosBase = (base.galeria_fotos && base.galeria_fotos.length) 
@@ -847,6 +849,7 @@ function asignarFoto(sku, modo) {
         p.imagen_principal = base.imagen_principal || fotosBase[0];
         p.galeria_fotos = [...fotosBase].slice(0, 5);
         actualizados++;
+        skusActualizados.push(p.sku);
       }
     });
 
@@ -855,12 +858,41 @@ function asignarFoto(sku, modo) {
       actualizarBotonesHistorial();
       mostrarAviso(modo === 'color' ? "No hay otras variantes con el mismo color." : "No hay otras variantes de este modelo.");
     } else {
-      guardarBorradorYActualizar(`¡Galería completa (${fotosBase.length} foto${fotosBase.length > 1 ? 's' : ''}) copiada a ${actualizados} variante(s) hermana(s)!`);
+      skusActualizados.push(sku);
+      guardarBorradorYActualizar(`¡Galería completa (${fotosBase.length} foto${fotosBase.length > 1 ? 's' : ''}) copiada a ${actualizados} variante(s) hermana(s)!`, skusActualizados);
     }
   }
 }
 
-function guardarBorradorYActualizar(mensaje) {
+function actualizarCardsEnDOM(skus) {
+  if (!skus) {
+    renderProductos();
+    return;
+  }
+  const lista = Array.isArray(skus) ? skus : [skus];
+  lista.forEach(sku => {
+    const p = PRODUCTOS.find(x => x.sku === sku);
+    if (!p) return;
+    const cardVieja = document.querySelector(`.card[data-card-sku="${sku}"]`);
+    if (!cardVieja) return;
+
+    const tieneFoto = Boolean(p.imagen_principal || (p.galeria_fotos && p.galeria_fotos.length));
+    if (soloSinFoto && tieneFoto) {
+      cardVieja.remove();
+      return;
+    }
+
+    const temp = document.createElement("div");
+    temp.innerHTML = generarCardHTML(p);
+    const cardNueva = temp.firstElementChild;
+    if (cardNueva) {
+      // Reemplazo en el sitio exacto: ¡cero saltos de scroll!
+      cardVieja.replaceWith(cardNueva);
+    }
+  });
+}
+
+function guardarBorradorYActualizar(mensaje, skusAfectados) {
   try {
     localStorage.setItem("catalogo_borrador_fotos", JSON.stringify(PRODUCTOS));
   } catch (e) {
@@ -868,7 +900,16 @@ function guardarBorradorYActualizar(mensaje) {
   }
   actualizarStatsAdmin();
   actualizarBotonesHistorial();
-  renderProductos();
+
+  if (skusAfectados) {
+    actualizarCardsEnDOM(skusAfectados);
+  } else {
+    // Si no se especifica SKU (ej. deshacer/rehacer global), mantenemos la posición exacta del scroll
+    const prevY = window.scrollY;
+    renderProductos();
+    window.scrollTo({ top: prevY });
+  }
+
   if (mensaje) mostrarAviso(mensaje);
 }
 
@@ -1686,7 +1727,7 @@ function generarCardHTML(p) {
   const urlOficial = obtenerUrlWebOficial(p);
 
   return `
-    <div class="card">
+    <div class="card" data-card-sku="${esc(p.sku)}">
       <div class="foto-box ${tieneFotos ? 'cargando' : 'sin-foto'}">
         <span class="badge ${p.disponible ? 'ok' : 'warn'}">${esc(p.estado_stock)}</span>
         ${tieneFotos 

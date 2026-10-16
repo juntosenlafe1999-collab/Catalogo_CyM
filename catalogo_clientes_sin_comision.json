@@ -78,9 +78,9 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "https://shikostore.com/cdn/shop/files/cam1.gif?v=1785579047&width=1800",
+    "imagen_principal": "https://m.media-amazon.com/images/I/713I4BW4fBL._AC_SL1500_.jpg",
     "galeria_fotos": [
-      "https://shikostore.com/cdn/shop/files/cam1.gif?v=1785579047&width=1800"
+      "https://m.media-amazon.com/images/I/713I4BW4fBL._AC_SL1500_.jpg"
     ]
   },
   {
@@ -128,8 +128,10 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://m.media-amazon.com/images/I/51Aqp1X3LzL._AC_SL1500_.jpg",
+    "galeria_fotos": [
+      "https://m.media-amazon.com/images/I/51Aqp1X3LzL._AC_SL1500_.jpg"
+    ]
   },
   {
     "sku": "840414658301",
@@ -152,8 +154,10 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://m.media-amazon.com/images/I/61zm0lzJHcL._AC_SL1500_.jpg",
+    "galeria_fotos": [
+      "https://m.media-amazon.com/images/I/61zm0lzJHcL._AC_SL1500_.jpg"
+    ]
   },
   {
     "sku": "194644153168",
@@ -176,13 +180,9 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/a/3/a3012z11_id____left_view_us__original_ecommerce_576f.png",
+    "imagen_principal": "https://cdn.shopify.com/s/files/1/0719/3401/7651/files/plainblack.webp?v=1787024675&width=1600",
     "galeria_fotos": [
-      "https://www.hificorp.co.za/api/catalog/product/a/3/a3012z11_id____left_view_us__original_ecommerce_576f.png",
-      "https://www.hificorp.co.za/api/catalog/product/a/3/a3012z11_id_front_view_us__original_ecommerce_0360.png",
-      "https://www.hificorp.co.za/api/catalog/product/h/3/h30i_black_ecommerce_efb8.png",
-      "https://www.hificorp.co.za/api/catalog/product/h/3/h30i_black_2_ecommerce_26e2.png",
-      "https://www.hificorp.co.za/api/catalog/product/h/3/h30i_black_3_ecommerce_ae88.png"
+      "https://cdn.shopify.com/s/files/1/0719/3401/7651/files/plainblack.webp?v=1787024675&width=1600"
     ]
   },
   {
@@ -206,8 +206,10 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://cdn.shopify.com/s/files/1/0719/3401/7651/files/plainred.webp?v=1787024675&width=1600",
+    "galeria_fotos": [
+      "https://cdn.shopify.com/s/files/1/0719/3401/7651/files/plainred.webp?v=1787024675&width=1600"
+    ]
   },
   {
     "sku": "194644108175",
@@ -230,8 +232,12 @@
     "garantia": "3 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "",
-    "galeria_fotos": []
+    "imagen_principal": "https://m.media-amazon.com/images/I/71fNF+szdCL._AC_SL1500_.jpg",
+    "galeria_fotos": [
+      "https://m.media-amazon.com/images/I/71fNF+szdCL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81VmGN1RzPL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81xcvWxQYwL._AC_SL1500_.jpg"
+    ]
   },
   {
     "sku": "195949688522",
@@ -518,9 +524,8 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-blue?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2cjdIcnY1QlRYMFlvWlhuNHdTVUZQS1Z4L0VZT3V2TzUvUTBrMmhIQlZsS3lPWjFvdU5EZVdwUnRCZ2RHSDBFS3NRZ2ZhNWVISml5WG1SY0E5S0hPaFoyUXQrc1F4VFIwcWJZNzNTUVpwSTY&traceId=1",
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png",
     "galeria_fotos": [
-      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-blue?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2cjdIcnY1QlRYMFlvWlhuNHdTVUZQS1Z4L0VZT3V2TzUvUTBrMmhIQlZsS3lPWjFvdU5EZVdwUnRCZ2RHSDBFS3NRZ2ZhNWVISml5WG1SY0E5S0hPaFoyUXQrc1F4VFIwcWJZNzNTUVpwSTY&traceId=1",
       "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png"
     ]
   },
@@ -602,8 +607,7 @@
     "estado_stock": "Disponible para entrega",
     "imagen_principal": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-yellow?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2dmxLd2s1MTdYS3kySi9lc3JWNEpTZndxcTNXQmUwRHdjNkNCR2VPV0wzMEYwY01kSHJsa3czQ3FiclhQaFVwUzA1WnJPbWM5eUE0czhzbDYraWFNR3BnUXA1SWNaRk1iSitUcnNLY0t2MnM&traceId=1",
     "galeria_fotos": [
-      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-yellow?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2dmxLd2s1MTdYS3kySi9lc3JWNEpTZndxcTNXQmUwRHdjNkNCR2VPV0wzMEYwY01kSHJsa3czQ3FiclhQaFVwUzA1WnJPbWM5eUE0czhzbDYraWFNR3BnUXA1SWNaRk1iSitUcnNLY0t2MnM&traceId=1",
-      "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_silver_pdp_image_position_1__wwen_ecommerce_cab9.png"
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-yellow?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2dmxLd2s1MTdYS3kySi9lc3JWNEpTZndxcTNXQmUwRHdjNkNCR2VPV0wzMEYwY01kSHJsa3czQ3FiclhQaFVwUzA1WnJPbWM5eUE0czhzbDYraWFNR3BnUXA1SWNaRk1iSitUcnNLY0t2MnM&traceId=1"
     ]
   },
   {
@@ -629,9 +633,8 @@
     "garantia": "12 meses de garantía en taller",
     "disponible": true,
     "estado_stock": "Disponible para entrega",
-    "imagen_principal": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-blue?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2cjdIcnY1QlRYMFlvWlhuNHdTVUZQS1Z4L0VZT3V2TzUvUTBrMmhIQlZsS3lPWjFvdU5EZVdwUnRCZ2RHSDBFS3NRZ2ZhNWVISml5WG1SY0E5S0hPaFoyUXQrc1F4VFIwcWJZNzNTUVpwSTY&traceId=1",
+    "imagen_principal": "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png",
     "galeria_fotos": [
-      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-finish-select-202503-blue?wid=5120&hei=2880&fmt=webp&qlt=90&.v=aHYyeWZ6TVBzTWw5WlZ2bFJCZno2cjdIcnY1QlRYMFlvWlhuNHdTVUZQS1Z4L0VZT3V2TzUvUTBrMmhIQlZsS3lPWjFvdU5EZVdwUnRCZ2RHSDBFS3NRZ2ZhNWVISml5WG1SY0E5S0hPaFoyUXQrc1F4VFIwcWJZNzNTUVpwSTY&traceId=1",
       "https://www.hificorp.co.za/api/catalog/product/i/p/ipad_a16_wifi_blue_pdp_image_position_1__wwen_ecommerce_7820.png"
     ]
   },
