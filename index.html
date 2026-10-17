@@ -1228,7 +1228,7 @@ function cargarImagenSegura(url) {
   });
 }
 
-// Algoritmo de limpieza de fondo blanco para fotos JPG o PNG con fondo sólido
+// Algoritmo inteligente de limpieza de fondo blanco para fotos JPG o PNG con fondo sólido
 function procesarImagenFondoTransparente(img) {
   if (!img) return null;
   const offCanvas = document.createElement('canvas');
@@ -1243,7 +1243,7 @@ function procesarImagenFondoTransparente(img) {
     const imgData = offCtx.getImageData(0, 0, w, h);
     const data = imgData.data;
 
-    // Verificar si ya tiene transparencia en las esquinas
+    // 1. Si ya tiene transparencia en las 4 esquinas, no tocar nada
     const esquinas = [
       0,
       (w - 1) * 4,
@@ -1263,14 +1263,16 @@ function procesarImagenFondoTransparente(img) {
       return offCanvas;
     }
 
-    // Verificar si las esquinas son fondo blanco/casi blanco (> 238)
-    const esBlanco = (idx) => data[idx] >= 238 && data[idx + 1] >= 238 && data[idx + 2] >= 238;
+    // 2. Verificar si es fondo de estudio blanco puro/casi blanco (>= 246)
+    const esBlanco = (idx) => data[idx] >= 246 && data[idx + 1] >= 246 && data[idx + 2] >= 246;
     const esquinasBlancas = esquinas.filter(esBlanco).length;
 
     if (esquinasBlancas >= 3) {
       const visitado = new Uint8Array(w * h);
       const queue = [];
 
+      // Paso 1: Flood fill desde los bordes del lienzo
+      // Umbral calibrado a 252 para no invadir nunca plásticos blancos brillantes (como AirPods o teléfonos blancos)
       for (let x = 0; x < w; x++) {
         queue.push(x, 0);
         queue.push(x, h - 1);
@@ -1293,17 +1295,93 @@ function procesarImagenFondoTransparente(img) {
         const g = data[dIndex + 1];
         const b = data[dIndex + 2];
 
-        if (r >= 238 && g >= 238 && b >= 238) {
+        if (r >= 252 && g >= 252 && b >= 252) {
           data[dIndex + 3] = 0; // Transparente
           if (x > 0 && !visitado[pIndex - 1]) queue.push(x - 1, y);
           if (x < w - 1 && !visitado[pIndex + 1]) queue.push(x + 1, y);
           if (y > 0 && !visitado[pIndex - w]) queue.push(x, y - 1);
           if (y < h - 1 && !visitado[pIndex + w]) queue.push(x, y + 1);
-        } else if (r >= 225 && g >= 225 && b >= 225) {
-          const diff = Math.min(r, g, b) - 225;
-          data[dIndex + 3] = Math.round((1 - (diff / 13)) * 255);
+        } else if (r >= 248 && g >= 248 && b >= 248) {
+          const diff = Math.min(r, g, b) - 248;
+          data[dIndex + 3] = Math.round((1 - (diff / 4)) * 255);
         }
       }
+
+      // Paso 2: Detección inteligente de huecos de fondo cerrados (diadema de audífonos, patas de TV, etc.)
+      // Un hueco real tiene área sustancial (>= 800px) y >= 80% de blanco puro de estudio (>= 254).
+      // Los productos blancos reales tienen curvatura 3D y sombras, por lo que nunca superan ese umbral.
+      const minHueco = Math.max(800, Math.floor((w * h) * 0.0005));
+      for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          const pIndex = y * w + x;
+          if (!visitado[pIndex]) {
+            const dIndex = pIndex * 4;
+            const r = data[dIndex];
+            const g = data[dIndex + 1];
+            const b = data[dIndex + 2];
+
+            if (r >= 252 && g >= 252 && b >= 252) {
+              const comp = [];
+              const hq = [x, y];
+              visitado[pIndex] = 2;
+              let pureWhiteCount = 0;
+
+              let hHead = 0;
+              while (hHead < hq.length) {
+                const cx = hq[hHead++];
+                const cy = hq[hHead++];
+                const cIdx = cy * w + cx;
+                const cdIdx = cIdx * 4;
+                const cr = data[cdIdx];
+                const cg = data[cdIdx + 1];
+                const cb = data[cdIdx + 2];
+
+                comp.push(cx, cy);
+                if (cr >= 254 && cg >= 254 && cb >= 254) {
+                  pureWhiteCount++;
+                }
+
+                const vecinos = [
+                  cx > 0 ? cx - 1 : -1, cy,
+                  cx < w - 1 ? cx + 1 : -1, cy,
+                  cx, cy > 0 ? cy - 1 : -1,
+                  cx, cy < h - 1 ? cy + 1 : -1
+                ];
+
+                for (let i = 0; i < 8; i += 2) {
+                  const nx = vecinos[i];
+                  const ny = vecinos[i + 1];
+                  if (nx !== -1 && ny !== -1) {
+                    const nIdx = ny * w + nx;
+                    if (!visitado[nIdx]) {
+                      const ndIdx = nIdx * 4;
+                      const nr = data[ndIdx];
+                      const ng = data[ndIdx + 1];
+                      const nb = data[ndIdx + 2];
+                      if (nr >= 252 && ng >= 252 && nb >= 252) {
+                        visitado[nIdx] = 2;
+                        hq.push(nx, ny);
+                      }
+                    }
+                  }
+                }
+              }
+
+              const numPixels = comp.length / 2;
+              if (numPixels >= minHueco && (pureWhiteCount / numPixels) >= 0.80) {
+                for (let i = 0; i < comp.length; i += 2) {
+                  const px = comp[i];
+                  const py = comp[i + 1];
+                  const pIdx = py * w + px;
+                  const dIdx = pIdx * 4;
+                  data[dIdx + 3] = 0; // Transparente
+                }
+              }
+            }
+          }
+        }
+      }
+
       offCtx.putImageData(imgData, 0, 0);
     }
   } catch (err) {
@@ -1312,6 +1390,7 @@ function procesarImagenFondoTransparente(img) {
 
   return offCanvas;
 }
+
 
 function dibujarRoundRect(ctx, x, y, w, h, r, fill, stroke) {
   ctx.beginPath();
@@ -1371,39 +1450,39 @@ async function crearPlantillaPublicitaria45(p, imgProducto) {
   // Línea 1: Marca destacada en dorado
   const marcaTexto = ((p.marca || 'PRODUCTO') + ' ORIGINAL').toUpperCase();
   ctx.fillStyle = "#e8bc70";
-  ctx.font = "bold 26px Inter, sans-serif";
+  ctx.font = "bold 28px Inter, sans-serif";
   ctx.fillText(marcaTexto, 55, 118);
 
   // Línea 2: Categoría justo debajo
   const catTexto = `${NOMBRES_CAT[p.categoria] || p.categoria || 'Catálogo'}`;
   ctx.fillStyle = "#f2f2f8";
-  ctx.font = "600 20px Inter, sans-serif";
-  ctx.fillText(catTexto, 55, 150);
+  ctx.font = "600 22px Inter, sans-serif";
+  ctx.fillText(catTexto, 55, 152);
 
-  // Top Right: Logo de Multiservicios CyM
+  // Top Right: Logo de Multiservicios CyM (10% más grande)
   const logoImg = await obtenerLogoCyM();
   if (logoImg && logoImg.width) {
-    const logoW = 390;
+    const logoW = 430;
     const logoH = Math.round(logoW * (logoImg.height / logoImg.width));
     ctx.drawImage(logoImg, W - 55 - logoW, 46, logoW, logoH);
   }
 
   // 3. Área Central: Podio de luz suave y Producto centrado
   const cx = 540;
-  const cy = 520;
+  const cy = 505;
 
   // Foco radial de luz para contraste óptimo
-  const foco = ctx.createRadialGradient(cx, cy, 50, cx, cy, 420);
+  const foco = ctx.createRadialGradient(cx, cy, 50, cx, cy, 410);
   foco.addColorStop(0, "rgba(255, 255, 255, 0.22)");
   foco.addColorStop(0.45, "rgba(232, 188, 112, 0.08)");
   foco.addColorStop(1, "rgba(0, 0, 0, 0)");
   ctx.fillStyle = foco;
   ctx.beginPath();
-  ctx.arc(cx, cy, 420, 0, Math.PI * 2);
+  ctx.arc(cx, cy, 410, 0, Math.PI * 2);
   ctx.fill();
 
   // Sombra estilizada de apoyo en doble capa
-  const sombraDifusaY = 820;
+  const sombraDifusaY = 795;
   ctx.save();
   const gradSombra1 = ctx.createRadialGradient(cx, sombraDifusaY, 10, cx, sombraDifusaY, 260);
   gradSombra1.addColorStop(0, "rgba(0, 0, 0, 0.45)");
@@ -1428,7 +1507,7 @@ async function crearPlantillaPublicitaria45(p, imgProducto) {
   if (imgProducto && imgProducto.width) {
     const canvasProcesado = procesarImagenFondoTransparente(imgProducto) || imgProducto;
     const maxBoxW = 640;
-    const maxBoxH = 580;
+    const maxBoxH = 550;
     const pw = canvasProcesado.width || imgProducto.width;
     const ph = canvasProcesado.height || imgProducto.height;
     const scale = Math.min(maxBoxW / pw, maxBoxH / ph);
@@ -1448,40 +1527,64 @@ async function crearPlantillaPublicitaria45(p, imgProducto) {
     ctx.textAlign = "left";
   }
 
-  // 4. Panel de Información del Producto (Caja estilizada de alto impacto)
-  const cardY = 870;
-  const cardH = 260;
+  // 4. Panel de Información ampliado (cardH = 290px)
+  const cardY = 840;
+  const cardH = 290;
   ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
-  ctx.lineWidth = 1.8;
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.16)";
+  ctx.lineWidth = 2;
   dibujarRoundRect(ctx, 55, cardY, W - 110, cardH, 26, true, true);
 
-  // Caja de Precios a la derecha (Agrandada para destacar en teléfonos)
-  const boxPrecioW = 310;
-  const boxPrecioH = 160;
-  const boxPrecioX = W - 55 - 25 - boxPrecioW;
-  const boxPrecioY = cardY + 50;
+  // Cuadro de precio que abarca casi al máximo la altura del contenedor (height: 250px)
+  const boxPrecioW = 320;
+  const boxPrecioH = 250;
+  const boxPrecioX = W - 55 - 20 - boxPrecioW; // 685
+  const boxPrecioY = cardY + 20;
 
-  ctx.fillStyle = "rgba(232, 188, 112, 0.16)";
-  ctx.strokeStyle = "rgba(232, 188, 112, 0.45)";
-  ctx.lineWidth = 2;
-  dibujarRoundRect(ctx, boxPrecioX, boxPrecioY, boxPrecioW, boxPrecioH, 20, true, true);
+  // Fondo degradado y borde dorado de alta visibilidad para el precio
+  const gradBox = ctx.createLinearGradient(boxPrecioX, boxPrecioY, boxPrecioX, boxPrecioY + boxPrecioH);
+  gradBox.addColorStop(0, "rgba(232, 188, 112, 0.22)");
+  gradBox.addColorStop(1, "rgba(232, 188, 112, 0.10)");
+  ctx.fillStyle = gradBox;
+  ctx.strokeStyle = "rgba(232, 188, 112, 0.55)";
+  ctx.lineWidth = 2.5;
+  dibujarRoundRect(ctx, boxPrecioX, boxPrecioY, boxPrecioW, boxPrecioH, 22, true, true);
 
-  // Precio en Dólares (Grande y destacado)
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 74px Inter, sans-serif";
+  // Etiqueta superior dentro de la caja de precio
+  ctx.fillStyle = "rgba(232, 188, 112, 0.95)";
+  ctx.font = "bold 15px Inter, sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("$" + Number(p.precio_usd).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 76);
+  ctx.fillText("PRECIO CONTADO", boxPrecioX + boxPrecioW / 2, boxPrecioY + 36);
 
-  // Precio en Córdobas (Grande y claro)
+  // Precio en Dólares (Grande y destacado, 86px)
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 86px Inter, sans-serif";
+  ctx.fillText("$" + Number(p.precio_usd).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 124);
+
+  // Divisor sutil
+  ctx.strokeStyle = "rgba(232, 188, 112, 0.3)";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(boxPrecioX + 35, boxPrecioY + 148);
+  ctx.lineTo(boxPrecioX + boxPrecioW - 35, boxPrecioY + 148);
+  ctx.stroke();
+
+  // Precio en Córdobas (Grande y claro, 38px en dorado)
   ctx.fillStyle = "#e8bc70";
-  ctx.font = "bold 30px Inter, sans-serif";
-  ctx.fillText("C$ " + Number(p.precio_nio).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 128);
+  ctx.font = "bold 38px Inter, sans-serif";
+  ctx.fillText("C$ " + Number(p.precio_nio).toLocaleString("en-US"), boxPrecioX + boxPrecioW / 2, boxPrecioY + 196);
+
+  // Subtexto cuotas / financiamiento
+  ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
+  ctx.font = "600 15px Inter, sans-serif";
+  ctx.fillText("O en cuotas con Credex", boxPrecioX + boxPrecioW / 2, boxPrecioY + 228);
   ctx.textAlign = "left";
+
+  // Textos a la izquierda (Agrandados al máximo)
+  const maxTextoAncho = boxPrecioX - 85 - 20;
 
   // Título del producto con ajuste inteligente
   const nombreProd = p.nombre || p.nombre_completo || 'Producto';
-  const maxTextoAncho = boxPrecioX - 85 - 20;
   let fontTituloSize = 46;
   ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
   if (ctx.measureText(nombreProd).width > maxTextoAncho) {
@@ -1492,25 +1595,33 @@ async function crearPlantillaPublicitaria45(p, imgProducto) {
     fontTituloSize = 31;
     ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
   }
+  if (ctx.measureText(nombreProd).width > maxTextoAncho) {
+    fontTituloSize = 25;
+    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  }
+  if (ctx.measureText(nombreProd).width > maxTextoAncho) {
+    fontTituloSize = 21;
+    ctx.font = `bold ${fontTituloSize}px Inter, sans-serif`;
+  }
   ctx.fillStyle = "#ffffff";
   ctx.fillText(nombreProd, 85, cardY + 56);
 
-  // Variante / especificaciones (Texto agrandado a 27px en blanco puro de alto contraste)
+  // Variante / especificaciones (Texto agrandado a 33px en blanco puro)
   const atrStr = p.atributos ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(' · ') : '';
   const specsTexto = p.detalles_variante || atrStr || p.descripcion || '';
   ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 27px Inter, sans-serif";
-  ctx.fillText(specsTexto.slice(0, 40), 85, cardY + 106);
+  ctx.font = "bold 33px Inter, sans-serif";
+  ctx.fillText(specsTexto.slice(0, 32), 85, cardY + 116);
 
-  // Garantía (Agrandada a 25px en dorado)
+  // Garantía (Agrandada a 30px en dorado)
   ctx.fillStyle = "#e8bc70";
-  ctx.font = "bold 25px Inter, sans-serif";
-  ctx.fillText("🛡️ " + (p.garantia || "12 meses de garantía en taller"), 85, cardY + 156);
+  ctx.font = "bold 30px Inter, sans-serif";
+  ctx.fillText("🛡️ " + (p.garantia || "12 meses de garantía en taller"), 85, cardY + 176);
 
-  // Medios de pago (Agrandado a 23px con excelente visibilidad)
-  ctx.fillStyle = "#d0d2ea";
-  ctx.font = "600 23px Inter, sans-serif";
-  ctx.fillText("💳 Tarjetas de crédito y Credex disponibles", 85, cardY + 204);
+  // Medios de pago (Agrandado a 27px en blanco brillante)
+  ctx.fillStyle = "#e0e2f5";
+  ctx.font = "bold 27px Inter, sans-serif";
+  ctx.fillText("💳 Tarjetas y Credex disponibles", 85, cardY + 236);
 
   // 5. BANNER INFERIOR LLAMATIVO EN VERDE WHATSAPP CON TEXTO EN AZUL OSCURO DEL DISEÑO
   const waY = 1155;
